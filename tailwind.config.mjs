@@ -2,7 +2,12 @@
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {},
+		extend: {
+			fontFamily: {
+				'basement': ['basement-grotesque', 'sans-serif'],
+				'mozaic': ['mozaic-variable', 'sans-serif'],
+			}
+		}
 	},
-	plugins: [],
+	plugins: []
 }

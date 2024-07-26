@@ -1,16 +1,47 @@
 ---
+import '../styles/global.css';
+import ProjectCard from '../components/projectCard/projectCard.astro';
+import { getCollection, getEntry } from 'astro:content';
 
+const allProjects = await getCollection('projects', ({ data }) => {
+	return data.visible === true;
+});
 ---
 
 <html lang="en">
 	<head>
+		<link
+			rel="preload"
+			href="/fonts/mozaic-geo.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+		<link
+			rel="preload"
+			href="/fonts/mozaic-geo-itallic.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href="/favicon.svg"
+		/>
+		<meta
+			name="viewport"
+			content="width=device-width"
+		/>
+		<meta
+			name="generator"
+			content={Astro.generator}
+		/>
 		<title>Callum Stables</title>
 	</head>
 	<body>
-		<h1 class="flex items-center text-3xl font-bold underline">Callum Stables</h1>
+		<h6>Callum Stables</h6>
+		{allProjects.map((project) => <ProjectCard project={project} /> <ProjectCard project={project} /> <ProjectCard project={project} /> <ProjectCard project={project} /> <ProjectCard project={project} />)}
 	</body>
 </html>

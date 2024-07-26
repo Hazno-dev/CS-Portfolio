@@ -1,0 +1,25 @@
+---
+import Tag from '../../tag.astro';
+export interface Props {
+	title: string;
+	description: string;
+	tags: string[];
+}
+
+const { title, description, tags } = Astro.props;
+---
+
+<div class="flex h-full flex-col items-start justify-end">
+	<div class="flex flex-row">
+		{tags.map((string) => <Tag text={string} />)}
+	</div>
+	<div>
+		<h2 class="word-wider uppercase tracking-wider text-white">
+			{title}
+		</h2>
+	</div>
+
+	<p class="max-w-4xl pt-1 text-stone-300">
+		{description}
+	</p>
+</div>

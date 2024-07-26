@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    /*noinspection CssUnknownTarget*/
+    @font-face {
+        font-family: 'basement-grotesque';
+        font-style: normal;
+        font-weight: 800;
+        font-display: swap;
+        src: url(/fonts/BasementGrotesque-Black_v1.202.woff2) format('woff2');
+    }
+
+    @supports (font-variation-settings: normal) {
+        /*noinspection CssUnknownTarget*/
+        @font-face {
+            font-family: "mozaic-variable";
+            font-display: auto;
+            font-style: normal;
+            font-weight: 100 900;
+            font-stretch: normal;
+            src: url(/fonts/mozaic-geo.woff2) format("woff2"),
+            url(/fonts/mozaic-geo.woff2) format("woff"),
+            url(/fonts/mozaic-geo.otf) format("opentype");
+        }
+
+        /*noinspection CssUnknownTarget*/
+        @font-face {
+            font-family: "mozaic-variable";
+            font-display: auto;
+            font-style: italic;
+            font-weight: 100 900;
+            font-stretch: normal;
+            src: url(/fonts/mozaic-geo-itallic.woff2) format("woff2"),
+            url(/fonts/mozaic-geo-itallic.woff) format("woff"),
+            url(/fonts/mozaic-geo-itallic.otf) format("opentype");
+        }
+    }
+
+    .font-display-black {
+        font-family: 'basement-grotesque', sans-serif;
+    }
+
+    h1 {
+        @apply text-6xl font-black;
+    }
+
+    h2 {
+        @apply text-5xl font-black;
+    }
+
+    h3 {
+        @apply text-4xl font-black;
+    }
+
+    h4 {
+        @apply text-3xl font-black;
+    }
+
+    h5 {
+        @apply text-2xl font-extrabold;
+    }
+
+    h6 {
+        @apply text-xl font-extrabold;
+    }
+
+    p {
+        @apply text-base font-medium;
+    }
+
+    :root {
+        @apply antialiased font-mozaic bg-neutral-900;
+    }
+}
+
+@layer utilities {
+    .word-widest {
+        word-spacing: 0.15em;
+    }
+
+    .word-wider {
+        word-spacing: 0.1em;
+    }
+
+    .word-wide {
+        word-spacing: 0.05em;
+    }
+
+    .black-radial-gradient {
+        background: radial-gradient(closest-side, transparent 0%, black 100%);
+    }
+}
