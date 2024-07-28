@@ -25,11 +25,9 @@ if (!images[data.cover])
 	);
 ---
 
-<div
-	class="shadow- relative h-80 max-h-80 max-w-full overflow-hidden rounded-lg">
+<div class="relative m-4 h-80 max-h-80 max-w-6xl overflow-hidden rounded-lg">
 	<Picture
-		class="absolute inset-0 h-full w-full bg-fixed bg-no-repeat object-cover brightness-75
-			filter"
+		class="absolute inset-0 h-full w-full object-cover brightness-75 filter"
 		src={images[data.cover]()}
 		alt=""
 	/>

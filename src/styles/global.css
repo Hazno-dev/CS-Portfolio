@@ -72,7 +72,8 @@
     }
 
     :root {
-        @apply antialiased font-mozaic bg-neutral-900;
+        @apply antialiased font-mozaic;
+        background-color: #eaeaea;
     }
 }
 
