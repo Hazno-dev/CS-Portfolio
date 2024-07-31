@@ -1,0 +1,42 @@
+---
+import HorizontalCard from '@layouts/placement/h-card-root.layout.astro';
+import DateRow from '@components/core/date-row.comp.astro';
+import ImageClick from '@components/core/image-click.comp.astro';
+import type { CollectionEntry } from 'astro:content';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+	project: CollectionEntry<'projects'>;
+}
+
+const { project } = {
+	project: Astro.props.project
+};
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+	'@assets/**/*.{jpeg,jpg,png,gif,webp}'
+);
+if (!images[project.data.cover])
+	throw new Error(
+		`"${project.data.cover}" does not exist in glob: "@assets/**/*.{jpeg,jpg,png,gif,webp} ${Object.entries(
+			images
+		)}"`
+	);
+---
+
+<HorizontalCard>
+	<DateRow date1="July 2023" />
+
+	<Fragment slot="left">
+		<h2 class="sticky top-10 !mb-1 !mt-0 uppercase">
+			{project.data.title}
+		</h2>
+	</Fragment>
+	<Fragment slot="right">
+		<p>{project.data.description}</p>
+		<ImageClick />
+		<hr />
+		<h2>CONTRIBUTIONS</h2>
+		<p>test test</p>
+	</Fragment>
+</HorizontalCard>

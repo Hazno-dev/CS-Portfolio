@@ -1,0 +1,73 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import HeaderElement from '../components/header.astro';
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Callum Stables | Design Portfolio</title>
+		<link rel="stylesheet" href="src/styles/global.css" />
+		<meta name="description" content="Technical Designer at Moon Studios." />
+
+		<meta property="og:title" content="Callum Stables | Design Portfolio" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://www.callumstables.com" />
+		<meta property="og:image" content="" />
+		<meta property="og:image:alt" content="" />
+		<!--<link rel="icon" href="/favicon.ico" sizes="any" />-->
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<!--<link rel="apple-touch-icon" href="icon.png" />-->
+
+		<link
+			rel="preload"
+			href="/fonts/mozaic-geo.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+		<link
+			rel="preload"
+			href="/fonts/mozaic-geo-itallic.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+
+		<meta name="theme-color" content="#111111" />
+		<meta name="generator" content={Astro.generator} />
+
+		<script is:inline>
+			const theme = (() => {
+				if (
+					typeof localStorage !== 'undefined' &&
+					localStorage.getItem('theme') !== null
+				) {
+					return localStorage.getItem('theme');
+				} /*
+				if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+					return 'light';
+				}*/
+				return 'dark';
+			})();
+
+			if (typeof localStorage !== 'undefined') {
+				window.localStorage.setItem('theme', theme);
+			}
+
+			document.documentElement.classList.toggle('dark', theme === 'dark');
+			document.documentElement.setAttribute('data-theme', theme);
+		</script>
+		<ViewTransitions />
+	</head>
+
+	<body>
+		<div class="mx-auto max-w-[1850px] px-4">
+			<HeaderElement />
+			<section class="relative mx-auto max-w-[1800px]">
+				<slot />
+			</section>
+		</div>
+	</body>
+</html>

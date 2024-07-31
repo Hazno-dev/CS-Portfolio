@@ -6,7 +6,7 @@
 	"semi": true,
 	"printWidth": 80,
 	"bracketSameLine": true,
-	"singleAttributePerLine": true,
+	"singleAttributePerLine": false,
 	"plugins": [
 		"prettier-plugin-astro",
 		"prettier-plugin-tailwindcss",
@@ -14,16 +14,13 @@
 		"prettier-plugin-merge"
 	],
 	"pluginSearchDirs": false,
-	"proseWrap": "always",
 	"overrides": [
 		{
 			"files": "*.astro",
 			"options": {
 				"parser": "astro",
 				"printWidth": 80,
-				"singleAttributePerLine": true,
-				"singleQuote": true,
-				"proseWrap": "always"
+				"singleQuote": true
 			}
 		}
 	]

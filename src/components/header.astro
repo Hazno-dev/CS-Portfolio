@@ -1,0 +1,38 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
+
+const links = [
+	{ name: 'Portfolio', path: '' },
+	{ name: 'Resume', path: 'resume' }
+];
+
+const isCurrentPath = (path: string) => {
+	return currentPath === path;
+};
+---
+
+<header
+	class="sticky top-0 z-10 block border-b-[0.8px] border-b-secondary-1000
+		border-opacity-15 bg-primary-100 pb-1 pt-2.5">
+	<div class="flex flex-row items-center">
+		<div class="flex grow flex-col">
+			<h1 class="-mb-1.5 inline-block text-base font-medium text-secondary-900">
+				Callum Anthony Stables
+			</h1>
+			<p class="inline-block text-sm text-secondary-700">Technical Designer</p>
+		</div>
+		<nav>
+			{
+				links.map((link) => (
+					<a
+						href={`/${link.path}`}
+						class={`button-base ${isCurrentPath(link.path) ? 'button-base-target' : ''}`}>
+						{link.name}
+					</a>
+				))
+			}
+		</nav>
+		<button>Theme</button>
+	</div>
+</header>

@@ -1,0 +1,15 @@
+---
+export interface Props {
+	date1: string;
+	date2?: string;
+}
+
+const { date1, date2 } = Astro.props;
+---
+
+<footer class="flex min-h-7 flex-row items-center">
+	<p class="prose-lh prose-sm sm:prose-base inline-block pr-2 font-light">
+		{date1} to {date2 ?? 'Present'}
+	</p>
+	<div class="h-[0.8px] grow bg-secondary-1000 opacity-15"></div>
+</footer>
