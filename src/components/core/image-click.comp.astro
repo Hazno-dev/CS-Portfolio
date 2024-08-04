@@ -1,10 +1,19 @@
 ---
+interface Props {
+	class?: string;
+}
 
+const { optionalClass } = {
+	optionalClass: Astro.props.class
+};
 ---
 
 <div
-	class="mt-4 aspect-video h-auto max-w-80 grow rounded-md border border-secondary-1000
-		border-opacity-10 bg-primary-300 transition hover:scale-[1.02]
-		hover:border-opacity-80 motion-reduce:transition-none
-		motion-reduce:hover:transform-none">
+	class:list={[
+		'mt-4 aspect-video h-auto max-h-64 grow rounded-md border border-secondary-1000 ' +
+			' border-opacity-10 bg-primary-300 transition hover:scale-[1.02]' +
+			' hover:border-opacity-80 motion-reduce:transition-none' +
+			' motion-reduce:hover:transform-none',
+		optionalClass ?? ''
+	]}>
 </div>

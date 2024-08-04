@@ -1,0 +1,13 @@
+---
+export interface Props {
+	heading: string;
+	description: string;
+}
+
+const { heading, description } = Astro.props;
+---
+
+<div>
+	<h4 class="text-tag">{heading}</h4>
+	<p>{description} <sup class="text-sm">»</sup></p>
+</div>

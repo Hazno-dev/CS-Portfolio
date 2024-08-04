@@ -1,0 +1,15 @@
+---
+
+---
+
+<article class="inline-flex w-full max-w-full flex-col break-words">
+	<slot />
+	<div class="md:flex md:flex-row">
+		<div class="shrink-0 md:w-2/6 md:pr-8">
+			<slot name="left" />
+		</div>
+		<div class="grid shrink grid-cols-4 gap-3">
+			<slot name="right" />
+		</div>
+	</div>
+</article>

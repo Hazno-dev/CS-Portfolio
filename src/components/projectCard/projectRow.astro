@@ -1,5 +1,10 @@
 ---
-import HorizontalCard from '@layouts/placement/h-card-root.layout.astro';
+import HorizontalCard from '../../layouts/structure/h-card.layout.astro';
+import TextColumn from '../text/text-column.astro';
+import OneFour from '@layouts/placement/1-4.layout.astro';
+import ThreeFour from '@layouts/placement/3-4.layout.astro';
+import TextBlock from '@components/text/text-block.astro';
+import TextListBlock from '@components/text/text-list-block.astro';
 import DateRow from '@components/core/date-row.comp.astro';
 import ImageClick from '@components/core/image-click.comp.astro';
 import type { CollectionEntry } from 'astro:content';
@@ -28,15 +33,36 @@ if (!images[project.data.cover])
 	<DateRow date1="July 2023" />
 
 	<Fragment slot="left">
-		<h2 class="sticky top-10 !mb-1 !mt-0 uppercase">
+		<h2 class="text-3xl font-black uppercase text-secondary-900 drop-shadow">
 			{project.data.title}
 		</h2>
+
+		<ImageClick class="w-full xl:w-5/6" />
 	</Fragment>
 	<Fragment slot="right">
-		<p>{project.data.description}</p>
-		<ImageClick />
-		<hr />
-		<h2>CONTRIBUTIONS</h2>
-		<p>test test</p>
+		<TextColumn text={project.data.description} />
+
+		<TextBlock heading="Team" description={project.data.team} />
+		<TextBlock heading="Role" description={project.data.role} />
+		<TextBlock heading="Platform" description={project.data.platform} />
+		<TextBlock heading="Tools" description={project.data.tools} />
+
+		<TextListBlock
+			heading="Key Contributors"
+			description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget turpis eu massa iaculis posuere pulvinar ut est. Pellentesque ut commodo nibh. Quisque condimentum, nibh eu pulvinar"
+		/>
+
+		<TextListBlock
+			heading="Developments"
+			description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget turpis eu massa iaculis posuere pulvinar ut est. Pellentesque ut commodo nibh. Quisque condimentum, nibh eu pulvinar"
+		/>
+		<TextListBlock
+			heading="Developments"
+			description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget turpis eu massa iaculis posuere pulvinar ut est. Pellentesque ut commodo nibh. Quisque condimentum, nibh eu pulvinar"
+		/>
+		<TextListBlock
+			heading="Developments"
+			description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget turpis eu massa iaculis posuere pulvinar ut est. Pellentesque ut commodo nibh. Quisque condimentum, nibh eu pulvinar"
+		/>
 	</Fragment>
 </HorizontalCard>

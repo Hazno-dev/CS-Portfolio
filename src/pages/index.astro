@@ -1,7 +1,7 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
 import ProjectRow from '../components/projectCard/projectRow.astro';
-import RootLayout from '../layouts/root.layout.astro';
+import RootLayout from '../layouts/structure/root.layout.astro';
 
 const allProjects = await getCollection('projects', ({ data }) => {
 	return data.visible === true;
@@ -9,7 +9,5 @@ const allProjects = await getCollection('projects', ({ data }) => {
 ---
 
 <RootLayout>
-	<div class="flex flex-col">
-		{allProjects.map((project) => <ProjectRow project={project} /> <ProjectRow project={project} /> <ProjectRow project={project} />)}
-	</div>
+	{allProjects.map((project) => <ProjectRow project={project} /> <ProjectRow project={project} /> <ProjectRow project={project} />)}
 </RootLayout>

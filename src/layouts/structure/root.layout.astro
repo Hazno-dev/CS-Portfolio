@@ -1,6 +1,6 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
-import HeaderElement from '../components/header.astro';
+import HeaderElement from '../../components/header.astro';
 ---
 
 <html lang="en">
@@ -34,6 +34,13 @@ import HeaderElement from '../components/header.astro';
 			type="font/woff2"
 			crossorigin
 		/>
+		<!--	<link
+			rel="preload"
+			href="/fonts/mozaic-geo-bold.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>-->
 
 		<meta name="theme-color" content="#111111" />
 		<meta name="generator" content={Astro.generator} />
@@ -65,9 +72,11 @@ import HeaderElement from '../components/header.astro';
 	<body>
 		<div class="mx-auto max-w-[1850px] px-4">
 			<HeaderElement />
-			<section class="relative mx-auto max-w-[1800px]">
-				<slot />
-			</section>
+			<main>
+				<section>
+					<slot />
+				</section>
+			</main>
 		</div>
 	</body>
 </html>

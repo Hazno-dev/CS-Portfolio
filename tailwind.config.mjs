@@ -1,10 +1,3 @@
-const round = (num) =>
-	num
-		.toFixed(7)
-		.replace(/(\.[0-9]+?)0+$/, '$1')
-		.replace(/\.0$/, '');
-const em = (px, base) => `${round(px / base)}em`;
-
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
@@ -12,7 +5,11 @@ export default {
 		extend: {
 			fontFamily: {
 				basement: ['basement-grotesque', 'sans-serif'],
-				mozaic: ['mozaic-variable', 'sans-serif']
+				mozaic: ['mozaic-variable', 'sans-serif'],
+				sb: ['SB', 'sans-serif'],
+				mono: ['paradroid-mono-soft', 'monospace'],
+				inter: ['Inter', 'sans-serif'],
+				carto: ['cartograph-cf', 'monospace']
 			},
 			colors: {
 				primary: {
@@ -29,42 +26,17 @@ export default {
 				},
 				accent: 'hsl(var(--colour-accent) / <alpha-value>)'
 			},
-			typography: ({ theme }) => ({
-				calcustom: {
-					css: {
-						'--tw-prose-body': 'hsl(var(--colour-secondary-800))',
-						'--tw-prose-headings': 'hsl(var(--colour-secondary-900))',
-						'--tw-prose-lead': 'hsl(var(--colour-secondary-700))',
-						'--tw-prose-links': 'hsl(var(--colour-secondary-900))',
-						'--tw-prose-bold': 'hsl(var(--colour-secondary-900))',
-						'--tw-prose-counters': 'hsl(var(--colour-secondary-700))',
-						'--tw-prose-bullets': 'hsl(var(--colour-primary-300))',
-						'--tw-prose-hr': 'hsl(var(--colour-secondary-1000) / 0.1)',
-						'--tw-prose-quotes': 'hsl(var(--colour-secondary-700))',
-						'--tw-prose-quote-borders': 'hsl(var(--colour-primary-300))',
-						'--tw-prose-captions': 'hsl(var(--colour-secondary-700))',
-						'--tw-prose-kbd': 'hsl(var(--colour-secondary-800))',
-						'--tw-prose-kbd-shadows': 'hsl(var(--colour-secondary-900))',
-						'--tw-prose-code': 'hsl(var(--colour-secondary-900))',
-						'--tw-prose-pre-code': 'hsl(var(--colour-primary-300))',
-						'--tw-prose-pre-bg': 'hsl(var(--colour-primary-300))',
-						'--tw-prose-th-borders': 'hsl(var(--colour-secondary-1000))',
-						'--tw-prose-td-borders': 'hsl(var(--colour-secondary-900))',
-
-						hr: {
-							marginTop: em(16, 16),
-							marginBottom: em(16, 16)
-						},
-						'max-width': '75ch'
-					}
-				},
-				lh: {
-					css: {
-						color: 'hsl(var(--colour-secondary-700))'
-					}
-				}
-			})
+			maxWidth: {
+				'1/2': '50%',
+				'1/3': '33.333333%',
+				'1/4': '25%',
+				'1/5': '20%',
+				'1/6': '16.666667%',
+				'2/3': '66.666667%',
+				'3/4': '75%',
+				'4/5': '80%'
+			}
 		}
 	},
-	plugins: [require('@tailwindcss/typography')]
+	plugins: []
 };

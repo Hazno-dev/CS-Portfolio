@@ -7,8 +7,8 @@ export interface Props {
 const { date1, date2 } = Astro.props;
 ---
 
-<footer class="flex min-h-7 flex-row items-center">
-	<p class="prose-lh prose-sm sm:prose-base inline-block pr-2 font-light">
+<footer class="flex min-h-6 flex-row items-center">
+	<p class="text-tag mr-2 inline-block bg-primary-200 px-2 py-0.5">
 		{date1} to {date2 ?? 'Present'}
 	</p>
 	<div class="h-[0.8px] grow bg-secondary-1000 opacity-15"></div>
