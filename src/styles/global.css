@@ -150,7 +150,10 @@
 
 
     p {
-      @apply text-sm text-secondary-900;
+      @apply text-bsm text-secondary-900;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
 
 /*    h1 {
@@ -210,5 +213,10 @@
 
     .text-tag {
         @apply text-xs uppercase font-carto text-secondary-700;
+    }
+
+    .text-bsm {
+        font-size: 0.9375rem;
+        line-height: 1.25rem;
     }
 }
