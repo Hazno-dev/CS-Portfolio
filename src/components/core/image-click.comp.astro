@@ -1,11 +1,20 @@
 ---
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
 interface Props {
 	class?: string;
+	image: any;
 }
 
-const { optionalClass } = {
-	optionalClass: Astro.props.class
+const { optionalClass, image } = {
+	optionalClass: Astro.props.class,
+	image: Astro.props.image,
 };
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+	'src/content/projects/**/*.{jpeg,jpg,png,gif,webp}'
+);
 ---
 
 <div
@@ -16,4 +25,10 @@ const { optionalClass } = {
 			' motion-reduce:hover:transform-none',
 		optionalClass ?? ''
 	]}>
+
+	<Picture
+		class="object-cover w-full h-full"
+		src={images[image]()}
+		alt=""
+		/>
 </div>
