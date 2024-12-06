@@ -16,12 +16,13 @@
 		"@astrojs/tailwind": "^5.1.0",
 		"@mdx-js/language-server": "^0.4.9",
 		"astro": "^4.12.2",
+		"marked": "^15.0.3",
 		"tailwindcss": "^3.4.6",
 		"theme-change": "^2.5.0",
 		"typescript": "^5.5.4"
 	},
 	"devDependencies": {
-		"prettier": "^3.3.3",
+		"prettier": "^3.4.2",
 		"prettier-plugin-astro": "^0.14.1",
 		"prettier-plugin-classnames": "^0.7.1",
 		"prettier-plugin-merge": "^0.7.0",

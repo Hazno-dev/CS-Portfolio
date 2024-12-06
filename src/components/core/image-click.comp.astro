@@ -9,7 +9,7 @@ interface Props {
 
 const { optionalClass, image } = {
 	optionalClass: Astro.props.class,
-	image: Astro.props.image,
+	image: Astro.props.image
 };
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
@@ -19,16 +19,17 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 
 <div
 	class:list={[
-		'mt-4 aspect-video h-auto max-h-64 grow rounded-md border border-secondary-1000 ' +
+		`mt-4 aspect-video h-auto max-h-64 grow overflow-hidden rounded-lg border-2
+		border-secondary-1000 duration-500 ease-out md:rounded-2xl` +
 			' border-opacity-10 bg-primary-300 transition hover:scale-[1.02]' +
 			' hover:border-opacity-80 motion-reduce:transition-none' +
-			' motion-reduce:hover:transform-none',
+			' backface-hidden transform-none hover:opacity-100 focus:opacity-100' +
+			' translate-z-0 box-border motion-reduce:hover:transform-none md:opacity-60',
 		optionalClass ?? ''
 	]}>
-
 	<Picture
-		class="object-cover w-full h-full"
+		class=`md:brightness-90 hover:brightness-100 backface-hidden h-full w-full scale-110 hover:scale-[1.0] transition ease-out duration-500 object-cover`
 		src={images[image]()}
 		alt=""
-		/>
+	/>
 </div>

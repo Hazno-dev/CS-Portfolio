@@ -6,7 +6,7 @@ tags: ["Unity", "C#", "Tech Design", UI/UX]
 cover: '/src/content/projects/NoRestForTheWicked/cover.jpg'
 team: "Team Name"
 role: "Role Name"
-platform: "Steam, Xbox, PlayStation 5"
+platform: "[Steam](https://store.steampowered.com/app/1371980/No_Rest_for_the_Wicked/), Xbox, PlayStation 5"
 tools: "Unity"
 ---
 

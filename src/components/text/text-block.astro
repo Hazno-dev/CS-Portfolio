@@ -1,4 +1,6 @@
 ---
+import { marked } from 'marked';
+
 export interface Props {
 	heading: string;
 	description: string;
@@ -9,5 +11,5 @@ const { heading, description } = Astro.props;
 
 <div>
 	<h4 class="text-tag">{heading}</h4>
-	<p>{description} <sup class="text-sm">»</sup></p>
+	<p set:html={marked.parse(description)} /><sup class="text-sm">»</sup>
 </div>
