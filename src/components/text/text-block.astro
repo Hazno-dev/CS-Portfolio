@@ -6,10 +6,19 @@ export interface Props {
 	description: string;
 }
 
+const renderer = {
+	link({ href, title, text }) {
+		const tailwindClasses = "text-blue-500 hover:underline"; // Tailwind classes
+		const supElement = '<sup class="text-sm">»</sup>'; // Custom <sup> element
+		return `<a href="${href}" title="${title || ""}" class="${tailwindClasses}">${text}</a>${supElement}`;
+	},
+};
+marked.use({ renderer });
+
 const { heading, description } = Astro.props;
 ---
 
 <div>
 	<h4 class="text-tag">{heading}</h4>
-	<p set:html={marked.parse(description)} /><sup class="text-sm">»</sup>
+	<p set:html={marked.parse(description)} /><!--<sup class="text-sm">»</sup>-->
 </div>
