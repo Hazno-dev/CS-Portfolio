@@ -6,33 +6,23 @@ import type { ImageMetadata } from 'astro';
 import Tag from './tag.astro';
 
 interface Props {
-	project: CollectionEntry<'projects'>;
+	project: CollectionEntry<'project'>;
 }
 
 const { project, data } = {
 	project: Astro.props.project,
 	data: Astro.props.project.data
 };
-
-const images = import.meta.glob<{ default: ImageMetadata }>(
-	'@assets/**/*.{jpeg,jpg,png,gif,webp}'
-);
-if (!images[data.cover])
-	throw new Error(
-		`"${data.cover}" does not exist in glob: "@assets/**/*.{jpeg,jpg,png,gif,webp} ${Object.entries(
-			images
-		)}"`
-	);
 ---
 
 <div class="relative m-4 h-80 max-h-80 max-w-6xl overflow-hidden rounded-lg">
 	<Picture
 		class="absolute inset-0 h-full w-full object-cover brightness-75 filter"
-		src={images[data.cover]()}
+		src={data.cover}
 		alt=""
 	/>
 	<div
-		class="absolute inset-0 bg-gradient-to-t from-black from-5% to-70% opacity-80">
+		class="absolute inset-0 bg-linear-to-t from-black from-5% to-70% opacity-80">
 	</div>
 	<div class="black-radial-gradient absolute inset-0 opacity-30"></div>
 

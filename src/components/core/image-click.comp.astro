@@ -11,25 +11,21 @@ const { optionalClass, image } = {
 	optionalClass: Astro.props.class,
 	image: Astro.props.image
 };
-
-const images = import.meta.glob<{ default: ImageMetadata }>(
-	'src/content/projects/**/*.{jpeg,jpg,png,gif,webp}'
-);
 ---
 
 <div
 	class:list={[
-		`mt-4 aspect-video h-auto max-h-64 grow overflow-hidden rounded-lg border-2
-		border-secondary-1000 duration-500 ease-out md:rounded-2xl` +
+		`border-secondary-1000 mt-4 aspect-video h-auto max-h-64 grow overflow-hidden
+		rounded-lg border-2 duration-500 ease-out md:rounded-2xl` +
 			' border-opacity-10 bg-primary-300 transition hover:scale-[1.02]' +
 			' hover:border-opacity-80 motion-reduce:transition-none' +
-			' backface-hidden transform-none hover:opacity-100 focus:opacity-100' +
-			' translate-z-0 box-border motion-reduce:hover:transform-none md:opacity-60',
+			' transform-none backface-hidden hover:opacity-100 focus:opacity-100' +
+			' box-border translate-z-0 motion-reduce:hover:transform-none md:opacity-60',
 		optionalClass ?? ''
 	]}>
 	<Picture
 		class=`md:brightness-90 hover:brightness-100 backface-hidden h-full w-full scale-110 hover:scale-[1.0] transition ease-out duration-500 object-cover`
-		src={images[image]()}
+		src={image}
 		alt=""
 	/>
 </div>
