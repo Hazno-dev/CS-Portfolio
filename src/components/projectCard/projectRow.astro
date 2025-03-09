@@ -7,6 +7,7 @@ import TextBlock from '@components/text/text-block.astro';
 import TextListBlock from '@components/text/text-list-block.astro';
 import DateRow from '@components/core/date-row.comp.astro';
 import ImageClick from '@components/core/image-click.comp.astro';
+import Button from '@components/core/button.astro';
 import type { CollectionEntry } from 'astro:content';
 import type { ImageMetadata } from 'astro';
 
@@ -21,13 +22,13 @@ const { project } = {
 
 <HorizontalCard>
 	<DateRow date1="July 2023" />
-
 	<Fragment slot="left">
 		<h2 class="text-secondary-900 text-3xl font-black uppercase drop-shadow-sm">
 			{project.data.title}
 		</h2>
 
 		<ImageClick class="w-full xl:w-5/6" image={project.data.cover} />
+		<Button text="Learn More" link="https://www.google.com/" />
 	</Fragment>
 	<Fragment slot="right">
 		<TextColumn text={project.data.description} />
@@ -54,5 +55,7 @@ const { project } = {
 			heading="Developments"
 			description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget turpis eu massa iaculis posuere pulvinar ut est. Pellentesque ut commodo nibh. Quisque condimentum, nibh eu pulvinar"
 		/>
+		<div class="bg-secondary-1000 col-span-full h-[0.8px] grow opacity-15">
+		</div>
 	</Fragment>
 </HorizontalCard>

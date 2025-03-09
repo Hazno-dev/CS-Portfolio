@@ -18,6 +18,12 @@
   --color-secondary-900: hsl(var(--colour-secondary-900));
   --color-secondary-1000: hsl(var(--colour-secondary-1000));
 
+  --color-fade-primary-white: hsla(var(--colour-fade-primary-white));
+  --color-fade-secondary-white: hsla(var(--colour-fade-secondary-white));
+
+  --color-fade-primary-black: hsla(var(--colour-fade-primary-black));
+  --color-fade-secondary-black: hsla(var(--colour-fade-secondary-black));
+
   --color-accent: hsl(var(--colour-accent));
 
   --container-1\/2: 50%;
@@ -65,7 +71,7 @@
 }
 
 @utility button-base {
-  @apply inline-block px-4 py-2 text-secondary-800 bg-primary-200 rounded-md hover:bg-primary-300 hover:text-secondary-900 focus:text-secondary-900;
+  @apply px-4 py-2 text-secondary-800 bg-primary-200 rounded-md hover:bg-primary-300 hover:text-secondary-900 focus:text-secondary-900;
 }
 
 @utility button-base-target {
@@ -80,6 +86,15 @@
   font-size: 0.9375rem;
   line-height: 1.25rem;
 }
+
+.card-spacing {
+    @apply px-5 py-4 gap-6;
+}
+
+.image-background {
+    box-shadow: 0 0 120px 120px var(--color-primary-100) inset;
+}
+
 
 @layer base {
 
@@ -133,6 +148,21 @@
         font-style: normal;
         font-display: block;
     }
+
+    /*noinspection CssUnknownTarget*/
+    @font-face {
+        font-family: SB;
+        src: url(/fonts/SB/MSBee-Bold.eot);
+        src: url(/fonts/SB/MSBee-Bold.eot?#iefix) format("embedded-opentype"),
+        url(/fonts/SB/MSBee-Bold.woff2) format("woff2"),
+        url(/fonts/SB/MSBee-Bold.woff) format("woff"),
+        url(/fonts/SB/MSBee-Bold.ttf) format("truetype"),
+        url(/fonts/SB/MSBee-Bold.svg#StyreneB-Bold) format("svg");
+        font-weight: 700;
+        font-style: normal;
+        font-display: block;
+    }
+
 
     @font-face {
         font-family:"paradroid-mono-soft";
@@ -207,6 +237,12 @@
 
         --colour-accent: 10deg 50% 50%;
 
+        --colour-fade-primary-white: var(--colour-secondary-1000) / 0.15;
+        --colour-fade-secondary-white: var(--colour-secondary-1000) / 0.10;
+
+        --colour-fade-primary-black: var(--colour-primary-0) / 0.15;
+        --colour-fade-secondary-black: var(--colour-primary-0) / 0.10;
+
         @apply antialiased font-sb bg-primary-100 text-secondary-900;
         color-scheme: dark;
     }
@@ -222,6 +258,12 @@
         --colour-secondary-700: 0deg 0% 17%;
 
         --colour-accent: 10deg 50% 50%;
+
+        --colour-fade-primary-white: var(--colour-secondary-1000) / 0.15;
+        --colour-fade-secondary-white: var(--colour-secondary-1000) / 0.10;
+
+        --colour-fade-primary-black: var(--colour-primary-0) / 0.15;
+        --colour-fade-secondary-black: var(--colour-primary-0) / 0.10;
 
         @apply antialiased font-sb bg-primary-100;
         color-scheme: light;

@@ -1,0 +1,61 @@
+---
+export interface Props {
+	type: `heading` | `subheading` | 'tag' | `paragraph` | `mono` | 'mono-light';
+	class?: string;
+}
+
+const { type, optionalClass } = {
+	type: Astro.props.type,
+	optionalClass: Astro.props.class
+};
+---
+
+{
+	type === `heading` && (
+		<h1
+			class="text-secondary-1000 mb-1 text-4xl font-black uppercase drop-shadow-sm"
+			class:list={optionalClass}>
+			<slot />
+		</h1>
+	)
+}
+
+{
+	type === `subheading` && (
+		<h2 class="text-sm font-bold" class:list={optionalClass}>
+			<slot />
+		</h2>
+	)
+}
+
+{
+	type === `paragraph` && (
+		<p class="text-secondary-800 mb-2 text-base" class:list={optionalClass}>
+			<slot />
+		</p>
+	)
+}
+
+{
+	type === `mono` && (
+		<p class="text-tag" class:list={optionalClass}>
+			<slot />
+		</p>
+	)
+}
+
+{
+	type === `mono-light` && (
+		<p class="text-tag text-secondary-800" class:list={optionalClass}>
+			<slot />
+		</p>
+	)
+}
+
+{
+	type === `tag` && (
+		<p class="text-xs font-medium" class:list={optionalClass}>
+			<slot />
+		</p>
+	)
+}

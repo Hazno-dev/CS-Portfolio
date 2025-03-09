@@ -1,6 +1,6 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
 import HeaderElement from '../../components/header.astro';
+import { ClientRouter } from 'astro:transitions';
 ---
 
 <html lang="en">
@@ -66,7 +66,7 @@ import HeaderElement from '../../components/header.astro';
 			document.documentElement.classList.toggle('dark', theme === 'dark');
 			document.documentElement.setAttribute('data-theme', theme);
 		</script>
-		<ViewTransitions />
+		<ClientRouter />
 	</head>
 
 	<body>

@@ -8,8 +8,8 @@ const { date1, date2 } = Astro.props;
 ---
 
 <footer class="flex min-h-6 flex-row items-center">
-	<p class="text-tag mr-2 inline-block bg-primary-200 px-2 py-0.5">
+	<p
+		class="text-tag mr-2 inline-block shrink-0 py-0.5 md:mr-0 md:w-2/6 md:pr-8">
 		{date1} to {date2 ?? 'Present'}
 	</p>
-	<div class="h-[0.8px] grow bg-secondary-1000 opacity-15"></div>
 </footer>

@@ -1,0 +1,59 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import ImageClick from '../core/image-click.comp.astro';
+import Button from '../core/button.astro';
+import Spacer from '../core/spacer.astro';
+import Text from '../core/text.astro';
+import Tag from '../core/tag.astro';
+import ImageBlock from '@components/core/imageBlock.astro';
+import { Picture } from 'astro:assets';
+
+interface Props {
+	project: CollectionEntry<'project'>;
+}
+
+const { project } = {
+	project: Astro.props.project
+};
+---
+
+<article
+	class="relative inline-flex min-h-72 w-full max-w-full flex-col overflow-hidden
+		rounded-lg break-words md:flex md:flex-row md:rounded-2xl">
+	<div class="relative overflow-hidden rounded-lg md:rounded-2xl">
+		<Picture
+			class="pointer-events-none absolute h-full w-full object-cover opacity-15"
+			src={project.data.cover}
+			alt=""
+		/>
+		<div class="image-background pointer-events-none absolute h-full w-full">
+		</div>
+		<div
+			class="card-spacing bg-fade-primary-black relative inline-flex flex-col md:flex
+				md:flex-row">
+			<ImageBlock id={project.id} image={project.data.cover} />
+			<div class="flex flex-col">
+				<Text type="heading" class="mb-2">{project.data.title}</Text>
+				<Text type="mono" class="mb-4 uppercase drop-shadow"
+					>JULY 2023 TO PRESENT</Text
+				>
+				<Text type="paragraph" class="mb-8 line-clamp-6"
+					>{project.data.description}</Text
+				>
+				<Spacer />
+				<div class="mb-3 flex flex-row gap-x-2">
+					<Tag>Tech Designer</Tag>
+					<Tag>Professional</Tag>
+				</div>
+				<div class="border-fade-primary-white flex flex-row border-t pt-3">
+					<Button text="Learn More" link="https://www.google.com/" />
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="card-spacing flex min-w-1/4 flex-col">
+		<Text type="mono">Key Contributions</Text>
+		<Text type="mono">Tools and Frameworks</Text>
+	</div>
+</article>
