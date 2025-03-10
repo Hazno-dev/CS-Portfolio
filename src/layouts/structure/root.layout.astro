@@ -3,7 +3,7 @@ import HeaderElement from '../../components/header.astro';
 import { ClientRouter } from 'astro:transitions';
 ---
 
-<html lang="en">
+<html lang="en-GB">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -73,7 +73,7 @@ import { ClientRouter } from 'astro:transitions';
 		<div class="mx-auto max-w-[1850px] px-4">
 			<HeaderElement />
 			<main>
-				<section>
+				<section class="flex flex-col gap-12">
 					<slot />
 				</section>
 			</main>

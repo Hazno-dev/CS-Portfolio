@@ -10,5 +10,5 @@ const allProjects = await getCollection('project', ({ data }) => {
 ---
 
 <RootLayout>
-	{allProjects.map((project) => <ProjectCard project={project} />)}
+	{allProjects.map((project) => <ProjectCard project={project} /> <ProjectCard project={project} />)}
 </RootLayout>

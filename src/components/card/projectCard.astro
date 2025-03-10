@@ -7,6 +7,8 @@ import Text from '../core/text.astro';
 import Tag from '../core/tag.astro';
 import ImageBlock from '@components/core/imageBlock.astro';
 import { Picture } from 'astro:assets';
+import InfoCard from '../core/infoCard.astro';
+import ProjectInfo from './projectInfo.astro';
 
 interface Props {
 	project: CollectionEntry<'project'>;
@@ -18,21 +20,25 @@ const { project } = {
 ---
 
 <article
-	class="relative inline-flex min-h-72 w-full max-w-full flex-col overflow-hidden
-		rounded-lg break-words md:flex md:flex-row md:rounded-2xl">
-	<div class="relative overflow-hidden rounded-lg md:rounded-2xl">
-		<Picture
-			class="pointer-events-none absolute h-full w-full object-cover opacity-15"
-			src={project.data.cover}
-			alt=""
-		/>
-		<div class="image-background pointer-events-none absolute h-full w-full">
-		</div>
+	class="relative inline-flex min-h-82 w-full max-w-full flex-col rounded-lg break-words
+		md:flex md:flex-row md:rounded-2xl">
+	<Picture
+		class="pointer-events-none absolute -z-1 h-full w-full object-cover opacity-15"
+		src={project.data.cover}
+		alt=""
+		aria-hidden="true"
+	/>
+	<div class="image-background pointer-events-none absolute -z-1 h-full w-full">
+	</div>
+	<div class="relative shrink rounded-lg md:rounded-2xl">
 		<div
-			class="card-spacing bg-fade-primary-black relative inline-flex flex-col md:flex
-				md:flex-row">
-			<ImageBlock id={project.id} image={project.data.cover} />
-			<div class="flex flex-col">
+			class="card-spacing relative sticky inline-flex min-h-82 shrink flex-col md:flex
+				md:flex-row md:flex-wrap">
+			<ImageBlock
+				project={project}
+				class={'flex flex-1 md:max-h-[40vh] md:max-w-130 xl:min-w-auto shrink-2 grow-[0.5]'}
+			/>
+			<div class="flex flex-2 grow flex-col md:min-w-full xl:min-w-124">
 				<Text type="heading" class="mb-2">{project.data.title}</Text>
 				<Text type="mono" class="mb-4 uppercase drop-shadow"
 					>JULY 2023 TO PRESENT</Text
@@ -40,6 +46,9 @@ const { project } = {
 				<Text type="paragraph" class="mb-8 line-clamp-6"
 					>{project.data.description}</Text
 				>
+
+				<ProjectInfo project={project} class="mb-8 flex gap-8 md:hidden" />
+
 				<Spacer />
 				<div class="mb-3 flex flex-row gap-x-2">
 					<Tag>Tech Designer</Tag>
@@ -52,8 +61,5 @@ const { project } = {
 		</div>
 	</div>
 
-	<div class="card-spacing flex min-w-1/4 flex-col">
-		<Text type="mono">Key Contributions</Text>
-		<Text type="mono">Tools and Frameworks</Text>
-	</div>
+	<ProjectInfo project={project} class="card-spacing hidden md:flex" />
 </article>

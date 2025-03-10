@@ -1,48 +1,42 @@
 ---
 import { Picture } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
+import ImageItem from './imageItem.astro';
+import type { HTMLAttributes } from 'astro/types';
+import type { CollectionEntry } from 'astro:content';
 
-interface Props {
-	class?: string;
-	id?: string;
-	image: any;
+interface Props extends HTMLAttributes<'image'> {
+	project: CollectionEntry<'project'>;
 }
 
-const { optionalClass, image, id } = {
-	optionalClass: Astro.props.class,
-	image: Astro.props.image,
-	id: Astro.props.id
-};
+const { project, ...attrs } = Astro.props;
 ---
 
 <lightbox-provider
-	data-message={id}
-	class:list={[
-		`border-secondary-1000/10 aspect-video h-auto grow overflow-hidden rounded-lg border-2 duration-500 ease-out md:rounded-2xl` +
-			' bg-primary-300 transition hover:scale-[1.02]' +
-			' hover:border-secondary-1000/80 motion-reduce:transition-none' +
-			' transform-none backface-hidden hover:opacity-100 focus:opacity-100' +
-			` box-border translate-z-0 cursor-pointer motion-reduce:hover:transform-none md:opacity-60`,
-		optionalClass ?? ''
-	]}
-	id={id}
-	data-message={id}>
-	<a
-		data-pswp-src={image.src}
-		data-pswp-width={image.width}
-		data-pswp-height={image.height}
-		target="_blank">
-		<Picture
-			class=`md:brightness-90 hover:brightness-100 backface-hidden h-full w-full scale-110 hover:scale-[1.0] transition ease-out duration-500 object-cover`
-			src={image}
-			alt=""
-		/>
-	</a>
+	data-message={project.id}
+	class="flex flex-col gap-2"
+	class:list={attrs.class ?? undefined}
+	id={project.id}
+	{...attrs}>
+	<ImageItem
+		image={project.data.images[0]}
+		alt="myImage"
+		videoLink={project.data.video}
+		class="max-h-full min-h-[60%] shrink md:opacity-90"
+	/>
+	<div class="flex shrink flex-row gap-2">
+		{
+			project.data.images.map((image: ImageMetadata) => (
+				<ImageItem image={image} alt="" class="grow opacity-60" />
+			))
+		}
+	</div>
 </lightbox-provider>
 
 <script>
 	import PhotoSwipeLightbox from 'photoswipe/lightbox';
 	import 'photoswipe/style.css';
+	import VideoContentSetup from 'src/components/core/videoLightbox';
 
 	class LightboxData extends HTMLElement {
 		constructor() {
@@ -54,10 +48,12 @@ const { optionalClass, image, id } = {
 			document.addEventListener('astro:page-load', () => {
 				lightbox = new PhotoSwipeLightbox({
 					gallery: '#' + this.dataset.message,
-					children: 'a',
+					children: '.pswp-gallery__item',
 					showHideAnimationType: 'fade',
 					pswpModule: () => import('photoswipe')
 				});
+
+				lightbox.addFilter;
 
 				lightbox.init();
 			});

@@ -1,0 +1,60 @@
+---
+import Spacer from '../core/spacer.astro';
+import InfoCard from '../core/infoCard.astro';
+import Text from '../core/text.astro';
+import type { HTMLAttributes } from 'astro/types';
+import type { CollectionEntry } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+
+interface Props extends HTMLAttributes<'div'> {
+	project: CollectionEntry<'project'>;
+}
+
+const { project, ...attrs } = Astro.props;
+---
+
+<div
+	class={`min-w-[35%] shrink flex-col overflow-hidden rounded-md text-xs text-ellipsis
+		xl:min-w-1/4 grow`}
+	class:list={attrs.class ?? undefined}
+	{...attrs}>
+	{
+		project.data.projectInfo.tools.length > 0 && (
+			<div class="flex flex-col">
+				<Text type="mono" class="mb-2">
+					Tools And Frameworks
+				</Text>
+				<div class="flex shrink flex-col">
+					<ul class="flex flex-row gap-2 text-3xl">
+						{project.data.projectInfo.tools.map((tool) => (
+							<Icon name={tool.toLowerCase()} title={tool} />
+						))}
+					</ul>
+				</div>
+			</div>
+		)
+	}
+	{
+		project.data.projectInfo.contributions.length > 0 && (
+			<div class="flex grow flex-col">
+				<Text type="mono" class="mb-2">
+					Key Contributions
+				</Text>
+				<div
+					class={'flex min-w-[35%] shrink flex-col overflow-hidden rounded-md'}>
+					<ul class="flex flex-col gap-2">
+						{project.data.projectInfo.contributions.map(
+							(contribution, index) => (
+								<InfoCard
+									details={contribution}
+									identifier={project.id}
+									defaultOpen={index === 0}
+								/>
+							)
+						)}
+					</ul>
+				</div>
+			</div>
+		)
+	}
+</div>

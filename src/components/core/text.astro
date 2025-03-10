@@ -1,36 +1,41 @@
 ---
-export interface Props {
+import type { HTMLAttributes } from 'astro/types';
+export interface Props extends HTMLAttributes<'p'> {
 	type: `heading` | `subheading` | 'tag' | `paragraph` | `mono` | 'mono-light';
-	class?: string;
 }
 
-const { type, optionalClass } = {
-	type: Astro.props.type,
-	optionalClass: Astro.props.class
-};
+const { type, ...attrs } = Astro.props;
 ---
 
 {
 	type === `heading` && (
-		<h1
-			class="text-secondary-1000 mb-1 text-4xl font-black uppercase drop-shadow-sm"
-			class:list={optionalClass}>
-			<slot />
-		</h1>
-	)
-}
-
-{
-	type === `subheading` && (
-		<h2 class="text-sm font-bold" class:list={optionalClass}>
+		<h2
+			class={`text-secondary-1000 mb-1 text-3xl font-black uppercase drop-shadow-sm
+				xl:text-4xl`}
+			class:list={attrs.class ?? undefined}
+			{...attrs}>
 			<slot />
 		</h2>
 	)
 }
 
 {
+	type === `subheading` && (
+		<h3
+			class="text-secondary-1000 text-sm font-bold"
+			class:list={attrs.class ?? undefined}
+			{...attrs}>
+			<slot />
+		</h3>
+	)
+}
+
+{
 	type === `paragraph` && (
-		<p class="text-secondary-800 mb-2 text-base" class:list={optionalClass}>
+		<p
+			class="text-secondary-900 mb-2 text-sm md:text-base/5"
+			class:list={attrs.class ?? undefined}
+			{...attrs}>
 			<slot />
 		</p>
 	)
@@ -38,7 +43,7 @@ const { type, optionalClass } = {
 
 {
 	type === `mono` && (
-		<p class="text-tag" class:list={optionalClass}>
+		<p class="text-tag" class:list={attrs.class ?? undefined} {...attrs}>
 			<slot />
 		</p>
 	)
@@ -46,7 +51,10 @@ const { type, optionalClass } = {
 
 {
 	type === `mono-light` && (
-		<p class="text-tag text-secondary-800" class:list={optionalClass}>
+		<p
+			class="text-tag text-secondary-800"
+			class:list={attrs.class ?? undefined}
+			{...attrs}>
 			<slot />
 		</p>
 	)
@@ -54,7 +62,10 @@ const { type, optionalClass } = {
 
 {
 	type === `tag` && (
-		<p class="text-xs font-medium" class:list={optionalClass}>
+		<p
+			class="text-xs font-medium"
+			class:list={attrs.class ?? undefined}
+			{...attrs}>
 			<slot />
 		</p>
 	)
