@@ -1,14 +1,11 @@
 ---
-import { getCollection, getEntry } from 'astro:content';
 import ProjectRow from '../components/projectCard/projectRow.astro';
 import RootLayout from '../layouts/structure/root.layout.astro';
 import ProjectCard from '../components/card/projectCard.astro';
+import { projects } from '../content/content.obtain';
 
-const allProjects = await getCollection('project', ({ data }) => {
-	return data.visible === true;
-});
 ---
 
 <RootLayout>
-	{allProjects.map((project) => <ProjectCard project={project} /> <ProjectCard project={project} />)}
+	{projects.map((project) => <ProjectCard project={project} /> <ProjectCard project={project} />)}
 </RootLayout>

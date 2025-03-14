@@ -9,6 +9,7 @@ import ImageBlock from '@components/core/imageBlock.astro';
 import { Picture } from 'astro:assets';
 import InfoCard from '../core/infoCard.astro';
 import ProjectInfo from './projectInfo.astro';
+import DateTimeBlock from '../text/dateTimeBlock.astro';
 
 interface Props {
 	project: CollectionEntry<'project'>;
@@ -40,9 +41,10 @@ const { project } = {
 			/>
 			<div class="flex flex-2 grow flex-col md:min-w-full xl:min-w-124">
 				<Text type="heading" class="mb-2">{project.data.title}</Text>
-				<Text type="mono" class="mb-4 uppercase drop-shadow"
-					>JULY 2023 TO PRESENT</Text
-				>
+				<DateTimeBlock
+					start={project.data.dateStart}
+					end={project.data.dateEnd}
+				/>
 				<Text type="paragraph" class="mb-8 line-clamp-6"
 					>{project.data.description}</Text
 				>

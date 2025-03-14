@@ -33,7 +33,7 @@ const { type, ...attrs } = Astro.props;
 {
 	type === `paragraph` && (
 		<p
-			class="text-secondary-900 mb-2 text-sm md:text-base/5"
+			class="text-secondary-900 mb-2 max-w-[70ch] text-sm"
 			class:list={attrs.class ?? undefined}
 			{...attrs}>
 			<slot />

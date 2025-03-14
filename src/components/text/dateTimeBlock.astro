@@ -1,0 +1,35 @@
+---
+import Text from '../core/text.astro';
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'p'> {
+	start: Date;
+	end?: Date;
+}
+
+const { start, end, ...attrs } = Astro.props;
+---
+
+<Text type="mono" class="mb-4 uppercase drop-shadow" {...attrs}>
+	<time datetime={start.toISOString()}>
+		{
+			start.toLocaleDateString('en-GB', {
+				year: 'numeric',
+				month: 'long'
+			})
+		}
+	</time>
+	to
+	{
+		end ? (
+			<time datetime={end.toISOString()}>
+				{end.toLocaleDateString('en-GB', {
+					year: 'numeric',
+					month: 'long'
+				})}
+			</time>
+		) : (
+			'Present'
+		)
+	}
+</Text>

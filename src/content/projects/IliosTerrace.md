@@ -1,10 +1,12 @@
 ---
 visible: true
-title: "Project Title Section"
+title: "Ilios Terrace"
 description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget turpis eu massa iaculis posuere pulvinar ut est."
 tags: ["Unity", "C#", "Tech Design", "UI/UX"]
+dateStart: 2022-06-01
+dateEnd: 2022-06-01
 cover: './NoRestForTheWicked/image2.webp'
-video: "https://www.youtube.com/watch?v=pz3sSiS71Co"
+video: "https://www.youtube.com/watch?v=2bK7BtRKGqg"
 images: ["./NoRestForTheWicked/cover.jpg", "./NoRestForTheWicked/image1.webp", "./NoRestForTheWicked/image2.webp", "./NoRestForTheWicked/image1.webp"]
 team: "Team Name"
 role: "Role Name"
@@ -13,10 +15,7 @@ tools: "Unity"
 projectInfo: {
   tools: ["Unity"],
   contributions: [
-    { title: "Game Design", description: "Designed the game mechanics and systems." },
     { title: "Level Design", description: "Designed the levels and puzzles." },
-    { title: "UI/UX Design", description: "Designed the user interface and user experience." },
-    { title: "Programming", description: "Implemented the game mechanics and systems." },
   ]
 }
 ---
