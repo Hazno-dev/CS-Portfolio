@@ -13,7 +13,7 @@ const projectCollection = defineCollection({
 			description: z.string(),
 			tags: z.array(z.string()),
 			dateStart: z.date(),
-			dateEnd: z.optional(z.date()),
+			dateEnd: z.optional(z.date().nullable()),
 			cover: image(),
 			video: z.string(),
 			images: z.array(image()),
