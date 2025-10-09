@@ -1,1 +1,21 @@
-<div class="grow"></div>
+---
+interface Props {
+	verticalLine?: boolean;
+	horizontalLine?: boolean;
+	primaryColour?: boolean;
+}
+
+const { verticalLine, horizontalLine, primaryColour } = Astro.props;
+const hasLine = verticalLine || horizontalLine;
+
+let divClass;
+if (!hasLine){
+	divClass = 'grow';
+} else {
+	divClass = primaryColour ? 'bg-fade-primary-white' : 'bg-fade-secondary-white';
+	divClass += verticalLine ? ' my-0.5 w-[1px]' : ' h-[1px]';
+}
+
+---
+
+<div class={divClass} />

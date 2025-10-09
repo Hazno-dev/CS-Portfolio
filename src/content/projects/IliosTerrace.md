@@ -8,12 +8,12 @@ dateEnd: 2022-06-01
 cover: './NoRestForTheWicked/image2.webp'
 video: "https://www.youtube.com/watch?v=2bK7BtRKGqg"
 images: ["./NoRestForTheWicked/cover.jpg", "./NoRestForTheWicked/image1.webp", "./NoRestForTheWicked/image2.webp", "./NoRestForTheWicked/image1.webp"]
-team: "Team Name"
-role: "Role Name"
-platform: "[Steam](https://store.steampowered.com/app/1371980/No_Rest_for_the_Wicked/), Xbox, PlayStation 5"
+team: "Solo Project"
+role: "Level Designer"
+platforms: []
 tools: "Unity"
 projectInfo: {
-  tools: ["Unity"],
+  tools: ["CSharp", "Cpp", "Javascript", "Typescript", "HTML", "Unity", "Unreal Engine", "Photoshop", "Figma", "Rider"],
   contributions: [
     { title: "Level Design", description: "Designed the levels and puzzles." },
   ]

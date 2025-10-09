@@ -1,0 +1,19 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Text from '../text/text.astro';
+interface Props {
+	project: CollectionEntry<'project'>;
+}
+
+const { project } = {
+	project: Astro.props.project
+};
+
+const team = project.data.team;
+const role = project.data.role;
+---
+
+<div class="flex flex-col">
+	<Text type="paragraph" class="!mb-0 !text-xs font-bold">{team}</Text>
+	<Text type="mono">{role}</Text>
+</div>

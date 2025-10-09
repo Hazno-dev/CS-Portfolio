@@ -1,0 +1,38 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props  {
+	name: string;
+	link?: string;
+	title?: string;
+	desc?: string;
+}
+
+const { name, link, title, desc } = Astro.props;
+
+if (!name) {
+	throw new Error('Icon name is required');
+}
+
+const nameLower = name.toLowerCase().replace(/\s+/g, '');
+const hasLink = link && link.length > 0;
+const baseTags = `opacity-80 hover:opacity-100 transition-opacity duration-200 ease-in-out`;
+
+const languages = ["cpp", "csharp", "c", "css", "html", "javascript", "javascriptxml", "python", "sql", "typescript",
+	"vue", "java", "php", "ruby", "rust", "swift", "kotlin", "dart", "go", "haskell", "lua", "matlab", "r", "shell", "lua"];
+const isLanguage = languages.includes(nameLower);
+
+let expectedSize = "26";
+if (isLanguage) {
+	expectedSize = "32";
+}
+
+---
+{hasLink &&
+	<a href={link} target="_blank" rel="noreferrer">
+		<Icon class={baseTags} name={nameLower} title={!title ? name : title} desc={desc} size={expectedSize}/>
+	</a>
+}
+{!link &&
+<Icon class="opacity-80" name={nameLower} title={!title ? name : title} desc={desc} size={expectedSize}/>
+}

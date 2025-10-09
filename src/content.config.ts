@@ -19,7 +19,13 @@ const projectCollection = defineCollection({
 			images: z.array(image()),
 			team: z.string(),
 			role: z.string(),
-			platform: z.string(),
+			platforms: z.array(
+				z.object({
+					platform: z.string(),
+					title: z.string(),
+					link: z.string()
+				})
+			),
 			projectInfo: z.object({
 				tools: z.array(z.string()),
 				contributions: z.array(

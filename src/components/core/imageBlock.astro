@@ -14,7 +14,7 @@ const { project, ...attrs } = Astro.props;
 
 <lightbox-provider
 	data-message={project.id}
-	class="flex flex-col gap-2"
+	class="flex flex-row gap-2"
 	class:list={attrs.class ?? undefined}
 	id={project.id}
 	{...attrs}>
@@ -24,7 +24,7 @@ const { project, ...attrs } = Astro.props;
 		videoLink={project.data.video}
 		class="max-h-full min-h-[60%] shrink md:opacity-90"
 	/>
-	<div class="flex shrink flex-row gap-2">
+	<div class="flex shrink flex-col gap-2">
 		{
 			project.data.images.map((image: ImageMetadata) => (
 				<ImageItem image={image} alt="" class="grow opacity-60" />

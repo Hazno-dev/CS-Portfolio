@@ -4,13 +4,13 @@ import type { HTMLAttributes } from 'astro/types';
 
 interface Props extends HTMLAttributes<'p'> {
 	start: Date;
-	end?: Date;
+	end?: Date | null;
 }
 
 const { start, end, ...attrs } = Astro.props;
 ---
 
-<Text type="mono" class="mb-4 uppercase drop-shadow" {...attrs}>
+<Text type="mono" class="mb-4 drop-shadow" {...attrs}>
 	<time datetime={start.toISOString()}>
 		{
 			start.toLocaleDateString('en-GB', {

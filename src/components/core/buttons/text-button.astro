@@ -1,0 +1,22 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+	link: string;
+	class?: string;
+}
+
+const { link, optionalClass } = {
+	link: Astro.props.link,
+	optionalClass: Astro.props.class
+};
+---
+
+<a
+	class={'flex flex-row gap-2 opacity-80 hover:opacity-100 transition-opacity duration-200 ease-in-out' + (optionalClass ?? '')}
+	href={link}
+	target="_blank"
+	rel="noreferrer">
+	<slot />
+	<Icon name="arrow-top-right" />
+</a>

@@ -9,6 +9,7 @@
   --font-carto: cartograph-cf, monospace;
 
   --color-primary-0: hsl(var(--colour-primary-0));
+  --color-primary-50: hsl(var(--colour-primary-50));
   --color-primary-100: hsl(var(--colour-primary-100));
   --color-primary-200: hsl(var(--colour-primary-200));
   --color-primary-300: hsl(var(--colour-primary-300));
@@ -79,7 +80,7 @@
 }
 
 @utility text-tag {
-  @apply text-xs uppercase font-carto text-secondary-700;
+  @apply text-xs font-carto text-secondary-700;
 }
 
 @utility text-bsm {
@@ -92,7 +93,7 @@
 }
 
 .image-background {
-    box-shadow: 0 0 120px 120px var(--color-primary-100) inset;
+    box-shadow: 0 0 120px 70px var(--color-primary-50) inset;
 }
 
 
@@ -226,14 +227,15 @@
     :root,
     html[data-theme="dark"] {
         --colour-primary-0: 0deg 0% 0%;
+        --colour-primary-50: 0deg 0% 4%;
         --colour-primary-100: 0deg 0% 7%;
         --colour-primary-200: 0deg 0% 12%;
         --colour-primary-300: 0deg 0% 17%;
 
-        --colour-secondary-1000: 0deg 0% 100%;
-        --colour-secondary-900: 0deg 0% 89%;
-        --colour-secondary-800: 0deg 0% 80%;
-        --colour-secondary-700: 0deg 0% 44%;
+        --colour-secondary-1000: 60deg 11% 100%;
+        --colour-secondary-900: 60deg 8% 89%;
+        --colour-secondary-800: 60deg 4% 80%;
+        --colour-secondary-700: 60deg 0% 44%;
 
         --colour-accent: 10deg 50% 50%;
 
@@ -248,6 +250,7 @@
     }
     html[data-theme="light"] {
         --colour-primary-0: 0deg 0% 100%;
+        --colour-primary-50: 60deg 10% 95%;
         --colour-primary-100: 60deg 10% 90%;
         --colour-primary-200: 60deg 5% 80%;
         --colour-primary-300: 60deg 1% 44%;
