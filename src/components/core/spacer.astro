@@ -1,21 +1,31 @@
 ---
+import Text from '../text/text.astro';
 interface Props {
 	verticalLine?: boolean;
 	horizontalLine?: boolean;
+	dot?: boolean;
 	primaryColour?: boolean;
+	class?: string;
 }
 
-const { verticalLine, horizontalLine, primaryColour } = Astro.props;
+const { verticalLine, horizontalLine, dot, primaryColour } = Astro.props;
 const hasLine = verticalLine || horizontalLine;
 
 let divClass;
-if (!hasLine){
+if (!hasLine) {
 	divClass = 'grow';
 } else {
 	divClass = primaryColour ? 'bg-fade-primary-white' : 'bg-fade-secondary-white';
-	divClass += verticalLine ? ' my-0.5 w-[1px]' : ' h-[1px]';
+	divClass += verticalLine ? ' my-0.5 w-[0.8px]' : ' h-[0.8px]';
 }
 
+if (Astro.props.class) {
+	divClass += ' ' + Astro.props.class;
+}
 ---
 
-<div class={divClass} />
+{dot &&
+<Text type="tag">
+	·
+</Text>}
+{!dot && <div class=`pointer-events-none ${divClass}` />}

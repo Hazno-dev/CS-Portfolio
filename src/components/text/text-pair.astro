@@ -1,0 +1,42 @@
+---
+import Text from './text.astro';
+import type { HTMLAttributes } from 'astro/types';
+
+export interface Props {
+	heading: string;
+	type?: `heading` | `paragraph` | `custom`;
+	class?: string;
+}
+
+const { heading, type, optionalClass } = {
+	heading: Astro.props.heading,
+	type: Astro.props.type ?? 'heading',
+	optionalClass: Astro.props.class ?? ''
+};
+
+const html = await Astro.slots.render('default');
+const hasContent = html.length > 0;
+
+---
+{hasContent &&
+	<div class=`break-inside-avoid ${optionalClass}`>
+		<Text type="tag">
+			{heading}
+		</Text>
+		{
+			type === 'heading' && (
+				<Text type="tag-heading">
+					<slot />
+				</Text>
+			)
+		}
+		{type === 'paragraph' &&
+			<Text type="paragraph">
+				<slot />
+			</Text>
+		}
+		{type === 'custom' &&
+			<Fragment set:html={html} />
+		}
+	</div>
+}

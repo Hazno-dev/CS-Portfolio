@@ -1,0 +1,68 @@
+{
+	"slug": "IliosTerrace",
+	"cover": "img_spawnroom.jpeg",
+	"videos": [
+		{
+			"src": "2bK7BtRKGqg",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"thumbnail": "img_center.jpeg"
+		}
+	],
+	"images": [
+		{
+			"src": "img_interior_middle.jpeg",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img_choke.jpeg",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img_vista.jpeg",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img_center.jpeg",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img_spawnroom.jpeg",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img_topdown_blockout.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
+		},
+		{
+			"src": "img_topdown_final.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
+		},
+		{
+			"src": "img_pureref.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
+		},
+		{
+			"src": "img_paintlayout.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
+		},
+		{
+			"src": "img_side_blockout_pre.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
+		},
+		{
+			"src": "img_side_blockout.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
+		},
+		{
+			"src": "img_topdown_blockout_artpost.jpg",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
+		}
+	]
+}

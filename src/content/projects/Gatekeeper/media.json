@@ -1,0 +1,110 @@
+{
+	"slug": "Gatekeeper",
+	"cover": "img5.jpg",
+	"videos": [
+		{
+			"src": "_rVmYzf3sgk",
+			"alt": "<h4>NecroTwister Gameplay Preview</h4><p>A short demo of NecroTwister.</p>",
+			"thumbnail": "img7.jpg"
+		},
+		{
+			"src": "hMUWps0jb7g",
+			"alt": "<h4>NecroTwister Gameplay Preview</h4><p>A short demo of NecroTwister.</p>"
+		}
+	],
+	"images": [
+		{
+			"src": "img4.jpg",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img1.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img2.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img5.jpg",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img3.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img6.jpg",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img7.jpg",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img_alley.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
+		},
+		{
+			"src": "img_attackangles.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
+		},
+		{
+			"src": "img_comp.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
+		},
+		{
+			"src": "img_comp_tranzit.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
+		},
+		{
+			"src": "img_layout.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
+		},
+		{
+			"src": "img_loop.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
+		},
+		{
+			"src": "img_maploop.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
+		},
+		{
+			"src": "img_pathing.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
+		},
+		{
+			"src": "img_topugly.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
+		},
+		{
+			"src": "img_trap.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
+		},
+		{
+			"src": "img_vertical.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
+		},
+		{
+			"src": "img_zones_lower.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
+		},
+		{
+			"src": "img_zones_upper.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
+		}
+	]
+}

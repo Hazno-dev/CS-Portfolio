@@ -1,0 +1,5 @@
+---
+const props = Astro.props;
+---
+
+<h4 {...props} class=`mb-4 mt-6 ${props.class ?? ''}`><slot /></h4>

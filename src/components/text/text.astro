@@ -1,7 +1,7 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 export interface Props extends HTMLAttributes<'p'> {
-	type: `heading` | `subheading` | 'tag' | `paragraph` | `mono` | 'mono-light';
+	type: `heading` | `subheading` | 'tag' | 'tag-heading' | `paragraph` | `mono` | 'mono-light' | 'label' | 'sublabel';
 }
 
 const { type, ...attrs } = Astro.props;
@@ -10,8 +10,7 @@ const { type, ...attrs } = Astro.props;
 {
 	type === `heading` && (
 		<h2
-			class={`text-secondary-1000 mb-1 text-3xl font-black uppercase drop-shadow-sm
-				xl:text-4xl`}
+			class={'text-secondary-1000 mb-1 text-3xl font-black uppercase drop-shadow-sm xl:text-4xl'}
 			class:list={attrs.class ?? undefined}
 			{...attrs}>
 			<slot />
@@ -21,10 +20,7 @@ const { type, ...attrs } = Astro.props;
 
 {
 	type === `subheading` && (
-		<h3
-			class="text-secondary-1000 text-sm font-bold"
-			class:list={attrs.class ?? undefined}
-			{...attrs}>
+		<h3 class="text-secondary-1000 text-sm font-bold" class:list={attrs.class ?? undefined} {...attrs}>
 			<slot />
 		</h3>
 	)
@@ -32,10 +28,7 @@ const { type, ...attrs } = Astro.props;
 
 {
 	type === `paragraph` && (
-		<p
-			class="text-secondary-900 mb-2 max-w-[70ch] text-sm/6"
-			class:list={attrs.class ?? undefined}
-			{...attrs}>
+		<p class="text-secondary-900/90 mb-2 max-w-[70ch] text-sm/6" class:list={attrs.class ?? undefined} {...attrs}>
 			<slot />
 		</p>
 	)
@@ -43,7 +36,7 @@ const { type, ...attrs } = Astro.props;
 
 {
 	type === `mono` && (
-		<p class="text-tag" class:list={attrs.class ?? undefined} {...attrs}>
+		<p class="text-tag drop-shadow" class:list={attrs.class ?? undefined} {...attrs}>
 			<slot />
 		</p>
 	)
@@ -51,10 +44,23 @@ const { type, ...attrs } = Astro.props;
 
 {
 	type === `mono-light` && (
-		<p
-			class="text-tag text-secondary-800"
-			class:list={attrs.class ?? undefined}
-			{...attrs}>
+		<p class="text-tag text-secondary-800" class:list={attrs.class ?? undefined} {...attrs}>
+			<slot />
+		</p>
+	)
+}
+
+{
+	type === `label` && (
+		<p class={'text-secondary-900 inline-block text-sm/4 ' + (attrs.class ?? '')} {...attrs}>
+			<slot />
+		</p>
+	)
+}
+
+{
+	type === `sublabel` && (
+		<p class={'text-secondary-700 inline-block text-sm/4 ' + (attrs.class ?? '')} {...attrs}>
 			<slot />
 		</p>
 	)
@@ -62,9 +68,16 @@ const { type, ...attrs } = Astro.props;
 
 {
 	type === `tag` && (
+		<p class={'text-tag ' + (attrs.class ?? '')} {...attrs}>
+			<slot />
+		</p>
+	)
+}
+
+{
+	type === `tag-heading` && (
 		<p
-			class="text-xs font-medium"
-			class:list={attrs.class ?? undefined}
+			class={'text-secondary-900/90 text-xs leading-[1.4rem] font-medium md:text-sm ' + (attrs.class ?? '')}
 			{...attrs}>
 			<slot />
 		</p>

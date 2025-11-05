@@ -1,0 +1,53 @@
+{
+	"slug": "TheRedDistrict",
+	"cover": "img1.png",
+	"videos": [
+		{
+			"src": "pz3sSiS71Co",
+			"alt": "<h4>NecroTwister Gameplay Preview</h4><p>A short demo of NecroTwister.</p>",
+			"thumbnail": "img2.jpg"
+		}
+	],
+	"images": [
+		{
+			"src": "img1.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img2.jpg",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img3.jpg",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img4.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img5.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img_maplength.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
+		},
+		{
+			"src": "img_pathsplit.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
+		},
+		{
+			"src": "img_uglydrawing.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
+		},
+		{
+			"src": "img1_blur.jpg",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
+		}
+	]
+}

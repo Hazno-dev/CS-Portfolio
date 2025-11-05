@@ -1,0 +1,67 @@
+{
+	"slug": "TheFabryka",
+	"cover": "img1.png",
+	"videos": [
+		{
+			"src": "nE9kyQ-qdUI",
+			"alt": "<h4>NecroTwister Gameplay Preview</h4><p>A short demo of NecroTwister.</p>",
+			"thumbnail": "img1.png"
+		},
+		{
+			"src": "0Jjmg58h2aE",
+			"alt": "<h4>NecroTwister Gameplay Preview</h4><p>A short demo of NecroTwister.</p>",
+			"thumbnail": "img6.png"
+		}
+	],
+	"images": [
+		{
+			"src": "img3.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img6.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img1.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img2.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img4.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img5.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+
+		{
+			"src": "img7.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img8.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img9.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img10.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img11.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img_mapoverview.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		}
+	]
+}

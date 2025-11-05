@@ -1,0 +1,169 @@
+@layer base {
+    /*noinspection CssUnknownTarget*/
+    @font-face {
+        font-family: SB;
+        src: url(/fonts/SB/MSBee-Thin.eot);
+        src: url(/fonts/SB/MSBee-Thin.eot?#iefix) format("embedded-opentype"),
+        url(/fonts/SB/MSBee-Thin.woff2) format("woff2"),
+        url(/fonts/SB/MSBee-Thin.woff) format("woff"),
+        url(/fonts/SB/MSBee-Thin.ttf) format("truetype"),
+        url(/fonts/SB/MSBee-Thin.svg#StyreneB-Thin) format("svg");
+        font-weight: 200;
+        font-style: normal;
+        font-display: block;
+    }
+
+    /*noinspection CssUnknownTarget*/
+    @font-face {
+        font-family: SB;
+        src: url(/fonts/SB/MSBee-Light.eot);
+        src: url(/fonts/SB/MSBee-Light.eot?#iefix) format("embedded-opentype"),
+        url(/fonts/SB/MSBee-Light.woff2) format("woff2"),
+        url(/fonts/SB/MSBee-Light.woff) format("woff"),
+        url(/fonts/SB/MSBee-Light.ttf) format("truetype"),
+        url(/fonts/SB/MSBee-Light.svg#StyreneB-Light) format("svg");
+        font-weight: 300;
+        font-style: normal;
+        font-display: block;
+    }
+
+    /*noinspection CssUnknownTarget*/
+    @font-face {
+        font-family: SB;
+        src: url(/fonts/SB/MSBee-Regular.eot);
+        src: url(/fonts/SB/MSBee-Regular.eot?#iefix) format("embedded-opentype"),
+        url(/fonts/SB/MSBee-Regular.woff2) format("woff2"),
+        url(/fonts/SB/MSBee-Regular.woff) format("woff"),
+        url(/fonts/SB/MSBee-Regular.ttf) format("truetype"),
+        url(/fonts/SB/MSBee-Regular.svg#StyreneB-Regular) format("svg");
+        font-weight: 400;
+        font-style: normal;
+        font-display: block;
+    }
+
+    /*noinspection CssUnknownTarget*/
+    @font-face {
+        font-family: SB;
+        src: url(/fonts/SB/MSBee-Medium.eot);
+        src: url(/fonts/SB/MSBee-Medium.eot?#iefix) format("embedded-opentype"),
+        url(/fonts/SB/MSBee-Medium.woff2) format("woff2"),
+        url(/fonts/SB/MSBee-Medium.woff) format("woff"),
+        url(/fonts/SB/MSBee-Medium.ttf) format("truetype"),
+        url(/fonts/SB/MSBee-Medium.svg#StyreneB-Medium) format("svg");
+        font-weight: 500;
+        font-style: normal;
+        font-display: block;
+    }
+
+    /*noinspection CssUnknownTarget*/
+    @font-face {
+        font-family: SB;
+        src: url(/fonts/SB/MSBee-Bold.eot);
+        src: url(/fonts/SB/MSBee-Bold.eot?#iefix) format("embedded-opentype"),
+        url(/fonts/SB/MSBee-Bold.woff2) format("woff2"),
+        url(/fonts/SB/MSBee-Bold.woff) format("woff"),
+        url(/fonts/SB/MSBee-Bold.ttf) format("truetype"),
+        url(/fonts/SB/MSBee-Bold.svg#StyreneB-Bold) format("svg");
+        font-weight: 700;
+        font-style: normal;
+        font-display: block;
+    }
+
+    /*noinspection CssUnknownTarget*/
+    @font-face {
+        font-family: SB;
+        src: url(/fonts/SB/MSBee-Black.eot);
+        src: url(/fonts/SB/MSBee-Black.eot?#iefix) format("embedded-opentype"),
+        url(/fonts/SB/MSBee-Black.woff2) format("woff2"),
+        url(/fonts/SB/MSBee-Black.woff) format("woff"),
+        url(/fonts/SB/MSBee-Black.ttf) format("truetype"),
+        url(/fonts/SB/MSBee-Black.svg#StyreneB-Black) format("svg");
+        font-weight: 900;
+        font-style: normal;
+        font-display: block;
+    }
+
+    /*noinspection CssUnknownTarget*/
+    @font-face {
+        font-family: SB;
+        src: url(/fonts/SB/MSBee-ThinItalic.eot);
+        src: url(/fonts/SB/MSBee-ThinItalic.eot?#iefix) format("embedded-opentype"),
+        url(/fonts/SB/MSBee-ThinItalic.woff2) format("woff2"),
+        url(/fonts/SB/MSBee-ThinItalic.woff) format("woff"),
+        url(/fonts/SB/MSBee-ThinItalic.ttf) format("truetype"),
+        url(/fonts/SB/MSBee-ThinItalic.svg#StyreneB-ThinItalic) format("svg");
+        font-weight: 200;
+        font-style: italic;
+        font-display: block;
+    }
+
+    /*noinspection CssUnknownTarget*/
+    @font-face {
+        font-family: SB;
+        src: url(/fonts/SB/MSBee-LightItalic.eot);
+        src: url(/fonts/SB/MSBee-LightItalic.eot?#iefix) format("embedded-opentype"),
+        url(/fonts/SB/MSBee-LightItalic.woff2) format("woff2"),
+        url(/fonts/SB/MSBee-LightItalic.woff) format("woff"),
+        url(/fonts/SB/MSBee-LightItalic.ttf) format("truetype"),
+        url(/fonts/SB/MSBee-LightItalic.svg#StyreneB-LightItalic) format("svg");
+        font-weight: 300;
+        font-style: italic;
+        font-display: block;
+    }
+
+    /*noinspection CssUnknownTarget*/
+    @font-face {
+        font-family: SB;
+        src: url(/fonts/SB/MSBee-RegularItalic.eot);
+        src: url(/fonts/SB/MSBee-RegularItalic.eot?#iefix) format("embedded-opentype"),
+        url(/fonts/SB/MSBee-RegularItalic.woff2) format("woff2"),
+        url(/fonts/SB/MSBee-RegularItalic.woff) format("woff"),
+        url(/fonts/SB/MSBee-RegularItalic.ttf) format("truetype"),
+        url(/fonts/SB/MSBee-RegularItalic.svg#StyreneB-RegularItalic) format("svg");
+        font-weight: 400;
+        font-style: italic;
+        font-display: block;
+    }
+
+    /*noinspection CssUnknownTarget*/
+    @font-face {
+        font-family: SB;
+        src: url(/fonts/SB/MSBee-MediumItalic.eot);
+        src: url(/fonts/SB/MSBee-MediumItalic.eot?#iefix) format("embedded-opentype"),
+        url(/fonts/SB/MSBee-MediumItalic.woff2) format("woff2"),
+        url(/fonts/SB/MSBee-MediumItalic.woff) format("woff"),
+        url(/fonts/SB/MSBee-MediumItalic.ttf) format("truetype"),
+        url(/fonts/SB/MSBee-MediumItalic.svg#StyreneB-MediumItalic) format("svg");
+        font-weight: 500;
+        font-style: italic;
+        font-display: block;
+    }
+
+    /*noinspection CssUnknownTarget*/
+    @font-face {
+        font-family: SB;
+        src: url(/fonts/SB/MSBee-BoldItalic.eot);
+        src: url(/fonts/SB/MSBee-BoldItalic.eot?#iefix) format("embedded-opentype"),
+        url(/fonts/SB/MSBee-BoldItalic.woff2) format("woff2"),
+        url(/fonts/SB/MSBee-BoldItalic.woff) format("woff"),
+        url(/fonts/SB/MSBee-BoldItalic.ttf) format("truetype"),
+        url(/fonts/SB/MSBee-BoldItalic.svg#StyreneB-BoldItalic) format("svg");
+        font-weight: 700;
+        font-style: italic;
+        font-display: block;
+    }
+
+    /*noinspection CssUnknownTarget*/
+    @font-face {
+        font-family: SB;
+        src: url(/fonts/SB/MSBee-BlackItalic.eot);
+        src: url(/fonts/SB/MSBee-BlackItalic.eot?#iefix) format("embedded-opentype"),
+        url(/fonts/SB/MSBee-BlackItalic.woff2) format("woff2"),
+        url(/fonts/SB/MSBee-BlackItalic.woff) format("woff"),
+        url(/fonts/SB/MSBee-BlackItalic.ttf) format("truetype"),
+        url(/fonts/SB/MSBee-BlackItalic.svg#StyreneB-BlackItalic) format("svg");
+        font-weight: 900;
+        font-style: italic;
+        font-display: block;
+    }
+}

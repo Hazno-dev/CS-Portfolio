@@ -1,6 +1,8 @@
 ---
 import HeaderElement from '../../components/header.astro';
+import FooterElement from '@components/footer.astro';
 import { ClientRouter } from 'astro:transitions';
+import Spacer from '@components/core/spacer.astro';
 ---
 
 <html lang="en-GB">
@@ -8,7 +10,7 @@ import { ClientRouter } from 'astro:transitions';
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Callum Stables | Design Portfolio</title>
-		<link rel="stylesheet" href="src/styles/global.css" />
+		<link rel="stylesheet" href="./src/styles/global.css" />
 		<meta name="description" content="Technical Designer at Moon Studios." />
 
 		<meta property="og:title" content="Callum Stables | Design Portfolio" />
@@ -20,20 +22,8 @@ import { ClientRouter } from 'astro:transitions';
 		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 		<!--<link rel="apple-touch-icon" href="icon.png" />-->
 
-		<link
-			rel="preload"
-			href="/fonts/mozaic-geo.woff2"
-			as="font"
-			type="font/woff2"
-			crossorigin
-		/>
-		<link
-			rel="preload"
-			href="/fonts/mozaic-geo-itallic.woff2"
-			as="font"
-			type="font/woff2"
-			crossorigin
-		/>
+		<link rel="preload" href="/fonts/mozaic-geo.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href="/fonts/mozaic-geo-itallic.woff2" as="font" type="font/woff2" crossorigin />
 		<!--	<link
 			rel="preload"
 			href="/fonts/mozaic-geo-bold.woff2"
@@ -47,10 +37,7 @@ import { ClientRouter } from 'astro:transitions';
 
 		<script is:inline>
 			const theme = (() => {
-				if (
-					typeof localStorage !== 'undefined' &&
-					localStorage.getItem('theme') !== null
-				) {
+				if (typeof localStorage !== 'undefined' && localStorage.getItem('theme') !== null) {
 					return localStorage.getItem('theme');
 				} /*
 				if (window.matchMedia('(prefers-color-scheme: light)').matches) {
@@ -73,10 +60,9 @@ import { ClientRouter } from 'astro:transitions';
 		<div class="mx-auto max-w-[1750px] px-4">
 			<HeaderElement />
 			<main>
-				<section class="flex flex-col gap-12">
-					<slot />
-				</section>
+				<slot />
 			</main>
 		</div>
+		<FooterElement />
 	</body>
 </html>

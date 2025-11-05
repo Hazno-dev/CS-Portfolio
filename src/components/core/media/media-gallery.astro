@@ -1,0 +1,32 @@
+---
+import MediaElement from '@components/core/image/media-element.astro';
+import { LightGallery } from '@components/../../node_modules/astro-lightgallery/src/index.ts';
+import type { HTMLAttributes } from 'astro/types';
+import { getImage } from 'astro:assets';
+
+interface Props extends HTMLAttributes<'image'> {
+	counter?: boolean;
+}
+
+const { hasCounter, ...attrs } = {
+	hasCounter: Astro.props.counter ?? true,
+	...Astro.props
+};
+---
+
+<LightGallery
+	options={{
+		thumbnail: true,
+		animateThumb: false,
+		zoomFromOrigin: false,
+		allowMediaOverlap: false,
+		toggleThumb: true,
+		autoplayFirstVideo: false,
+		showThumbnailWithPlayButton: true,
+		selector: '.project-media-element',
+		counter: hasCounter
+	}}
+	addPlugins={['video']}
+	class=`flex ${attrs.class}`>
+	<slot />
+</LightGallery>

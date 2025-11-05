@@ -1,0 +1,57 @@
+{
+	"slug": "NoRestForTheWicked",
+	"cover": "img_vista4_nologo.webp",
+	"logo": "logo.png",
+	"videos": [
+		{
+			"src": "mpoMEYnvA5Q",
+			"alt": "<h4>No Rest for the Wicked - The Breach | Official Trailer</h4><p>From Moon Studios, the award-winning developers of Ori and the Blind Forest and Ori and the Will of the Wisps comes No Rest for the Wicked, a visceral, precision ARPG with a bold new take on the genre. Coming to PC, PS5, and Xbox Series X|S.</p>"
+		},
+		{
+			"src": "DiwmiqzW6gs",
+			"alt": "<h4>No Rest for the Wicked - Official Steam Early Access Launch Trailer</h4><p>From Moon Studios, the award-winning developers of Ori and the Blind Forest and Ori and the Will of the Wisps comes No Rest for the Wicked, a visceral, precision ARPG with a bold new take on the genre. Coming to PC, PS5, and Xbox Series X|S.</p>"
+		}
+	],
+	"images": [
+		{
+			"src": "img_watcher3.png",
+			"alt": "The \"Watcher\", an elder of Sacrament sitting on a balcony overlooking a full moon. He is communing with a crow standing on his lifted hand."
+		},
+		{
+			"src": "img_caretaker2.jpg",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img_vista2.jpg",
+			"alt": "Player overlooking the ruins of an ancient temple in the dense \"Marin Woods\". Warm sunlight partially breaks through the trees above."
+		},
+		{
+			"src": "img_combat2.jpg",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img_combat3.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img_odessa.jpg",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img_mountainpass.jpg",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img_combat.jpg",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img_celine.jpg",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img_vista5.jpg",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		}
+	]
+}

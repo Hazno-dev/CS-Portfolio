@@ -3,8 +3,13 @@ import type { CollectionEntry } from 'astro:content';
 import Text from '../text/text.astro';
 import { Icon } from 'astro-icon/components';
 import IconButton from '@components/core/image/icon-button.astro';
+import HorizontalRow from '@layouts/structure/horizontal-row.astro';
+import IconCollection from '@components/core/image/icon-collection.astro';
+import Spacer from '@components/core/spacer.astro';
+import ProjectLanguages from '@components/project/project-languages.astro';
 interface Props {
 	project: CollectionEntry<'project'>;
+	class?: string;
 }
 
 const { project } = {
@@ -12,8 +17,14 @@ const { project } = {
 };
 
 const tools = project.data.projectInfo.tools;
+const languages = project.data.projectInfo.languages;
+const hasLanguages = languages && languages.length > 0;
 ---
 
-<ul class="flex flex-row items-center gap-2">
-	{tools.map((tool) => <IconButton name={tool} />)}
-</ul>
+<HorizontalRow gap="3" class=`mb-2 ${Astro.props.class}`>
+	<IconCollection icons={tools} size="20" />
+	<!--	{hasLanguages &&
+		<Spacer verticalLine/>
+		<ProjectLanguages project={project}/>
+	}-->
+</HorizontalRow>

@@ -1,0 +1,24 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Text from '../text/text.astro';
+import Spacer from '@components/core/spacer.astro';
+interface Props {
+	project: CollectionEntry<'project'>;
+	class?: string;
+}
+
+const { project } = {
+	project: Astro.props.project
+};
+
+const languages = project.data.projectInfo.languages;
+const hasLanguages = languages && languages.length > 0;
+---
+
+{
+	hasLanguages && (
+		<Text type="tag-heading" class="self-center">
+			{languages.join(' · ')}
+		</Text>
+	)
+}

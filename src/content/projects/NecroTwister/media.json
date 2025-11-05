@@ -1,0 +1,26 @@
+{
+	"slug": "NecroTwister",
+	"cover": "img3.png",
+	"logo": "logo.png",
+	"videos": [
+		{
+			"src": "x7f6whin23k",
+			"alt": "<h4>NecroTwister Gameplay Preview</h4><p>A short demo of NecroTwister.</p>",
+			"thumbnail": "img6.png"
+		}
+	],
+	"images": [
+		{
+			"src": "img1.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img2.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img3.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		}
+	]
+}

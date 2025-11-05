@@ -1,0 +1,27 @@
+---
+import Spacer from '@components/core/spacer.astro';
+import Text from '@components/text/text.astro';
+import IconButton from './core/image/icon-button.astro';
+---
+
+<footer class="mt-10">
+	<Spacer horizontalLine />
+	<div
+		class="text-secondary-500 mx-auto mt-10 mb-10 flex max-w-[1750px] flex-row items-center gap-2 px-4 text-center text-sm">
+		<Text type="tag">
+			Designed & built by Callum Stables (<a
+				target="_blank"
+				href="https://github.com/Hazno-dev/CS-Portfolio"
+				class="button-opacity">Source Code</a
+			>)
+		</Text>
+		<div class="flex grow flex-row justify-center gap-4">
+			<IconButton size="20" name="Github" link="https://github.com/Hazno-dev" />
+			<IconButton size="20" name="LinkedIn" link="https://www.linkedin.com/in/callum-stables-75ab561b9/" />
+			<IconButton size="20" name="Bluesky" link="https://bsky.app/profile/hazno.bsky.social" />
+		</div>
+		<Text type="tag">
+			&copy; {new Date().getFullYear()} Callum Stables. All rights reserved.
+		</Text>
+	</div>
+</footer>

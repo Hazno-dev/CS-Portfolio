@@ -6,7 +6,7 @@ import type { HTMLAttributes } from 'astro/types';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props extends HTMLAttributes<'image'> {
-	project: CollectionEntry<'project'>;
+	project: Project;
 }
 
 const { project, ...attrs } = Astro.props;
@@ -19,17 +19,13 @@ const { project, ...attrs } = Astro.props;
 	id={project.id}
 	{...attrs}>
 	<ImageItem
-		image={project.data.images[0]}
+		image={project.getImages()[0].src}
 		alt="myImage"
-		videoLink={project.data.video}
+		videoLink={project.getVideo()}
 		class="max-h-full min-h-[60%] shrink md:opacity-90"
 	/>
 	<div class="flex shrink flex-col gap-2">
-		{
-			project.data.images.map((image: ImageMetadata) => (
-				<ImageItem image={image} alt="" class="grow opacity-60" />
-			))
-		}
+		{project.getImages().map((image: ImageMetadata) => <ImageItem image={image.src} alt="" class="grow opacity-60" />)}
 	</div>
 </lightbox-provider>
 

@@ -1,13 +1,16 @@
 ---
 interface Props {
 	class?: string;
+	gap?: number | string;
 }
 
-const { class: optionalClass } = Astro.props;
+let optionalClass = Astro.props.class ?? '';
+const gapIndex = optionalClass.indexOf('gap-');
+if (gapIndex === -1) {
+	optionalClass += ' ' + (Astro.props.gap ? `gap-${Astro.props.gap} ` : 'gap-4 ');
+}
 ---
 
-<div
-	class={'flex shrink flex-row gap-4 items-stretch ' +
-		(optionalClass ?? '')}>
+<div class=`flex shrink flex-row items-stretch ${optionalClass}`>
 	<slot />
 </div>

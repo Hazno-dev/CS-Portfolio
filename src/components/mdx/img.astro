@@ -1,0 +1,26 @@
+---
+import { Picture, Image, getImage } from 'astro:assets';
+import { projects } from '@/content.obtain.ts';
+import MediaElement from '@components/core/image/media-element.astro';
+import MediaGallery from '@components/core/media/media-gallery.astro';
+
+const props = Astro.props;
+const splits = props.src.split('/');
+const filename = splits[splits.length - 1];
+const projectName = splits[splits.length - 2];
+
+const project = projects.get(projectName);
+if (!project) {
+	throw new Error(`Project for ${props.src} not found`);
+}
+
+const media = project.getMedia(filename);
+if (!media) {
+	console.log(media);
+	throw new Error(`Image ${props.src} not found`);
+}
+---
+
+<MediaGallery counter={false} class="my-4">
+	<MediaElement src={media.src} alt={media.alt} isVideo={media.isVideo} thumbnail={media.thumbnail} />
+</MediaGallery>

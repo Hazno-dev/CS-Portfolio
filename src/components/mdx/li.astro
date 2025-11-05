@@ -1,0 +1,6 @@
+---
+const props = Astro.props;
+console.log(props);
+---
+
+<li {...props} class=`mb-2 list-disc ml-6 ${props.class ?? ''}`><slot /></li>

@@ -1,0 +1,31 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Text from '../text/text.astro';
+import { Icon } from 'astro-icon/components';
+import IconButton from '@components/core/image/icon-button.astro';
+import HorizontalRow from '@layouts/structure/horizontal-row.astro';
+import IconCollection from '@components/core/image/icon-collection.astro';
+import Spacer from '@components/core/spacer.astro';
+import ProjectLanguages from '@components/project/project-languages.astro';
+import { Picture } from 'astro:assets';
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'a'> {
+	project: Project;
+	link?: string;
+}
+
+const { project, link } = {
+	project: Astro.props.project,
+	link: Astro.props.link ?? Astro.props.project.getProjectLink()
+};
+---
+
+<a
+	class={'flex flex-row gap-2 button-opacity ' + (Astro.props.class ?? '')}
+	href={link}
+	target={project.isExternal() ? '_blank' : '_self'}
+	rel="noreferrer">
+	<slot />
+	{project.isExternal() && <Icon name="arrow-top-right" />}
+</a>

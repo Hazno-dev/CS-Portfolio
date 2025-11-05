@@ -1,0 +1,25 @@
+{
+	"slug": "RatzVAliens",
+	"cover": "img1.jpg",
+	"videos": [
+		{
+			"src": "NMoZAYoMwT0",
+			"alt": "<h4>NecroTwister Gameplay Preview</h4><p>A short demo of NecroTwister.</p>"
+		}
+	],
+	"images": [
+		{
+			"src": "img1.jpg",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img2.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img_blur.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
+		}
+	]
+}

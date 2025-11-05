@@ -1,0 +1,43 @@
+{
+	"slug": "TheEncampment",
+	"cover": "img1.png",
+	"videos": [
+		{
+			"src": "9fACYv6E2FU",
+			"alt": "<h4>NecroTwister Gameplay Preview</h4><p>A short demo of NecroTwister.</p>",
+			"thumbnail": "img3.png"
+		}
+	],
+	"images": [
+		{
+			"src": "img1.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img2.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img3.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img4.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img5.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img_maplength.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
+		},
+		{
+			"src": "img_uglydrawing.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
+		}
+	]
+}

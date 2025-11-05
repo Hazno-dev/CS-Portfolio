@@ -4,7 +4,7 @@
 	"trailingComma": "none",
 	"endOfLine": "lf",
 	"semi": true,
-	"printWidth": 80,
+	"printWidth": 120,
 	"bracketSameLine": true,
 	"singleAttributePerLine": false,
 	"plugins": [
@@ -19,7 +19,7 @@
 			"files": "*.astro",
 			"options": {
 				"parser": "astro",
-				"printWidth": 80,
+				"printWidth": 120,
 				"singleQuote": true
 			}
 		}

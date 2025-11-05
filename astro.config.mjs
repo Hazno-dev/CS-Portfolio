@@ -6,10 +6,12 @@ import icon from 'astro-icon';
 
 import sitemap from '@astrojs/sitemap';
 
+import react from '@astrojs/react';
+
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://callumstables.com',
-	integrations: [mdx(), sitemap(), icon({ iconDir: 'src/assets/icons' })],
+	integrations: [mdx(), sitemap(), icon({ iconDir: 'src/assets/icons' }), react()],
 	markdown: {
 		rehypePlugins: [
 			[
@@ -18,7 +20,10 @@ export default defineConfig({
 					content: { type: 'text', value: ' 🔗' }
 				}
 			]
-		]
+		],
+		optimize: {
+			ignoreElementNames: ['hr']
+		}
 	},
 	vite: {
 		plugins: [

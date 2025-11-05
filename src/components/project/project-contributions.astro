@@ -14,9 +14,14 @@ const { project } = {
 const contributions = project.data.projectInfo.contributions;
 ---
 
-<ul class="flex flex-col gap-2 text-ellipsis">
-	{contributions.map((contribution) =>
-		<Text type="paragraph">
-			{contribution.description}
-		</Text>)}
+<ul class="flex flex-col text-ellipsis ">
+	{
+		contributions.map((contribution) => (
+			<li>
+				<Text type="paragraph" class="!mb-0">
+					{contribution.description}
+				</Text>
+			</li>
+		))
+	}
 </ul>

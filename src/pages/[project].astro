@@ -1,0 +1,111 @@
+---
+import { allProjects } from '@/content.obtain.ts';
+import { render } from 'astro:content';
+import RootLayout from '@/layouts/structure/root.layout.astro';
+import ProjectTitle from '@components/project/project-title.astro';
+import ProjectTeam from '@components/project/project-team.astro';
+import HorizontalRow from '@layouts/structure/horizontal-row.astro';
+import ProjectTools from '@components/project/project-tools.astro';
+import ProjectDateTags from '@components/project/project-date-tags.astro';
+import IconButton from '@components/core/image/icon-button.astro';
+import TextPair from '@components/text/text-pair.astro';
+import ProjectLanguages from '@components/project/project-languages.astro';
+import Spacer from '@components/core/spacer.astro';
+import Text from '@components/text/text.astro';
+import ProjectLink from '@components/project/project-link.astro';
+import ProjectContributions from '@components/project/project-contributions.astro';
+import MediaElements from '@components/core/image/media-elements.astro';
+import ContentSplit from '@layouts/structure/content-split.astro';
+import MediaElement from '@components/core/image/media-element.astro';
+import ProjectPlatforms from '@components/project/project-platforms.astro';
+import MediaGallery from '@components/core/media/media-gallery.astro';
+
+import Hr from '@mdx/hr.astro';
+import H4 from '@mdx/h4.astro';
+import H5 from '@mdx/h5.astro';
+import Img from '@mdx/img.astro';
+import Li from '@mdx/li.astro';
+import Ol from '@mdx/ol.astro';
+import Ul from '@mdx/ul.astro';
+
+export function getStaticPaths() {
+	return allProjects
+		.filter((project) => project.getProjectInternalLink() != null)
+		.map((project) => ({
+			params: { project: project.id },
+			props: { project }
+		}));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<RootLayout>
+	<article>
+		<!--		<div class="content-outer">
+			<ProjectTitle project={project} />
+		</div>-->
+		<ContentSplit>
+			<div slot="left" class="flex grow xl:flex-row xl:gap-8 xl:pr-8">
+				<div class="flex grow flex-col xl:max-w-[65%]">
+					<ProjectTitle project={project} />
+					<Spacer />
+					<ProjectDateTags project={project} class="mb-4" />
+					<Text type="paragraph" class=`!mb-0 line-clamp-5 !max-w-[47ch]`>{project.data.description}</Text>
+					<ProjectPlatforms project={project} class="mt-6" />
+				</div>
+				<div class="gap-4 md:columns-2 xl:flex xl:max-w-[190px] xl:flex-col">
+					<div class="flex grow flex-col gap-x-4 gap-y-2">
+						<Spacer />
+						<ProjectTeam project={project} />
+						<TextPair heading="Tools" type="custom"><ProjectTools project={project} /></TextPair>
+						<TextPair heading="Languages" type="custom"><ProjectLanguages project={project} /></TextPair>
+					</div>
+				</div>
+			</div>
+			<Fragment slot="right">
+				<MediaGallery class=`flex-col gap-4`>
+					<MediaElement
+						class=`aspect-video`
+						src={project.getVideos()[0].src}
+						alt={project.getVideos()[0].alt}
+						thumbnail={project.getVideos()[0].thumbnail}
+						isVideo={true}
+					/>
+					<div class="flex flex-row gap-4">
+						<MediaElement
+							class=`aspect-video flex-1`
+							src={project.getImages()[0].src}
+							alt={project.getImages()[0].alt}
+						/>
+						<MediaElement
+							class=`aspect-video flex-1`
+							src={project.getImages()[1].src}
+							alt={project.getImages()[1].alt}
+						/>
+					</div>
+				</MediaGallery>
+
+				<!--<MediaElements project={project} class="flex h-[160px] flex-row gap-4 md:max-w-[600px] md:opacity-80 group-hover/project:opacity-100 transition-[opacity] duration-200 ease-out"/>-->
+			</Fragment>
+		</ContentSplit>
+		<Spacer horizontalLine class="grow" />
+		<ContentSplit>
+			<Fragment slot="left">
+				<Content
+					components={{
+						img: Img,
+						hr: Hr,
+						li: Li,
+						ol: Ol,
+						ul: Ul,
+						h4: H4,
+						h5: H5
+					}}
+				/>
+			</Fragment>
+			<Fragment slot="right"> </Fragment>
+		</ContentSplit>
+	</article>
+</RootLayout>

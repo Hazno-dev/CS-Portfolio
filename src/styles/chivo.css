@@ -1,0 +1,145 @@
+@layer base {
+    @font-face {
+        font-family: 'Chivo-Mono';
+        src: url(/fonts/Chivo/ChivoMono-Thin.ttf) format("truetype");
+        font-weight: 100;
+        font-style: normal;
+        font-display: auto;
+    }
+
+    @font-face {
+        font-family: 'Chivo-Mono';
+        src: url(/fonts/Chivo/ChivoMono-ExtraLight.ttf) format("truetype");
+        font-weight: 200;
+        font-style: normal;
+        font-display: auto;
+    }
+
+    @font-face {
+        font-family: 'Chivo-Mono';
+        src: url(/fonts/Chivo/ChivoMono-Light.ttf) format("truetype");
+        font-weight: 300;
+        font-style: normal;
+        font-display: auto;
+    }
+
+    @font-face {
+        font-family: 'Chivo-Mono';
+        src: url(/fonts/Chivo/ChivoMono-Regular.ttf) format("truetype");
+        font-weight: 400;
+        font-style: normal;
+        font-display: auto;
+    }
+
+    @font-face {
+        font-family: 'Chivo-Mono';
+        src: url(/fonts/Chivo/ChivoMono-Medium.ttf) format("truetype");
+        font-weight: 500;
+        font-style: normal;
+        font-display: auto;
+    }
+
+    @font-face {
+        font-family: 'Chivo-Mono';
+        src: url(/fonts/Chivo/ChivoMono-SemiBold.ttf) format("truetype");
+        font-weight: 600;
+        font-style: normal;
+        font-display: auto;
+    }
+
+    @font-face {
+        font-family: 'Chivo-Mono';
+        src: url(/fonts/Chivo/ChivoMono-Bold.ttf) format("truetype");
+        font-weight: 700;
+        font-style: normal;
+        font-display: auto;
+    }
+
+    @font-face {
+        font-family: 'Chivo-Mono';
+        src: url(/fonts/Chivo/ChivoMono-ExtraBold.ttf) format("truetype");
+        font-weight: 800;
+        font-style: normal;
+        font-display: auto;
+    }
+
+    @font-face {
+        font-family: 'Chivo-Mono';
+        src: url(/fonts/Chivo/ChivoMono-Black.ttf) format("truetype");
+        font-weight: 900;
+        font-style: normal;
+        font-display: auto;
+    }
+
+    @font-face {
+        font-family: 'Chivo-Mono';
+        src: url(/fonts/Chivo/ChivoMono-ThinItalic.ttf) format("truetype");
+        font-weight: 100;
+        font-style: italic;
+        font-display: auto;
+    }
+
+    @font-face {
+        font-family: 'Chivo-Mono';
+        src: url(/fonts/Chivo/ChivoMono-ExtraLightItalic.ttf) format("truetype");
+        font-weight: 200;
+        font-style: italic;
+        font-display: auto;
+    }
+
+    @font-face {
+        font-family: 'Chivo-Mono';
+        src: url(/fonts/Chivo/ChivoMono-LightItalic.ttf) format("truetype");
+        font-weight: 300;
+        font-style: italic;
+        font-display: auto;
+    }
+
+    @font-face {
+        font-family: 'Chivo-Mono';
+        src: url(/fonts/Chivo/ChivoMono-Italic.ttf) format("truetype");
+        font-weight: 400;
+        font-style: italic;
+        font-display: auto;
+    }
+
+    @font-face {
+        font-family: 'Chivo-Mono';
+        src: url(/fonts/Chivo/ChivoMono-MediumItalic.ttf) format("truetype");
+        font-weight: 500;
+        font-style: italic;
+        font-display: auto;
+    }
+
+    @font-face {
+        font-family: 'Chivo-Mono';
+        src: url(/fonts/Chivo/ChivoMono-SemiBoldItalic.ttf) format("truetype");
+        font-weight: 600;
+        font-style: italic;
+        font-display: auto;
+    }
+
+    @font-face {
+        font-family: 'Chivo-Mono';
+        src: url(/fonts/Chivo/ChivoMono-BoldItalic.ttf) format("truetype");
+        font-weight: 700;
+        font-style: italic;
+        font-display: auto;
+    }
+
+    @font-face {
+        font-family: 'Chivo-Mono';
+        src: url(/fonts/Chivo/ChivoMono-ExtraBoldItalic.ttf) format("truetype");
+        font-weight: 800;
+        font-style: italic;
+        font-display: auto;
+    }
+
+    @font-face {
+        font-family: 'Chivo-Mono';
+        src: url(/fonts/Chivo/ChivoMono-BlackItalic.ttf) format("truetype");
+        font-weight: 900;
+        font-style: italic;
+        font-display: auto;
+    }
+}

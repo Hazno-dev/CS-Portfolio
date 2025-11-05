@@ -1,19 +1,45 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import Text from '../text/text.astro';
+import TextPair from '@components/text/text-pair.astro';
+import { Picture, Image } from 'astro:assets';
+import ProjectTools from '@components/project/project-tools.astro';
+import ProjectLanguages from '@components/project/project-languages.astro';
+import DateTimeBlock from '@components/text/dateTimeBlock.astro';
+import Spacer from '@components/core/spacer.astro';
+
 interface Props {
-	project: CollectionEntry<'project'>;
+	project: Project;
 }
 
 const { project } = {
 	project: Astro.props.project
 };
 
-const team = project.data.team;
-const role = project.data.role;
+const data = project.getTeamData();
 ---
 
-<div class="flex flex-col">
-	<Text type="paragraph" class="!mb-0 !text-xs font-bold">{team}</Text>
-	<Text type="mono">{role}</Text>
-</div>
+{!data.logo &&
+	<TextPair heading="Team">{data.name}</TextPair>
+	<TextPair heading="Role">{project.data.role}</TextPair>
+}
+{data.logo &&
+	<div class="grid col-span-2 grid-cols-2 gap-4">
+
+		<div class=`grid grid-cols-1 gap-4`>
+			<TextPair heading="Position">{project.data.role}</TextPair>
+			<TextPair heading="Employment"><DateTimeBlock start={data.start!} end={data.end}/></TextPair>
+		</div>
+		{data.link &&
+			<div class="h-23">
+			<a href={data.link} target="_blank" rel="noreferrer" class="inline-block">
+				<Picture src={data.logo} alt={data.name} class="button-opacity h-22 w-auto object-contain" />
+			</a>
+
+			</div>
+		}
+		{!data.link &&
+			<Picture src={data.logo} alt={data.name} class="mr-4 h-12 w-12 rounded-full object-cover" />
+		}
+	</div>
+}

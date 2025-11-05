@@ -1,0 +1,29 @@
+---
+import IconButton from '@components/core/image/icon-button.astro';
+import Spacer from '@components/core/spacer.astro';
+import ProjectLink from '@components/project/project-link.astro';
+import HorizontalRow from '@layouts/structure/horizontal-row.astro';
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'div'> {
+	project: Project
+}
+
+const { project, ...attrs } = {
+	project: Astro.props.project,
+};
+
+const hasPlatforms = project.data.platforms && project.data.platforms.length > 0;
+---
+
+{hasPlatforms && (
+	<>
+		<ul class=`flex flex-row gap-3 list-none items-center place-items-center ${Astro.props.class ?? ""}`>
+			{project.data.platforms.map((platform) => (
+				<li class="mb-0!">
+					<IconButton name={platform.platform} title={platform.title} link={platform.link} />
+				</li>
+			))}
+		</ul>
+	</>
+)}

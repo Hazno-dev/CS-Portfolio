@@ -1,0 +1,20 @@
+{
+	"slug": "Planetarium",
+	"cover": "img1.png",
+	"videos": [
+		{
+			"src": "7KogksYltOM",
+			"alt": "<h4>NecroTwister Gameplay Preview</h4><p>A short demo of NecroTwister.</p>"
+		}
+	],
+	"images": [
+		{
+			"src": "img1.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img1.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		}
+	]
+}

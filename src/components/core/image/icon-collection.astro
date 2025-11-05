@@ -1,0 +1,29 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Text from '@components/text/text.astro';
+import { Icon } from 'astro-icon/components';
+import IconButton from '@components/core/image/icon-button.astro';
+interface Props {
+	class?: string;
+	size?: string;
+	icons: any;
+}
+
+const { optionalClass, size, icons } = {
+	optionalClass: Astro.props.class ?? '',
+	size: Astro.props.size ?? undefined,
+	icons: Astro.props.icons
+};
+
+const hasIcons = icons && icons.length > 0;
+---
+
+{
+	hasIcons && (
+		<ul class={'flex flex-row items-center gap-2 pt-1 ' + optionalClass}>
+			{icons.map((icon: any) => (
+				<IconButton name={icon} size={size} />
+			))}
+		</ul>
+	)
+}

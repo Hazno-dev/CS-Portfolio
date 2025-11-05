@@ -1,0 +1,116 @@
+---
+slug: "NecroTwister"
+title: "NecroTwister"
+description: "NecroTwister is a turn based puzzle dungeon crawler where you control the level. Use telegraphed moves to guide the hero towards safety while avoiding deadly hazards and enemies. NecroTwister was designed for the 2023 GMTK 48-hour game jam \"Roles Reversed\"."
+dateStart: 2023-07-07
+dateEnd: 2023-07-09
+tags: ["Unity", "Puzzle", "Game Jam"]
+
+team: "4 Person Project"
+role: "Level Designer"
+platforms: [
+  { platform: "ItchIO", title: "Itch.IO", link: "https://tylerchunter.itch.io/necrotwister"},
+]
+projectInfo: {
+  languages: ["C#"],
+  tools: ["Unity", "Rider", "Photoshop", "Figma"],
+  contributions: [
+    { title: "Game Design", description: "Designed the game mechanics and systems." },
+    { title: "Level Design", description: "Designed the levels and puzzles." },
+    { title: "UI/UX Design", description: "Designed the user interface and user experience." },
+    { title: "Programming", description: "Implemented the game mechanics and systems." },
+  ]    
+}
+meta: {
+    visible: true,
+    professional: false,
+    type: "personal_highlight",
+}
+---
+
+import Media from "@mdx/media.astro";
+
+#### Responsibilities & Goals
+
+- Design and storyboard a variety of layouts in Photoshop and Miro.
+- Design and implement all levels in NecroTwister.
+- Assist in bug-fixing and feature implementation in C#.
+- Design levels to gradually introduce mechanics, balancing difficulty while maintaining accessibility for new players.
+
+<Media Project="IliosTerrace" Images={['img_topdown_blockout.png', 'img_topdown_final.png']} />
+
+---
+#### Conceptualizing
+
+In the initial stages of NecroTwister, the choice was made to adopt a puzzle-dungeon crawler hybrid genre, aligning with the constraints of the game jam while allowing creative exploration within the grid-based design. The unique twist - rotating levels - was born out of the desire to innovate within the given jam theme, turning the static grid into a dynamic puzzle.
+
+##### Design goals
+
+- Crafting engaging puzzles that gradually introduce mechanics, avoid overwhelming the player
+- Designing levels to promote strategic thinking, where the apparent solution may not be the correct one
+- Creating an intuitive level structure that facilitates the rotation mechanic
+- Craft levels that contain multiple enemy types, creating a diverse range of mechanics to introduce and challenge the player with
+
+---
+#### Referencing
+
+In the reference and exploration stage, my approach deviated from traditional methods due to the project's limited timeframe and scope. Instead of gathering visual references or analyzing other titles, focus was placed on concepting more gameplay mechanics and trying to establish some basic rules for levels. This reflection allowed me to hone in on and refine the design elements needed to enhance the gameplay experience in NecroTwister.
+
+##### Design goals
+
+- Add more movements than needed in levels to allow for multiple approaches to a given level
+- Understanding and conceptualizing how new tile features could be implemented into the level design to add depth and variety to the puzzles
+- Anticipate how the unique abilities of different enemy types could influence level design and player strategy
+
+---
+#### Prototyping
+
+During the prototyping stage, I focused on turning the design goals established in the conceptualizing and referencing phases into several maps that could be quickly implemented.
+
+Storyboarding & 2D Whiteboarding: During this phase, I crafted a series of storyboards for NecroTwister's levels. These step-by-step drawings outlined potential routes to complete each level, integrating a variety of 'tricks' or unexpected challenges to test the player's adaptability and strategic thinking. In this process, I consistently sought to subvert the 'obvious' solution, encouraging the player to pay close attention to enemy movement patterns and the overall game environment. Levels were devised to gradually introduce the game's mechanics, starting with simpler puzzles before adding complex twists to keep players engaged. As the design process progressed, it was crucial to ensure a balance between providing a challenging experience and maintaining accessibility for newer players.
+
+Level Implementation:Once the tools and systems required to implement levels was complete, the storyboarded levels were quickly integrated into the Unity project.
+
+---
+#### Feedback & Iteration
+
+The feedback and iteration stage played a crucial role in refining the map's design and ensuring that it effectively met the goals established during the conceptualizing, referencing, and prototyping stages. The process involved the following steps:
+
+Feedback Gathering:Throughout implementation I continuously would playtest the level, adjusting movements, and iterating on the placement of enemies and tiles. I also gathered feedback from the other developers on the project throughout iteration.
+
+New Player Experience: Following feedback and playtesting, it was quickly discovered that the movement mechanics of the game were very challenging to learn. To help combat this, additional levels were added to the start to better onboard new players to the movement mechanics of the game.
+
+---
+#### Implementation
+
+During the implementation phase, my primary focus was on adding more levels and ensuring the movement system felt intuitive and easy to understand, without removing the challenge it presents:
+
+Twist Effect: When rotating the levels, it often felt challenging to know which direction the player, and the enemies would go. With this feature, when the player hovers over the rotate buttons, the game will give a slight nudge in either direction to show what direction the level will roll.
+
+New Levels: Upon implementation of the original levels, I began going back and implementing basic concepts (levels that were not storyboards) by going through the iteration process again and continuously testing and adjusting the levels.
+
+---
+#### Reflection
+
+Reflecting on the development of NecroTwister, the project was a rewarding opportunity that helped me to further hone my level design skills in the context of puzzle games. While there were challenges along the way, the final product achieved the design goals set out at the beginning of the project, and the feedback received on Itch and other sources has been overwhelmingly positive.
+
+##### Areas for Improvement
+
+New Mechanics: The project has a high room for growth. New enemies, tiles, movements and more are all things that can greatly enhance the variety and challenge the game offers. Additionally it can add to create a replayable game that keeps players engaged.
+
+Larger levels:The levels are small by design, as to not overwhelm the player. But perhaps a slightly large, or non-square series of levels could create a sense of exploration for the player as they navigate an expansive level.
+
+##### Successes
+
+Progression: The difficulty curve in the levels has been largely implemented effectively, with two levels designed to encourage players learning the movement mechanics, and then gradually the levels introduce new enemies, tiles and challenges. (As well as new ways I tried to catch them off guard!)
+
+Collaborative Environment: Working in this team environment was incredibly refreshing. The team members were focused, positive and did an incredible job, the visuals, audio and code behind the project would be something teams might spend weeks on. It also offered me a chance to learn how to better communicate between a multi-disciplinary team.
+
+By reflecting on the successes and shortcomings of NecroTwister, I can set new goals and learn from my experiences to continuously improve as a level designer.
+
+---
+#### Acknowledgements
+NecroTwister was developed in collaboration with these talented individuals:
+- Tyler Hunter (Art Director)
+- Michael Leone (Technical Lead)
+- MrMusicGuy (Audio Designer)

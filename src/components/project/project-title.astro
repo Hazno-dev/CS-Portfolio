@@ -1,0 +1,33 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Text from '../text/text.astro';
+import { Icon } from 'astro-icon/components';
+import IconButton from '@components/core/image/icon-button.astro';
+import HorizontalRow from '@layouts/structure/horizontal-row.astro';
+import IconCollection from '@components/core/image/icon-collection.astro';
+import Spacer from '@components/core/spacer.astro';
+import ProjectLanguages from '@components/project/project-languages.astro';
+import { Picture } from 'astro:assets';
+interface Props {
+	project: Project;
+	class?: string;
+}
+
+const { project } = {
+	project: Astro.props.project
+};
+
+const logo = project.getLogo()
+const hasLogo = logo != null;
+
+---
+
+{!hasLogo ?
+	<Text type="heading" class=`mb-4 ${Astro.props.class}`>{project.data.title}</Text>
+	:
+	<Picture
+		class={`max-w-[90%] sm:max-w-[80%] md:max-w-[340px] lg:max-h-[150px] lg:max-w-[400px] xl:max-w-[480px] w-auto object-contain ${Astro.props.class}`}
+		src={logo}
+		alt={project.data.title}
+	/>
+}

@@ -5,31 +5,32 @@ import type { HTMLAttributes } from 'astro/types';
 interface Props extends HTMLAttributes<'p'> {
 	start: Date;
 	end?: Date | null;
+	type?: `heading` | `subheading` | `paragraph` | `mono` | `mono-light` | `label` | `sublabel` | `tag` | `tag-heading`;
 }
 
 const { start, end, ...attrs } = Astro.props;
+const startText = Astro.props.start.toLocaleDateString('en-GB', {
+	year: 'numeric',
+	month: 'long'
+});
+
+const endText =
+	Astro.props.end?.toLocaleDateString('en-GB', {
+		year: 'numeric',
+		month: 'long'
+	}) ?? 'Present';
+
+const showEnd = end && startText != endText;
 ---
 
-<Text type="mono" class="mb-4 drop-shadow" {...attrs}>
-	<time datetime={start.toISOString()}>
-		{
-			start.toLocaleDateString('en-GB', {
-				year: 'numeric',
-				month: 'long'
-			})
-		}
-	</time>
-	to
-	{
-		end ? (
-			<time datetime={end.toISOString()}>
-				{end.toLocaleDateString('en-GB', {
-					year: 'numeric',
-					month: 'long'
-				})}
-			</time>
-		) : (
-			'Present'
-		)
-	}
-</Text>
+<time datetime={start.toISOString()}>
+	{startText}
+</time>
+{
+	showEnd && (
+		<>
+			to
+			{end ? <time datetime={end.toISOString()}>{endText}</time> : 'Present'}
+		</>
+	)
+}
