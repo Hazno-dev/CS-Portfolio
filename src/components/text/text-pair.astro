@@ -19,19 +19,19 @@ const hasContent = html.length > 0;
 
 ---
 {hasContent &&
-	<div class=`break-inside-avoid ${optionalClass}`>
+	<div class=`break-inside-avoid flex flex-col ${optionalClass}`>
 		<Text type="tag">
 			{heading}
 		</Text>
 		{
 			type === 'heading' && (
-				<Text type="tag-heading">
+				<Text type="tag-heading" class="!mt-0">
 					<slot />
 				</Text>
 			)
 		}
 		{type === 'paragraph' &&
-			<Text type="paragraph">
+			<Text type="paragraph" class="!mt-0">
 				<slot />
 			</Text>
 		}

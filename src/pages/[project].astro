@@ -16,9 +16,9 @@ import ProjectLink from '@components/project/project-link.astro';
 import ProjectContributions from '@components/project/project-contributions.astro';
 import MediaElements from '@components/core/image/media-elements.astro';
 import ContentSplit from '@layouts/structure/content-split.astro';
-import MediaElement from '@components/core/image/media-element.astro';
 import ProjectPlatforms from '@components/project/project-platforms.astro';
-import MediaGallery from '@components/core/media/media-gallery.astro';
+import MediaGallery from '@components/media/MediaGallery.astro';
+import MediaElement from '@components/media/MediaElement.astro';
 
 import Hr from '@mdx/hr.astro';
 import H4 from '@mdx/h4.astro';
@@ -39,6 +39,9 @@ export function getStaticPaths() {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
+
+const videos = project.Media.Videos;
+const images = project.Media.Images;
 ---
 
 <RootLayout>
@@ -51,8 +54,8 @@ const { Content } = await render(project);
 				<div class="flex grow flex-col xl:max-w-[65%]">
 					<ProjectTitle project={project} />
 					<Spacer />
-					<ProjectDateTags project={project} class="mb-4" />
-					<Text type="paragraph" class=`!mb-0 line-clamp-5 !max-w-[47ch]`>{project.data.description}</Text>
+					<ProjectDateTags project={project} />
+					<Text type="paragraph" class=`!mb-0 line-clamp-5 sm:max-w-[47ch]!`>{project.data.description}</Text>
 					<ProjectPlatforms project={project} class="mt-6" />
 				</div>
 				<div class="gap-4 md:columns-2 xl:flex xl:max-w-[190px] xl:flex-col">
@@ -66,24 +69,9 @@ const { Content } = await render(project);
 			</div>
 			<Fragment slot="right">
 				<MediaGallery class=`flex-col gap-4`>
-					<MediaElement
-						class=`aspect-video`
-						src={project.getVideos()[0].src}
-						alt={project.getVideos()[0].alt}
-						thumbnail={project.getVideos()[0].thumbnail}
-						isVideo={true}
-					/>
+					{videos.map((video, index) => (index > 0 ? <MediaElement class=`hidden` Source={video}/> : <MediaElement class=`aspect-video` Source={video} />))}
 					<div class="flex flex-row gap-4">
-						<MediaElement
-							class=`aspect-video flex-1`
-							src={project.getImages()[0].src}
-							alt={project.getImages()[0].alt}
-						/>
-						<MediaElement
-							class=`aspect-video flex-1`
-							src={project.getImages()[1].src}
-							alt={project.getImages()[1].alt}
-						/>
+						{images.map((image, index) => (index > 1 ? <MediaElement class=`hidden` Source={image}/> : <MediaElement class=`aspect-video` Source={image} />))}
 					</div>
 				</MediaGallery>
 

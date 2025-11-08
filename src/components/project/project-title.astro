@@ -23,10 +23,10 @@ const hasLogo = logo != null;
 ---
 
 {!hasLogo ?
-	<Text type="heading" class=`mb-4 ${Astro.props.class}`>{project.data.title}</Text>
+	<Text type="heading" class=`pointer-events-none ${Astro.props.class ?? ''}`>{project.data.title}</Text>
 	:
 	<Picture
-		class={`max-w-[90%] sm:max-w-[80%] md:max-w-[340px] lg:max-h-[150px] lg:max-w-[400px] xl:max-w-[480px] w-auto object-contain ${Astro.props.class}`}
+		class={`sm:max-w-[80%] md:max-w-[340px] lg:max-h-[150px] lg:max-w-[400px] xl:max-w-[480px] w-auto object-contain ${Astro.props.class}`}
 		src={logo}
 		alt={project.data.title}
 	/>

@@ -3,6 +3,7 @@ import { Picture, getImage } from 'astro:assets';
 import type { HTMLAttributes } from 'astro/types';
 import { YouTube } from 'astro-embed';
 import { Icon } from 'astro-icon/components';
+import { experimental_AstroContainer } from 'astro/container';
 
 interface Props extends HTMLAttributes<'image'> {
 	src: any;
@@ -14,7 +15,8 @@ interface Props extends HTMLAttributes<'image'> {
 const { src, isVideo, alt, thumbnail, ...attrs } = Astro.props;
 
 const optimizedImage = !isVideo ? await getImage({
-	src: src
+	src: src,
+	layout: 'constrained',
 }) : null;
 
 const thumb = !isVideo ? src : thumbnail != null ? await getImage({src: thumbnail }).then(image => image.src) : `https://img.youtube.com/vi/${src}/maxresdefault.jpg`
@@ -26,6 +28,8 @@ const baseTags = `project-media-element border-secondary-1000/10 bg-primary-300 
 		hover:border-secondary-1000/80 hover:opacity-100 hover:transform-[scale(1.03)]
 		motion-reduce:hover:transform-none focus:opacity-100 focus:transform-[scale(1.03)]
 		focus:border-secondary-1000/80 motion-reduce:focus:transform-none peer/media-element`;
+
+
 ---
 
 {
@@ -63,9 +67,6 @@ const baseTags = `project-media-element border-secondary-1000/10 bg-primary-300 
 		<a
 			target="_blank"
 			href={optimizedImage!.src}
-			data-pswp-src={optimizedImage!.src}
-			data-pswp-width={optimizedImage!.attributes.width}
-			data-pswp-height={optimizedImage!.attributes.height}
 			class=`${baseTags} pswp-gallery__item ${attrs.class ?? ''}`
 			{...attrs}>
 			<Picture
@@ -73,6 +74,7 @@ const baseTags = `project-media-element border-secondary-1000/10 bg-primary-300 
 					hover:brightness-100 md:brightness-90`}
 				src={src}
 				alt={alt}
+				layout="constrained"
 			/>
 		</a>
 	)

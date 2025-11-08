@@ -1,0 +1,30 @@
+---
+import ProjectLink from '@components/project/project-link.astro';
+import ProjectPlatforms from '@components/project/project-platforms.astro';
+import HorizontalRow from '@layouts/structure/horizontal-row.astro';
+import Spacer from '@components/core/spacer.astro';
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'div'> {
+	project: Project;
+}
+
+const { project, ...attrs } = {
+	...Astro.props,
+	project: Astro.props.project,
+};
+
+const projectLink = project.getProjectLink();
+const hasPlatforms = project.data.platforms && project.data.platforms.length > 0;
+const hasPage = projectLink != null;
+const hasLinks = hasPlatforms || projectLink != null;
+---
+{
+	hasLinks && (
+	<HorizontalRow class=`mt-6 ${Astro.props.class ?? ''}`>
+		<ProjectPlatforms project={project} />
+		{hasPage && hasPlatforms && <Spacer verticalLine />}
+		{hasPage && <ProjectLink project={project}>Learn More</ProjectLink>}
+	</HorizontalRow>
+		)
+}

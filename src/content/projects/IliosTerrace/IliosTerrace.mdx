@@ -12,7 +12,10 @@ platforms: []
 projectInfo: {
     tools: ["Unreal Engine", "Maya"],
     contributions: [
-        { title: "Level Design", description: "Designed the levels and puzzles." },
+			"Designed the game mechanics and systems.",
+			"Designed the levels and puzzles.",
+			"Designed the user interface and user experience.",
+			"Implemented the game mechanics and systems.",
     ]
 }
 meta: {
@@ -37,7 +40,7 @@ import Media from "@mdx/media.astro";
 - Create distinct areas within the map to provide players with a variety of combat scenarios and strategic choices
 - Iterate on level design based on feedback from fellow designers and Overwatch players
 
-<Media Project="IliosTerrace" Images={['img_topdown_blockout.png', 'img_topdown_final.png']} />
+<Media Project="IliosTerrace" Media={['img_topdown_blockout.png', 'img_topdown_final.png']} />
 
 ---
 #### Conceptualizing
@@ -52,7 +55,7 @@ During the conceptualizing phase, I brainstormed ideas and decided on the overal
 ---
 #### Referencing
 
-<Media Project="IliosTerrace" Images={['img_pureref.png']} />
+<Media Project="IliosTerrace" Media={['img_pureref.png']} />
 
 In the referencing stage, I collected and collated reference images and analysed existing levels and mechanics in Overwatch, particularly focusing on Ilios maps and elements consistent across all Overwatch maps. This process allowed me to better understand design patterns and visual styles that would fit within the Overwatch universe. Additionally, I collated reference images in a PureRef board of Ilios and the area it's based off, the Santorini Islands. 
 
@@ -65,19 +68,19 @@ In the referencing stage, I collected and collated reference images and analysed
 - Design cover and vantage points that cater to different hero abilities and playstyles
 - Capture the dense, close-quarters gameplay characteristic of Ilios maps, distinguishing it from more open maps like Junkertown
 
-<Media Project="IliosTerrace" Images={['img_choke.jpeg']} />
+<Media Project="IliosTerrace" Media={['img_choke.jpeg']} />
 
 ---
 #### Prototyping
 During the prototyping stage, I focused on turning the design goals established in the conceptualizing and referencing phases into a tangible layout for the Ilios Terrace map. This involved several key steps:
 
-<Media Project="IliosTerrace" Images={['img_paintlayout.png']} />
+<Media Project="IliosTerrace" Media={['img_paintlayout.png']} />
 
 2D Whiteboarding: I started by creating a basic 2D top-down layout using Paint. During this stage, I aimed to address the design goals by incorporating verticality, drawing inspiration from other Ilios maps. I designed high grounds above the player spawns, as well as a central building with multiple levels, which would support a wider range of heroes and their abilities. The whiteboard design also featured a symmetrical layout with a death hole in the middle, similar to Ilios Well, to maintain consistency with other Ilios maps and their vertical gameplay elements. The layout included broken sightlines with walls and death drops, which are characteristic of Ilios maps and cater to different hero abilities (Knockback abilities), promoting diverse team compositions.
 
 By focusing on these design goals during the whiteboarding stage, I was able to create a layout that effectively captured the essence of Ilios maps while also ensuring that the map would provide varied gameplay experiences for different heroes.
 
-<Media Project="IliosTerrace" Images={['img_side_blockout.png']} />
+<Media Project="IliosTerrace" Media={['img_side_blockout.png']} />
 
 3D Blockout: Using Unreal Engine 5, I constructed an initial 3D blockout of the map based on the 2D whiteboard layout. During this stage, I made several adjustments to better align with the design goals, such as:
 
@@ -98,7 +101,7 @@ Feedback Gathering: Although the Ilios Terrace map is not playable in Overwatch 
 
 Analyzing Challenge and Pacing: Based on the feedback received, I analyzed the map's layout to determine if it provided the right balance of challenge and pacing for players. I focused on aspects such as sightlines, cover placement, and verticality, which are crucial for promoting diverse hero usage and creating engaging gameplay experiences.
 
-<Media Project="IliosTerrace" Images={['img_side_blockout_pre.png', 'img_side_blockout.png']} Horizontal />
+<Media Project="IliosTerrace" Media={['img_side_blockout_pre.png', 'img_side_blockout.png']} Horizontal />
 
 Refining and Iterating on Blockout and Design Goals: With the insights gained from feedback and analysis, I refined the 3D blockout and adjusted certain elements to better align with the design goals. For example, I removed the main high ground staircase wall to provide less cover and reduce the strength of an otherwise very protected point. This change made the high ground more accessible and encouraged dynamic engagements from any verticality.
 
@@ -115,11 +118,11 @@ During the implementation phase, my primary focus was on bringing the Ilios Terr
 
 Using Existing Overwatch Assets: To maintain visual consistency with other Overwatch maps and create a recognizable aesthetic, I utilized existing assets from the game. This allowed me to art up the level and transform the blockout into a fully-realized environment that closely resembled the distinctive look and feel of Ilios.
 
-<Media Project="IliosTerrace" Images={['img_topdown_blockout.png', 'img_topdown_blockout_artpost.jpg']} Horizontal />
+<Media Project="IliosTerrace" Media={['img_topdown_blockout.png', 'img_topdown_blockout_artpost.jpg']} Horizontal />
 
 Minor Modifications: While implementing the assets, I made some minor adjustments to the level design to better fit the available assets and further enhance the gameplay experience. For example, the corner building was made substantially larger providing more cover to players who opt to take this route of attack onto the centre of the map. Additionally it led to more boop opportunities around the centre hole.
 
-<Media Project="IliosTerrace" Images={['img_topdown_final.png']}/>
+<Media Project="IliosTerrace" Media={['img_topdown_final.png']}/>
 
 Visual Distinction: To provide a clear visual distinction between both sides of the map, I incorporated different color schemes for each side, with one side featuring red accents and the other blue. This not only helped to eliminate any sense of symmetry but also ensured consistency with the other Ilios maps. Additionally, it served to aid in player navigation, giving each side a slightly different feel.
 
@@ -132,7 +135,7 @@ Through the implementation stage, I successfully transformed the Ilios Terrace m
 ---
 #### Reflection
 
-<Media Project="IliosTerrace" Images={['img_vista.jpeg']}/>
+<Media Project="IliosTerrace" Media={['img_vista.jpeg']}/>
 
 The Ilios Terrace project has provided valuable insights and experiences that I can apply to future level design projects. Reflecting on the finalized design, I have identified both successes and areas for improvement:
 

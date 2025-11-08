@@ -36,12 +36,7 @@ const projectCollection = defineCollection({
 			projectInfo: z.object({
 				languages: z.array(z.string()).optional(),
 				tools: z.array(z.string()),
-				contributions: z.array(
-					z.object({
-						title: z.string(),
-						description: z.string()
-					})
-				)
+				contributions: z.array(z.string())
 			}),
 			meta: z.object({
 				visible: z.boolean(),

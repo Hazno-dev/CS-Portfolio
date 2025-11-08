@@ -28,7 +28,7 @@ const { type, ...attrs } = Astro.props;
 
 {
 	type === `paragraph` && (
-		<p class="text-secondary-900/90 mb-2 max-w-[70ch] text-sm/6" class:list={attrs.class ?? undefined} {...attrs}>
+		<p class={attrs.class ?? undefined} {...attrs}>
 			<slot />
 		</p>
 	)
@@ -76,9 +76,7 @@ const { type, ...attrs } = Astro.props;
 
 {
 	type === `tag-heading` && (
-		<p
-			class={'text-secondary-900/90 text-xs leading-[1.4rem] font-medium md:text-sm ' + (attrs.class ?? '')}
-			{...attrs}>
+		<p class={'text-tag-heading ' + (attrs.class ?? '')} {...attrs}>
 			<slot />
 		</p>
 	)

@@ -4,6 +4,7 @@ import Text from '../text/text.astro';
 import Spacer from '@components/core/spacer.astro';
 import HorizontalRow from '@layouts/structure/horizontal-row.astro';
 import DateTimeBlock from '@components/text/dateTimeBlock.astro';
+import TextInlineList from '@components/text/TextInlineList.astro';
 interface Props {
 	project: CollectionEntry<'project'>;
 	class?: string;
@@ -13,15 +14,8 @@ const { project, optionalClass } = {
 	project: Astro.props.project,
 	optionalClass: Astro.props.class ?? ''
 };
-
 ---
-<HorizontalRow gap="2" class={optionalClass}>
-	<Text type="tag">
-		<DateTimeBlock start={project.data.dateStart} end={project.data.dateEnd} />
-	</Text>
-	{ project.data.tags.map((tag) => (
-		<Spacer dot />
-		<Text type="tag">{tag}</Text>
-	))
-	}
-</HorizontalRow>
+
+<TextInlineList contents={project.data.tags} class=`mt-4 ${optionalClass}`>
+	<li><span class="text-tag"><DateTimeBlock start={project.data.dateStart} end={project.data.dateEnd} /></span></li>
+</TextInlineList>

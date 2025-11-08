@@ -1,6 +1,7 @@
 ---
 import RootLayout from '../layouts/structure/root.layout.astro';
 import ProjectCard from '@components/project/cards/ProjectCard.astro';
+import ProjectCardSmall from '@components/project/cards/ProjectCardSmall.astro';
 import { projects, professionalProjects, personalProjects, personalCardProjects } from '../content.obtain';
 import ProjectLanguages from '@components/project/project-languages.astro';
 import TextPair from '@components/text/text-pair.astro';
@@ -9,15 +10,16 @@ import DateTimeBlock from '@components/text/dateTimeBlock.astro';
 import IconCollection from '@components/core/image/icon-collection.astro';
 import HorizontalRow from '@layouts/structure/horizontal-row.astro';
 import Spacer from '@components/core/spacer.astro';
+import TextInlineList from '@components/text/TextInlineList.astro';
 
 const skills = ['C#', 'C++', 'Js', 'Ts', 'OpenGL', 'Python', 'Lua', 'Kotlin', 'Level Design'];
-const tools = ['Unity', 'UnrealEngine'];
+const tools = ['Unity', 'UnrealEngine', 'Maya', 'Figma', 'Photoshop'];
 ---
 
 <RootLayout>
 	<div class="content-outer">
 		<div class=`content-inner-l xl:gap-8 xl:flex-row md xl:pr-8`>
-			<div class="grow xl:max-w-[65%]">
+			<div class="grow pb-4 xl:max-w-[65%]">
 				<TextPair heading="About" type="paragraph" class="max-w-[50ch]">
 					Hi, I'm Callum Stables, a self-driven and creative final-year student studying Games Development Technologies
 					at Plymouth University in the UK. Fuelled by a lifelong passion for game development, my journey began with
@@ -26,47 +28,48 @@ const tools = ['Unity', 'UnrealEngine'];
 					a game designer.
 				</TextPair>
 			</div>
-			<div class="gap-4 md:columns-2 xl:flex xl:max-w-[190px] xl:flex-col">
+			<div class="gap-4 pb-2 md:columns-2 xl:flex xl:max-w-[190px] xl:flex-col">
 				<TextPair heading="Skills" type="custom">
-					<Text type="tag-heading" class="self-center">
-						{skills.join(' · ')}
-					</Text>
+					<TextInlineList contents={skills} customTag="text-tag-heading mt-0" />
 				</TextPair>
 				<TextPair heading="Tools" type="custom">
-					<HorizontalRow gap="3" class={Astro.props.class}>
+					<HorizontalRow gap="3">
 						<IconCollection icons={tools} size="20" />
 					</HorizontalRow>
 				</TextPair>
 			</div>
 		</div>
 		<div class="content-inner-r">
-			<div class="content-inner-padding flex grow flex-col gap-4">
+			<div class="content-inner-padding flex grow flex-col">
 				<TextPair heading="History" type="custom">
-					<ol class="flex flex-col gap-4 text-ellipsis">
+					<ol class="flex flex-col gap-2 text-ellipsis">
 						<li class="flex flex-row gap-4">
 							<div class="w-[50%] flex-col">
-								<Text type="tag-heading" class="!mb-0">Moon Studios</Text>
-								<Text type="paragraph" class="!mb-0">Technical Designer</Text>
+								<Text type="tag-heading" class="!mt-0">
+									Moon Studios<br /><span class="text-paragraph">Technical Designer</span>
+								</Text>
 							</div>
-							<Text type="paragraph" class="!mb-0 w-[50%]"
+							<Text type="paragraph" class="!mt-0 w-[50%]"
 								><DateTimeBlock start={new Date(2023, 6)} end={new Date(2025, 9)} /></Text
 							>
 						</li>
 						<li class="flex flex-row gap-4">
 							<div class="w-[50%] flex-col">
-								<Text type="tag-heading" class="!mb-0">University of Plymouth</Text>
-								<Text type="paragraph" class="!mb-0">BSc (Hons) Computer Science (1:1)</Text>
+								<Text type="tag-heading" class="!mb-0">
+									University of Plymouth<br /><span class="text-paragraph">BSc (Hons) Computer Science (1:1)</span>
+								</Text>
 							</div>
-							<Text type="paragraph" class="!mb-0 w-[50%]"
+							<Text type="paragraph" class="w-[50%]"
 								><DateTimeBlock start={new Date(2020, 9)} end={new Date(2023, 5)} /></Text
 							>
 						</li>
 						<li class="flex flex-row gap-4">
 							<div class="w-[50%] flex-col">
-								<Text type="tag-heading" class="!mb-0">University of Plymouth</Text>
-								<Text type="paragraph" class="!mb-0">(CertHE) Earth Sciences</Text>
+								<Text type="tag-heading" class="!mb-0">
+									University of Plymouth<br /><span class="text-paragraph">(CertHE) Earth Sciences</span>
+								</Text>
 							</div>
-							<Text type="paragraph" class="!mb-0 w-[50%]"
+							<Text type="paragraph" class="w-[50%]"
 								><DateTimeBlock start={new Date(2019, 9)} end={new Date(2020, 5)} /></Text
 							>
 						</li>
@@ -87,6 +90,11 @@ const tools = ['Unity', 'UnrealEngine'];
 		<section>
 			<div class="flex flex-col gap-8">
 				{personalProjects.map((project) => <ProjectCard project={project} />)}
+			</div>
+		</section>
+		<section>
+			<div class="flex flex-col gap-8">
+				{personalCardProjects.map((project) => <ProjectCardSmall project={project} />)}
 			</div>
 		</section>
 	</div>

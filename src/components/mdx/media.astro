@@ -1,54 +1,26 @@
 ---
 import { Picture, Image, getImage } from 'astro:assets';
 import { projects } from '@/content.obtain.ts';
-import MediaElement from '@components/core/image/media-element.astro';
-import MediaGallery from '@components/core/media/media-gallery.astro';
+import MediaElement from '@components/media/MediaElement.astro';
+import MediaGallery from '@components/media/MediaGallery.astro';
 
 interface Props {
 	Project: string;
-	Images?: string[];
-	Videos?: string[];
+	Media: string[];
 	Horizontal?: boolean;
 }
 
-const { Project, Images, Videos } = Astro.props;
-
 const props = Astro.props;
-const foundProject = projects.get(Project);
+const foundProject = projects.get(props.Project);
 if (!foundProject) {
-	throw new Error(`Project ${Project} not found`);
+	throw new Error(`Project ${props.Project} not found`);
 }
 
-let foundVideos = new Array<any>();
-Videos?.forEach((video) => {
-	const media = foundProject.getMedia(video);
-	if (!media) {
-		console.log(media);
-		throw new Error(`Video ${video} not found`);
-	}
-
-	foundVideos.push(media);
-});
-
-let foundImages = new Array<any>();
-Images?.forEach((image) => {
-	const media = foundProject.getMedia(image);
-	if (!media) {
-		console.log(media);
-		throw new Error(`Image ${image} not found`);
-	}
-
-	foundImages.push(media);
-});
+const foundMedia = foundProject.Media.Find(props.Media);
 ---
 
 <p>
 	<MediaGallery counter={false} class=`my-4 flex gap-4 ${props.Horizontal ? 'flex-row' : 'flex-col'}`>
-		{
-			foundVideos.map((video) => (
-				<MediaElement src={video.src} alt={video.alt} isVideo={true} thumbnail={video.thumbnail} />
-			))
-		}
-		{foundImages.map((image) => <MediaElement src={image.src} alt={image.alt} thumbnail={image.thumbnail} />)}
+		{foundMedia.map((media) => <MediaElement Source={media} />)}
 	</MediaGallery>
 </p>

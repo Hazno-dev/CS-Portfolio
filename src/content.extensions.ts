@@ -1,10 +1,13 @@
 import type { CollectionEntry, InferEntrySchema } from 'astro:content';
+import { ProjectMedia } from '@components/media/data/ProjectMedia.ts';
 
 declare global {
 	export type Project = CollectionEntry<'project'> & ProjectMethods;
 }
 
 type ProjectMethods = {
+	Media: ProjectMedia;
+
 	getTeamText(): 'Studio' | 'Team';
 	getProjectLink(): string | null | undefined;
 	getProjectInternalLink(): string | null | undefined;
@@ -24,7 +27,6 @@ type ProjectMethods = {
 export function asProject(project: CollectionEntry<'project'>, media: CollectionEntry<'media'>): Project {
 	const mediaMap = new Map<string, any>([]);
 	const visibleImages = new Array<{ src: any; alt: string }>();
-	[];
 	media.data.images.forEach((image) => {
 		const lastSlash = image.src.src.lastIndexOf('/');
 		const lastDot = image.src.src.lastIndexOf('.');
@@ -41,6 +43,8 @@ export function asProject(project: CollectionEntry<'project'>, media: Collection
 
 	return {
 		...project,
+		Media: new ProjectMedia(media.data),
+
 		getTeamText() {
 			if (project.data.meta.professional) {
 				return 'Studio';
