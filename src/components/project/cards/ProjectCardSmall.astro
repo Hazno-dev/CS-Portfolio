@@ -13,6 +13,9 @@ import TextPair from '@components/text/text-pair.astro';
 import ProjectLinks from '@components/project/routing/ProjectLinks.astro';
 import MediaElement from '@components/media/MediaElement.astro';
 import MediaGallery from '@components/media/MediaGallery.astro';
+import DateTimeBlock from '@components/text/dateTimeBlock.astro';
+import TextInlineList from '@components/text/TextInlineList.astro';
+import HorizontalRow from '@layouts/structure/horizontal-row.astro';
 interface Props {
 	project: Project;
 }
@@ -29,7 +32,7 @@ const images = project.Media.Images;
 ---
 
 <article
-	class=`relative inline-flex ${project.isProfessional() ? "min-h-175" : "min-h-145"} w-full max-w-full overflow-hidden rounded-lg break-words md:rounded-[10px] group/project`>
+	class=`relative inline-flex ${project.isProfessional() ? "min-h-175" : "min-h-145"} max-w-xl overflow-hidden rounded-lg break-words md:rounded-[10px] group/project`>
 	<div class="pointer-events-none absolute -z-1 h-full w-full bg-black"></div>
 	<Picture
 		class=`pointer-events-none absolute -z-1 h-full w-full object-cover opacity-25 group-hover/project:opacity-30 scale-101 group-hover/project:scale-100 transition-all duration-500 ease-out`
@@ -38,41 +41,31 @@ const images = project.Media.Images;
 		aria-hidden="true"
 	/>
 	<div class=`image-background pointer-events-none absolute -z-1 h-full w-full`></div>
-	<div class=`content-outer`>
-		<div class=`content-inner-l`>
-			<ProjectTitle project={project} />
-			<Spacer />
-			<ProjectDateTags project={project} class="mt-4" />
-			<Text type="paragraph" class=`!md:mb-0 line-clamp-5 !max-w-[47ch]`>{project.data.description}</Text>
-			<MediaGallery class=`md:hidden flex-col gap-4 sm:flex-row`>
-				{videos.map((video, index) => (index > 0 ? <MediaElement class=`hidden` Source={video}/> : <MediaElement Source={video} />))}
-				<div class="flex flex-row gap-4 sm:flex-col">
-					{images.map((image, index) => (index > 1 ? <MediaElement class=`hidden` Source={image}/> : <MediaElement Source={image} />))}
-				</div>
-			</MediaGallery>
-			<ProjectLinks project={project} class="hidden md:flex" />
-		</div>
-		<div class=`gap-4 flex-col content-inner-r`>
-			<div class=`flex flex-col grow content-inner-padding`>
-				<div class=`grid grid-cols-2 gap-x-4 gap-y-2 pb-4`>
-					<ProjectTeam project={project} />
-					<TextPair heading="Tools" type="custom"><ProjectTools project={project} /></TextPair>
-					<TextPair heading="Languages" type="custom"><ProjectLanguages project={project} /></TextPair>
-				</div>
-				<TextPair heading="Key Contributions" type="custom">
-					<ProjectContributions project={project} />
-				</TextPair>
+	<div class=`content-outer flex-col shrink gap-2`>
+		<p class="text-tag !mt-0">
+			<DateTimeBlock start={project.data.dateStart} end={project.data.dateEnd} />
+		</p>
+		<ProjectTitle project={project} />
+		<Spacer />
+		<div class="flex flex-row shrink gap-x-2">
+			<div class="flex flex-col grow basis-[50%] ">
+				<ProjectTeam project={project} />
+				<TextPair heading="Tools" type="custom"><ProjectTools project={project} /></TextPair>
+				<TextPair heading="Languages" type="custom"><ProjectLanguages project={project} /></TextPair>
 			</div>
+			<MediaGallery class=`flex-shrink basis-[50%] max-w-1/2 grow-0 aspect-video flex-col place-content-end`>
+				<!--<div class="flex flex-shrink aspect-video"/>-->
+				{videos.map((video, index) => (index > 0 ? <MediaElement class=`hidden` Source={video}/> : <MediaElement class=`flex shrink grow-0 aspect-video` Source={video} />))}
 
-			<Spacer />
-
-			<MediaElements
-				project={project}
-				class=`hidden md:flex h-[160px] flex-row gap-4 transition-[opacity] duration-200 ease-out group-hover/project:opacity-100
-					md:max-w-[600px] md:opacity-80`
-			/>
+					{images.map((image) => (<MediaElement class=`hidden` Source={image}/>))}
+			</MediaGallery>
 		</div>
+		<Text type="paragraph" class=`!md:mb-0 line-clamp-5`>{project.data.description}</Text>
 
-		<ProjectLinks project={project} class="justify-end-safe flex md:hidden" />
+		<HorizontalRow class="mt-4">
+			<TextInlineList contents={project.data.tags}/>
+			<ProjectLinks project={project} class="!mt-0" />
+		</HorizontalRow>
+
 	</div>
 </article>

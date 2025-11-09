@@ -93,7 +93,8 @@ const tools = ['Unity', 'UnrealEngine', 'Maya', 'Figma', 'Photoshop'];
 			</div>
 		</section>
 		<section>
-			<div class="flex flex-col gap-8">
+			<div
+				class=`flex flex-row flex-wrap justify-between gap-8 lg:*:max-w-[calc(50%-((--spacing(4))))] 2xl:*:max-w-[calc(33.333333%-((--spacing(6))))]`>
 				{personalCardProjects.map((project) => <ProjectCardSmall project={project} />)}
 			</div>
 		</section>
