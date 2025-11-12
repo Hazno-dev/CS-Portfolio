@@ -7,12 +7,14 @@ import ProjectTools from '@components/project/project-tools.astro';
 import ProjectLanguages from '@components/project/project-languages.astro';
 import DateTimeBlock from '@components/text/dateTimeBlock.astro';
 import Spacer from '@components/core/spacer.astro';
+import type { HTMLAttributes } from 'astro/types';
 
-interface Props {
+interface Props extends HTMLAttributes<'div'> {
 	project: Project;
 }
 
-const { project } = {
+const { project, ...attrs } = {
+	...Astro.props,
 	project: Astro.props.project
 };
 
@@ -20,14 +22,14 @@ const data = project.getTeamData();
 ---
 
 {!data.logo &&
-	<TextPair heading="Team">{data.name}</TextPair>
-	<TextPair heading="Role">{project.data.role}</TextPair>
+	<TextPair heading="Team" class={(attrs.class ?? '')}>{data.name}</TextPair>
+	<TextPair heading="Role" class={(attrs.class ?? '')}>{project.data.role}</TextPair>
 }
 {data.logo &&
 	<div class="grid col-span-2 grid-cols-2 gap-4">
 
 		<div class=`grid grid-cols-1 gap-2`>
-			<TextPair heading="Position">{project.data.role}</TextPair>
+			<TextPair heading="Position" class={(attrs.class ?? '')}>{project.data.role}</TextPair>
 			<TextPair heading="Employment"><DateTimeBlock start={data.start!} end={data.end}/></TextPair>
 		</div>
 		{data.link &&

@@ -10,58 +10,57 @@
 		{
 			"src": "0Jjmg58h2aE",
 			"alt": "<h4>NecroTwister Gameplay Preview</h4><p>A short demo of NecroTwister.</p>",
-			"thumbnail": "img6.png"
+			"thumbnail": "img_junglegym.png"
 		}
 	],
 	"images": [
 		{
-			"src": "img3.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"src": "img_junglegym.png",
+			"alt": "Tall wall jungle gym tile."
 		},
 		{
-			"src": "img6.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"src": "img_redesigned_shackinterior.png",
+			"alt": "The interior of the redesigned shack."
 		},
 		{
 			"src": "img1.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": "Open area of the map showcasing a generator and trap. Various derelict buildings impose in the background."
 		},
 		{
-			"src": "img2.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"src": "img_signpost_ramp.png",
+			"alt": "Signposted ramp arched against a building, leading up to the 2nd floor."
 		},
 		{
-			"src": "img4.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"src": "img_redesigned_TL.png",
+			"alt": "A slightly redesigned tall wall jungle gym tile."
 		},
 		{
-			"src": "img5.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
-		},
-
-		{
-			"src": "img7.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"src": "img_oneway_verticalpath.png",
+			"alt": "Wooden planks arched against a wall, creating a one-way vertical path leading up."
 		},
 		{
-			"src": "img8.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"src": "img_redesigned_shackexterior.png",
+			"alt": "The 2nd floor of the redesigned shack."
 		},
 		{
-			"src": "img9.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"src": "img_redesigned_basement.png",
+			"alt": "An inverted version of the \"Basement\" tile, with multiple paths leading up to it."
 		},
 		{
-			"src": "img10.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"src": "img_lowwalltile.png",
+			"alt": "Tile with low walls."
 		},
 		{
-			"src": "img11.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"src": "img_debris1.png",
+			"alt": "Area of the map with various debris and line-of-sight obstructions."
+		},
+		{
+			"src": "img_debris2.png",
+			"alt": "Area of the map with various debris and line-of-sight obstructions."
 		},
 		{
 			"src": "img_mapoverview.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": "Top-down illustration of the map layout."
 		}
 	]
 }

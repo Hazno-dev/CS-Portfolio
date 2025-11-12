@@ -20,13 +20,7 @@ import ProjectPlatforms from '@components/project/project-platforms.astro';
 import MediaGallery from '@components/media/MediaGallery.astro';
 import MediaElement from '@components/media/MediaElement.astro';
 
-import Hr from '@mdx/hr.astro';
-import H4 from '@mdx/h4.astro';
-import H5 from '@mdx/h5.astro';
-import Img from '@mdx/img.astro';
-import Li from '@mdx/li.astro';
-import Ol from '@mdx/ol.astro';
-import Ul from '@mdx/ul.astro';
+import { AllComponents } from '@mdx/components.astro';
 
 export function getStaticPaths() {
 	return allProjects
@@ -82,15 +76,7 @@ const images = project.Media.Images;
 		<ContentSplit>
 			<Fragment slot="left">
 				<Content
-					components={{
-						img: Img,
-						hr: Hr,
-						li: Li,
-						ol: Ol,
-						ul: Ul,
-						h4: H4,
-						h5: H5
-					}}
+					components={{...AllComponents}}
 				/>
 			</Fragment>
 			<Fragment slot="right"> </Fragment>

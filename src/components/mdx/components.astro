@@ -1,0 +1,34 @@
+---
+import Hr from '@mdx/hr.astro';
+import H3 from '@mdx/h3.astro';
+import H4 from '@mdx/h4.astro';
+import H5 from '@mdx/h5.astro';
+import H6 from '@mdx/h6.astro';
+import Img from '@mdx/img.astro';
+import Li from '@mdx/li.astro';
+import Ol from '@mdx/ol.astro';
+import Ul from '@mdx/ul.astro';
+import Strong from '@mdx/strong.astro';
+import Spacer from '@mdx/spacer.astro';
+
+import Media from '@mdx/project/Media.astro';
+import Contributions from '@mdx/project/Contributions.astro';
+export const ProjectComponents = {
+	Media: Media,
+	Contributions: Contributions
+};
+
+export const AllComponents = {
+	...ProjectComponents,
+	img: Img,
+	hr: Hr,
+	li: Li,
+	ol: Ol,
+	ul: Ul,
+	h3: H3,
+	h4: H4,
+	h5: H5,
+	h6: H6,
+	Spacer: Spacer
+};
+---

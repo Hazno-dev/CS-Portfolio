@@ -26,7 +26,7 @@
     @font-face {
         font-family: 'Chivo-Mono';
         src: url(/fonts/Chivo/ChivoMono-Regular.ttf) format("truetype");
-        font-weight: 400;
+        font-weight: normal;
         font-style: normal;
         font-display: auto;
     }

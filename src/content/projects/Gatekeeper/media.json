@@ -105,6 +105,11 @@
 			"src": "img_zones_upper.png",
 			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
 			"hidden": true
+		},
+		{
+			"src": "gif_gameplay.gif",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
 		}
 	]
 }

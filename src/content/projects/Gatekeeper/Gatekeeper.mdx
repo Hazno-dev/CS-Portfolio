@@ -16,9 +16,10 @@ projectInfo: {
   tools: ["Unity", "Rider", "Photoshop", "Radiant"],
   contributions: [
     "Designed and built the environment in Radiant Black.",
-		"Wrote GSC scripts to create gameplay mechanics.",
-		"Converted FBX/OBJ Models to XModel, created materials and converted textures across Unreal Engine to supported TIFF based texture maps." ,
-    "Implemented the game mechanics and systems.",
+    "Iterated layout and mechanics based upon player feedback.",
+		"Wrote GSC scripts to create new gameplay mechanics.",
+		"Converted FBX/OBJ Models to XModel, created materials and converted textures across Unreal Engine to supported TIFF based texture maps.",
+    "Added core systems (Spawners, traversals, doors, volumes, etc).",
   ]
 }
 meta: {
@@ -28,13 +29,251 @@ meta: {
 }
 ---
 
-import Media from "@mdx/media.astro";
+### Overview
 
-#### Responsibilities & Goals
+The goal behind Gatekeeper was to create a map that feels like a traditional zombies experience while elevating existing challenges players encounter.
 
-Designed and built the environment in Radiant Black.
-Itterated and changed elements based on player feedback.
-Designed the environment to fit into the gameplay flow of Call Of Duty: Zombies.
-Implemented several GSC scripts to create gameplay mechanics.
-Implemented gameplay mechanics such as: zombie/dog/nova spawners, traversals, doors, volumes.
-Converted FBX/OBJ Models to XModel, created materials and converted textures across Unreal Engine to supported TIFF based texture maps.
+While this map is purely a solo project, efforts were made to communicate to players and get feedback on mechanics in the map.
+I made comparisons against my personal favourite zombie maps Shangri-La, TranZit and Die Rise to try and recapture what made those maps special while also aiming to alleviate issues players found with them based on feedback I recieved.
+I also aimed to give the players a challenge in their movement choices, giving weight to their decisions by creating new challenges through which path they take.
+
+While developing the map I constantly looked for design conventions found throughout every zombies map to further my progress in creating a traditional zombies experience.
+Further below is an indepth look into the design philosophy behind Gatekeeper.
+
+#### Key Contributions
+
+<Contributions/>
+
+### Conceptualising
+
+#### Early Draft
+
+I started by creating a simple whiteboard of the map I envisioned in a 2D design tool.
+This combined with a general theme and references images created the initial concept of the map.
+
+<Media Source={['img_layout.png']}/>
+
+I quickly realised that this initial design had flaws and as such was expanded upon during development through iteration.
+
+#### Final Design
+
+<Media Source={['img_zones_lower.png', 'img_zones_upper.png']} Horizontal/>
+
+Players start in Zone 1. Zone 2 gives the players agency, where players must decide between left or right, light or dark in a sense.
+
+Zone 3 expands the map significantly, granting the player access to both sides in a sense. However, the middle entrance remains blocked by a power door.
+
+Zone 4 sees more expansion, and additionally grants the player cheaper access to the power as a result of 1 less door,
+however this ultimately plays as a risk/reward for the player due to the large amount of traps on this side.
+
+Players can choose either Zone 5, and pay a premium for safety, or continue in Zone 4.
+
+### Design Discussion
+
+In Gatekeeper, players must run around or through dangerous traps as zombies attack from above and below, avoiding pressure plates, fire traps, and graves all while navigating through a dense bright environment or a dark narrow street.
+Ultimately, the player gets to choose which experience they want from Gatekeeper.
+
+By analysing and following design conventions found through Call Of Duty's Zombies maps and using player feedback from a select variety of maps I was referencing, I set out a series of guidelines and objectives to follow while designing the map.
+
+#### Goals
+
+- Create a distinct difference between both sides of the map, both in visuals and gameplay.
+- Design a map that connects elements across Shangri-La, TranZit and Die Rise.
+- Design a map both large, but not so large the player can easily "train" everywhere.
+- Create a sense of urgency across every area of the map.
+- Design a map that allows for self "looping".
+- Design a map with a progressive flow as the player slowly unlocks new abilities, areas and challenges.
+- Create challenging areas and promote players to enter them.
+- Introduce players to the mechanics of the map.
+
+### Light V Dark
+
+<Media Source={['img_topugly.png']}/>
+
+The middle bridge combines the two styles, creating a dense foggy atmosphere with narrow pathways and lots of graves.
+From playtesting, most players found this area the most dangerous place in the map (and for good reason!).
+Not to worry for anyone not willing to risk it, players can instead choose to navigate through the right side which stays more to form for the darker atmosphere.
+
+#### Light Path
+
+The left side is very bright, so fog and foliage was added to create a dense mist surrounding the player,
+obstructing their vision as zombies appear just in the distance, this side plays with readability.
+The left side is also far more open, giving the player the opportunity to navigate without hitting obstacles, this in turn allows for easier "training"
+(Training is when a player will run around in a circle collecting large amounts of zombies to kill them quickly and efficiently).
+This side is home to the grave zombies! These zombies spawn out of graves without the need to go through windows, instantly being able to kill the player.
+This creates the atmosphere of running through a dense as zombies rise from the graves.
+I had alot of fun making these.
+
+#### Dark Path
+
+The right side of the map contains much less fog and almost no foliage but instead suffers from being much darker, with a candle lit environment creating a darker atmosphere for the player.
+Additionally the playspace is much more condensed, with the player needing to navigate between barrels and crates.
+This side also is home to the Nova Zombie!
+The Nova Zombie spawns the roof tops, crawling down the side of the buildings and teleporting around the map constantly ready to leap on the player.
+This creates an environment where the player never feels safe, looking ahead, below and above at the same time and rarely getting a chance for breath.
+
+#### Watch out!
+
+One final distinction between these two sides are the trap mechanics!
+The left side hosts pressure plates that in turn trigger deadly flames and effects on the right side, buffing any zombie that walks through and hurting any player unwise enough to risk running through them.
+These traps can be seen with the red summoning circles scattered about which become visible when the power is activated.
+They activate for several seconds however, if the player does find themselves in a situation where theyre cornered and need to run through the flames;
+most flames and all pressure plates can be jumped over allowing the player to make a risk/reward decision between leaping through fire or waiting.
+
+#### Risk V Reward
+
+<Media Source={['img_pathing.png']}/>
+
+You might notice most of the trap placements are in areas with multiple means of navigation,
+where the player can decide to either risk running through the trap and then a teammate might step on a pressure plate.
+Or, they can take a much safer navigational choice and not risk getting caught in the flames.
+This design philosophy of "risk/reward" was carried out through most of the map with certain areas being certainly more dangerous,
+but ultimately being more rewarding if the player can succeed in their objective.
+
+The design of Zone 3 additionally plays into this mechanic in a multiplayer environment.
+Where 1 player might travel around into the right side, and 1 might trigger traps on the left side.
+This ultimately creates a unique dynamic where players far apart still need to work together to survive.
+
+Lastly, while the left/right both contain the most pressure plates/trap points, this would lead to solo players not getting challenged.
+So some plates/triggers have been placed across both sides (to a lesser extent) in an aim to make the mechanic challenging with or without friends.
+
+### Referencing
+
+Below are three examples of how I linked unique elements from previous zombies maps and expanded upon them in an attempt to create a fresher experience players can enjoy.
+
+#### Redesign Classic Visuals
+
+<Media Source={['img_comp_tranzit.png']}/>
+
+Ah, the TranZit fog, everyones worst enemy. I wanted to create this dense fog but I realised most players took serious issue with it.
+The "Denizens" (baby zombies can fly at the players) combined with the severe lack of vision were the two main issues presented.
+Firstly, I did not implement the Denizens because ultimately the map already contains three different zombie types and they could potentially render 50% of the map unplayable.
+Secondly, I aimed to lower the intensity of the fog and in turn increase foliage density, so certain areas may be easier to see through and others not so much.
+
+#### Expanding Existing Gameplay Mechanics
+
+<Media Source={['img_trap.png']}/>
+
+Shangri-La is home to several deadly traps that can kill a player who isnt careful in their navigational choices.
+I wanted to expand this by making the traps more punishing.
+Now traps dont kill zombies, instead buffing them like in TranZit, Zombies who walk through the satanic flames explode on death stunning the player and dealing damage.
+Players who get caught in the flame dont instantly die, but the reduced vision as a result of a burn and the damage might ultimately kill them if theyre cornered.
+
+#### Leverage Verticality
+
+<Media Source={['img_vertical.png']}/>
+
+Die Rise is a tall map with steep drops that can kill the player. I wanted to continue this mechanic in Gatekeeper by keeping fall damage on the map.
+For example in the image on the left I aimed to make players decide if they want to take a leap into the darkness below or stay high up in relative safety.
+This is another example of the risk/reward design philosophy used throughout Gatekeeper.
+
+### Urgency at Every Angle
+
+<Media Source={['img_attackangles.png']}/>
+
+In the example above, what may seem like a simple narrow pathway with a single zombie entrance actually turns into a very chaotic area,
+with nova zombies crawling down from the sides of buildings and zombies jumping over walls from below.
+The area may be inviting at first by giving players a short break from the maps chaotic nature with no traps visibile and an easy to grab perk.
+However, players navigating through here are quickly pressured into close combat action with zombies coming from quite literally every direction.
+
+### Loops
+
+<Media Source={['img_maploop.png']}/>
+
+When analysing Call Of Duty Zombies maps I realised most maps have a self looping design (at the macro level),
+where players will often times travel around the environment and then land back in the starting area with new opportunity.
+In Gatekeeper I aimed to continue this as you can see on the left.
+The player begins in Zone 1 on the right, navigates through the map
+(in this example they take the shortest path to the power)
+and now can enter back through to the starting area with access to the Pack-A-Punch through a previously locked door
+(The Pack-A-Punch is a late-game weapon upgrader).
+Players can then re-explore the map with new doors and shortcuts unlocked and with perks now being accessible.
+
+
+#### Balancing Loops
+
+<Media Source={['img_loop.png']}/>
+
+In Call Of Duty Zombies maps there is often safer areas where players will have the opportunity to run in circles and create large hordes of zombies for easy killing.
+Typically, these are large open areas or circular paths with easy navigation.
+This gameplay loop is core to the zombies experience for many players however too many of these opportunities can create a very "easy" map,
+where theres no danger in your navigation through the map.
+On the left is an example of an "un-trainable" area of the map; the red dots are grave spawners, where zombies crawl from the floor,
+the blue is a fire trap and the green is the path a player would aim to take.
+These spawners and traps combined with dense foliage and fog create a very challenging experience for anyone looking for train zombies in this area.
+
+### Progression
+
+Zombies maps typically introduce the player slowly to the environment and its many hazards/rewards and Gatekeeper aimed to continue this trend.
+The map starts out with access only to a pistol/knife and the Quick Revive perk
+(this is something found throughout every Zombies map as the perk is automatically activated without needing power in solo-mode).
+
+#### Communicating Map Progression
+
+<Media Source={['img_comp.png']}/>
+
+As the player gets access to the second zone of the map they get access to a larger area with more doors to protect against zombies, alongside this there is better weapons for purchase.
+I tried to communicate with players and get feedback on what weapons people would prefer access to throughout the early-game.
+This is also where the player is introduced to their first major navigational choice as seen below.
+They act as "mini" versions of the map giving players a taste into what they will encounter down each path.
+The left side begins to increase in fog density as you navigate to the door with pressure plates, and the right side contains traps with much less light coming through the door.
+
+#### Consistency
+
+Zone 3 fully introduces the player to the already established distinct differences of the two sides of the map.
+It also gives the player access to the mystery box which is based on a 50/50 RNG chance that it spawns on the left side or the right side at the start of the game.
+The aim behind this other than keeping consistency with Zombies maps is that it creates an element of replayability.
+This area also introduces players to the Nova Zombie as they begin to traverse down the buildings.
+
+#### Visual Progression
+
+When the player finally navigates to the power the visual language of the map shifts as demonic red lights activate throughout the map and perk machines become accessible.
+This, combined with the Pack-A-Punch being activated and several doors opening up create a sense of progression as the player slowly unlocks new abilities and access throughout the map.
+
+#### Restricting Progression
+
+
+Throughout the map there are several undesirable locations to be in and during testing I found there was little incentive to navigate to these areas.
+
+<Media Source={['img_alley.png']}/>
+
+To combat this, I used feedback from players to rank the perk machines based on value and strength and placed the "best" perks in the hardest to reach locations.
+In the image on the left the perk juggernaut is only accessible through the highest point in the map, with danger coming from above and below.
+
+#### Tutorialisation & Telegraphing
+
+<Media Source={['gif_gameplay.gif']}/>
+
+In the starting area of the map I added a pressure plate that activates the traps found throughout the map, however I did not place any of the traps themselves.
+I instead placed the traps just behind the gate so players could easily see what the pressure plates do without being in any immediate danger.
+
+### Reflection
+
+After release of the map I quickly recieved lots of great feedback from players and have been continuously updating the map to create an experience most players can enjoy.
+
+#### Areas for Improvement
+
+- |**Changes to Lighting --** Players found the map too dark in certain areas creating very challenging experiences. I aimed to create a challenging experience on both sides however I definately took the brightness to the extreme in this regard. I have added a flashlight for players to toggle on/off so players who want a dark experience can keep that atmosphere while players who wish for more visual clarity can enable it!
+- |**Less Extreme FX --** When players triggered traps for the first time there was an explosion of effects on the screens. While this made sense visually, it created a difficult experience in gameplay. I tuned down the FX in response.
+- |**More Weapons --** Players of the modding community enjoy maps that give players new unique experiences and weapons throughout the map. I've been working on adding weapons from other Call Of Duty games and additionally adding buildable weapons with components scattered throughout the map.
+
+#### Takeaways and New Goals
+
+- |**Community Expectations --** Most zombies maps contain easter eggs players can discover and unlock unique rewards ingame.
+I recently added a small easter egg players can complete to unlock a free perk!
+- |**More Playtesting --** Yep, there were bugs! Some players discovered a missing clip and managed to explore outside the map (but shortly died to kill zones I setup for this exact issue). Some other players also discovered a magic lamp that allowed them to stand on an invisible collider and be completely safe from zombies.
+Lastly, some zombies decided to crawl under the map and wait for about a minute before dying. All of these were patched shortly after launch.
+
+<Spacer/>
+
+---
+
+##### Acknowledgements
+
+This is a custom map and is not representative of work by Activision. I do not claim to be an employee of Activision.
+
+##### Copyright
+
+Activision is a registered trademark of Activision Publishing, Inc.
+
+© Activision Publishing, Inc. ACTIVISION, CALL OF DUTY, MODERN WARFARE, CALL OF DUTY MODERN WARFARE, CALL OF DUTY BLACK OPS, the stylized Roman numeral II, CALL OF DUTY GHOSTS, CALL OF DUTY ADVANCED WARFARE, CALL OF DUTY INFINITE WARFARE, and the CALL OF DUTY WORLD LEAGUE Logo are trademarks of Activision Publishing, Inc. All other trademarks and trade names are property of their respective owners.

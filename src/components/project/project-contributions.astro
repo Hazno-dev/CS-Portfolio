@@ -14,13 +14,11 @@ const { project } = {
 const contributions = project.data.projectInfo.contributions;
 ---
 
-<ul class="flex flex-col text-ellipsis">
+<ul class="flex list-inside list-disc flex-col text-ellipsis md:list-outside">
 	{
 		contributions.map((contribution) => (
 			<li>
-				<Text type="paragraph" class="!mt-0">
-					{contribution}
-				</Text>
+				<span class="text-paragraph">{contribution}</span>
 			</li>
 		))
 	}

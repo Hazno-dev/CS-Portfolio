@@ -16,6 +16,7 @@ import MediaGallery from '@components/media/MediaGallery.astro';
 import DateTimeBlock from '@components/text/dateTimeBlock.astro';
 import TextInlineList from '@components/text/TextInlineList.astro';
 import HorizontalRow from '@layouts/structure/horizontal-row.astro';
+import ProjectDescription from '@components/project/ProjectDescription.astro';
 interface Props {
 	project: Project;
 }
@@ -32,10 +33,11 @@ const images = project.Media.Images;
 ---
 
 <article
-	class=`relative inline-flex ${project.isProfessional() ? "min-h-175" : "min-h-145"} max-w-xl overflow-hidden rounded-lg break-words md:rounded-[10px] group/project`>
+	class=`relative inline-flex lg:min-h-150 max-w-xl overflow-hidden rounded-lg break-words md:rounded-[10px] group/project`>
 	<div class="pointer-events-none absolute -z-1 h-full w-full bg-black"></div>
 	<Picture
-		class=`pointer-events-none absolute -z-1 h-full w-full object-cover opacity-25 group-hover/project:opacity-30 scale-101 group-hover/project:scale-100 transition-all duration-500 ease-out`
+		class=`pointer-events-none absolute -z-1 h-full w-full object-cover opacity-25 group-hover/project:opacity-30 scale-101 transition-discrete
+ group-hover/project:scale-100 transition-all duration-500 ease-out`
 		src={project.getCover()}
 		alt=""
 		aria-hidden="true"
@@ -48,23 +50,23 @@ const images = project.Media.Images;
 		<ProjectTitle project={project} />
 		<Spacer />
 		<div class="flex flex-row shrink gap-x-2">
-			<div class="flex flex-col grow basis-[50%] ">
+			<div class="hidden lg:flex flex-col grow basis-[50%]">
 				<ProjectTeam project={project} />
 				<TextPair heading="Tools" type="custom"><ProjectTools project={project} /></TextPair>
 				<TextPair heading="Languages" type="custom"><ProjectLanguages project={project} /></TextPair>
 			</div>
-			<MediaGallery class=`flex-shrink basis-[50%] max-w-1/2 grow-0 aspect-video flex-col place-content-end`>
+			<MediaGallery class=`flex-shrink lg:basis-[50%] lg:max-w-1/2 grow-0 aspect-video flex-col place-content-end`>
 				<!--<div class="flex flex-shrink aspect-video"/>-->
 				{videos.map((video, index) => (index > 0 ? <MediaElement class=`hidden` Source={video}/> : <MediaElement class=`flex shrink grow-0 aspect-video` Source={video} />))}
 
 					{images.map((image) => (<MediaElement class=`hidden` Source={image}/>))}
 			</MediaGallery>
 		</div>
-		<Text type="paragraph" class=`!md:mb-0 line-clamp-5`>{project.data.description}</Text>
+		<ProjectDescription project={project} />
 
-		<HorizontalRow class="mt-4">
-			<TextInlineList contents={project.data.tags}/>
-			<ProjectLinks project={project} class="!mt-0" />
+		<HorizontalRow class="mt-2 flex-col! lg:flex-row!">
+			<TextInlineList contents={project.data.tags} class="self-start" />
+			<ProjectLinks project={project} class="!mt-0 self-end" />
 		</HorizontalRow>
 
 	</div>

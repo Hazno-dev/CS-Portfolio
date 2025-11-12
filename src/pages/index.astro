@@ -92,9 +92,12 @@ const tools = ['Unity', 'UnrealEngine', 'Maya', 'Figma', 'Photoshop'];
 				{personalProjects.map((project) => <ProjectCard project={project} />)}
 			</div>
 		</section>
+		<div class="flex grow flex-row place-items-center px-6 py-2">
+			<Spacer horizontalLine class="grow" />
+		</div>
 		<section>
 			<div
-				class=`flex flex-row flex-wrap justify-between gap-8 lg:*:max-w-[calc(50%-((--spacing(4))))] 2xl:*:max-w-[calc(33.333333%-((--spacing(6))))]`>
+				class=`flex flex-row flex-wrap justify-center md:justify-between gap-8 md:*:max-w-[calc(50%-((--spacing(4))))] 2xl:*:max-w-[calc(33.333333%-((--spacing(6))))]`>
 				{personalCardProjects.map((project) => <ProjectCardSmall project={project} />)}
 			</div>
 		</section>

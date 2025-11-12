@@ -1,0 +1,22 @@
+---
+import { AllComponents } from '@mdx/components.astro';
+import { projects } from '@/content.obtain.ts';
+import type { MarkdownLayoutProps } from 'astro';
+
+if (!Astro.params.project) {
+	throw new Error('Project parameter is missing');
+}
+
+const foundProject = projects.get(Astro.params.project);
+if (!foundProject) {
+	throw new Error(`Project ${Astro.params.project} not found`);
+}
+---
+
+<AllComponents.ul>
+	{
+		foundProject.data.projectInfo.contributions.map((contribution) => (
+			<AllComponents.li>{contribution}</AllComponents.li>
+		))
+	}
+</AllComponents.ul>

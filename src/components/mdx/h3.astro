@@ -1,0 +1,7 @@
+---
+import Spacer from '@components/core/spacer.astro';
+const props = Astro.props;
+---
+
+<h3 {...props} class=`py-3 mt-4 ${props.class ?? ''}`><slot /></h3>
+<Spacer horizontalLine primaryColour />

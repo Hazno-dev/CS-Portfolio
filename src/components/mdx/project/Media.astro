@@ -4,7 +4,7 @@ import MediaElement from '@components/media/MediaElement.astro';
 import MediaGallery from '@components/media/MediaGallery.astro';
 
 interface Props {
-	Media: string[];
+	Source: string[];
 	Horizontal?: boolean;
 }
 
@@ -18,7 +18,7 @@ if (!foundProject) {
 }
 
 const props = Astro.props;
-const foundMedia = foundProject.Media.Find(props.Media);
+const foundMedia = foundProject.Media.Find(props.Source);
 ---
 
 <p>

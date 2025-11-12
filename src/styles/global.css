@@ -98,7 +98,7 @@
 }
 
 @utility content-outer {
-    @apply grow flex-col px-5 py-6 md:flex md:flex-row md:px-10 md:py-10 md:pt-9;
+    @apply grow flex-col px-5 py-6 flex md:flex-row md:px-10 md:py-10 md:pt-9;
 }
 
 @utility content-inner-l {
@@ -118,7 +118,7 @@
 }
 
 @utility text-paragraph {
-    @apply text-secondary-900/90 mt-4 max-w-[70ch] text-sm/6 font-normal;
+    @apply text-secondary-900/90 mt-4 max-w-[70ch] text-sm/6 md:text-base/7.5 font-normal md:font-light;
 }
 
 @utility text-label {
@@ -130,11 +130,11 @@
 }
 
 @utility text-tag {
-    @apply text-secondary-900/60! font-chivo! text-xs! font-thin! drop-shadow! mb-0 ;
+    @apply text-secondary-900/60! font-chivo! text-xs! font-thin! drop-shadow! mb-0 text-shadow-lg/40;
 }
 
 @utility text-tag-heading {
-    @apply text-secondary-900/90 text-xs leading-[1.4rem] font-medium md:text-sm;
+    @apply text-secondary-900/90 text-xs leading-[1.4rem] font-medium md:text-sm text-shadow-lg;
 }
 
 
@@ -145,6 +145,7 @@
 .image-background {
     box-shadow: 0 0 180px 80px var(--color-primary-50) inset;
 }
+
 ul.inline-list {
     display: inline-block;
 }
@@ -274,10 +275,7 @@ ul.inline-list>li:after {
     }
 
     p {
-      @apply text-bsm text-secondary-900;
-        -webkit-font-smoothing: antialiased;
-        font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+      @apply text-bsm text-secondary-900 text-paragraph;
     }
 
     h1 {
@@ -289,11 +287,11 @@ ul.inline-list>li:after {
     }
 
     h3 {
-        @apply text-4xl font-black;
+        @apply text-3xl font-bold;
     }
 
     h4 {
-        @apply text-tag;
+        @apply text-secondary-900/90 text-lg font-medium;
     }
 
     h5 {
@@ -308,11 +306,21 @@ ul.inline-list>li:after {
         @apply text-paragraph;
     }
 
+    strong {
+        @apply text-paragraph font-medium;
+    }
+
     ul {
         @apply list-disc
     }
 
     li {
         @apply text-secondary-900/90 mb-1 max-w-[70ch] text-sm/6;
+    }
+
+    body{
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-smooth: never;
     }
 }

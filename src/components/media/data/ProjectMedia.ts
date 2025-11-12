@@ -67,12 +67,12 @@ export class ProjectMedia {
 
 	public Find(name: string[]): Media[] {
 		const result = new Array<Media>();
-		name.forEach((mediaName) => {
-			const media = this.FindMedia(mediaName);
+		for (let i = 0; i < name.length; i++) {
+			const media = this.FindMedia(name[i]);
 			if (media) {
 				result.push(media);
 			}
-		});
+		}
 
 		return result;
 	}

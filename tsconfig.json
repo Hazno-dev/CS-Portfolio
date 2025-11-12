@@ -22,6 +22,9 @@
       ],
 			"@mdx/*": [
 				"src/components/mdx/*"
+			],
+			"@lib/*": [
+				"src/lib/*"
 			]
     },
     "jsx": "react-jsx",

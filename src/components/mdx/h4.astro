@@ -1,5 +1,11 @@
 ---
+import Spacer from '@components/core/spacer.astro';
 const props = Astro.props;
 ---
 
-<h4 {...props} class=`py-2 mt-4 ${props.class ?? ''}`><slot /></h4>
+<div class="inline-flex w-fit flex-col">
+	<h4 {...props} class=`py-2 mt-3 ${props.class ?? ''}`>
+		<slot />
+	</h4>
+	<Spacer horizontalLine class="md:w-[calc(100%+(10px))]" />
+</div>

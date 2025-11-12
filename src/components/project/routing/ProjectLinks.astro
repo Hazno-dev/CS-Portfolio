@@ -21,9 +21,8 @@ const hasLinks = hasPlatforms || projectLink != null;
 ---
 {
 	hasLinks && (
-	<HorizontalRow class=`mt-6 ${Astro.props.class ?? ''}`>
+	<HorizontalRow class=`mt-6 md:gap-6 ${Astro.props.class ?? ''}`>
 		<ProjectPlatforms project={project} />
-		{hasPage && hasPlatforms && <Spacer verticalLine />}
 		{hasPage && <ProjectLink project={project}>Learn More</ProjectLink>}
 	</HorizontalRow>
 		)

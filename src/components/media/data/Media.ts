@@ -17,15 +17,15 @@ export abstract class Media {
 	protected Alt: string;
 	protected Hidden: boolean;
 
-	protected static Tags = `flex project-media-element border-secondary-1000/10 bg-primary-300 focus:border-secondary-1000/80
+	protected static Tags = `flex w-fit project-media-element border-secondary-1000/10 bg-primary-300 focus:border-secondary-1000/80
 		translate-z-0 transform-none
 		cursor-pointer overflow-hidden border-1 transition-[opacity, scale, width, height, color, background-color, border-color, outline-color, fill, stroke, transform, translate] duration-500 ease-out
 		backface-hidden motion-reduce:transition-none rounded-md
 		hover:border-secondary-1000/80 hover:opacity-100 hover:transform-[scale(1.03)]
 		motion-reduce:hover:transform-none focus:opacity-100 focus:transform-[scale(1.03)]
-		focus:border-secondary-1000/80 motion-reduce:focus:transform-none peer/media-element`;
+		focus:border-secondary-1000/80 motion-reduce:focus:transform-none peer/media-element aspect-video`;
 
-	protected static ATags = `peer img-responsive h-full w-full scale-110 object-cover transition duration-500 ease-out backface-hidden hover:scale-[1.0]
+	protected static ATags = `peer  img-responsive scale-110 object-cover transition duration-500 ease-out backface-hidden hover:scale-[1.0]
 									hover:brightness-100 md:brightness-90 aspect-video`;
 
 	public abstract GetType(): MediaType;
@@ -71,7 +71,16 @@ export class MediaImage extends Media {
 		return `<a 	href=${this.ImageData.src} 
 								class='${Media.Tags} ${Params?.class ?? ''}'
 								${Params ? Params : ''}> 
-			${await Container.renderToString(Picture, { props: { src: this.Source, alt: this.Alt, layout: 'constrained', class: Media.ATags, width: 1280, height: 720 } })}
+			${await Container.renderToString(Picture, {
+				props: {
+					src: this.Source,
+					alt: this.Alt,
+					layout: 'constrained',
+					class: Media.ATags,
+					width: Params?.width ?? 1280,
+					height: Params?.height ?? 720
+				}
+			})}
 		</a>`;
 	}
 }
@@ -98,14 +107,14 @@ export class MediaVideo extends Media {
 					src: this.Thumbnail,
 					alt: this.Alt,
 					class: Media.ATags,
-					width: 1280,
-					height: 720
+					width: Params?.width ?? 1280,
+					height: Params?.height ?? 720
 				}
 			});
 		} else {
 			targetThumbnail = `<img
-				width="300"
-				height="100"
+				width='${Params?.width ?? '1280'}'
+				height='${Params?.height ?? '720'}'
 				class='${Media.ATags}'
 				src='https://img.youtube.com/vi/${this.Source}/maxresdefault.jpg'
 				alt="${this.Alt}"
