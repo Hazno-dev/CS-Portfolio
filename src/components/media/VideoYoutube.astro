@@ -1,0 +1,26 @@
+---
+import { Image } from 'astro:assets';
+import { CldImage } from 'astro-cloudinary';
+interface Props {
+	Target: string;
+}
+
+const { Target } = Astro.props;
+---
+
+<a
+	href=`https://www.youtube.com/watch?v=${Target}`
+	class="project-media-element"
+	data-lg-size="1280-720"
+	data-src=`https://www.youtube.com/embed/${Target}?rel=0&autoplay=0`
+	data-poster=`https://img.youtube.com/vi/${Target}/maxresdefault.jpg`>
+	<Image
+		width={1920}
+		height={1080}
+		src=`https://img.youtube.com/vi/${Target}/maxresdefault.jpg`
+		sizes=`(max-width: 768px) 100vw,
+						(max-width: 1200px) 50vw,
+						30vw`
+		alt=""
+	/>
+</a>

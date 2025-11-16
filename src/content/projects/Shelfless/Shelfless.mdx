@@ -15,10 +15,11 @@ projectInfo: {
   languages: ["C++"],
   tools: ["Unreal Engine", "Rider", "Photoshop", "Maya" ],
   contributions: [
-		"Designed the game mechanics and systems.",
-		"Designed the levels and puzzles.",
-		"Designed the user interface and user experience." ,
-		"Implemented the game mechanics and systems.",
+		"Implemented underlying systems and gameplay mechanics in C++.",
+		"Various textures and 3D assets using Maya, Qubicle/MagicaVoxel, Photoshop and Aseprite.",
+		"Designed and iterated on level design with 2D whiteboards and blockouts.",
+		"Website and promotional material.",
+		"Collaborated with other members to concept gameplay loop, theme and mechanics.",
   ]    
 }
 meta: {
@@ -28,4 +29,179 @@ meta: {
 }
 ---
 
-This is content
+
+### Overview
+
+“Shelfless - 100% Off” is a retro-heist game tasking you with the goal of infiltrating the generic supermarket chain
+known as “GigaMart” and grabbing as many items as possible without being caught by the several defences GigaMart has put in place.
+
+This project was completed for a university coursework alongside 2 other students.
+During the project we followed an agile methodology and regularly ran meetings throughout the weeks to keep track of progress.
+Shelfless was a great opportunity to expand my UE skillset learning AI in C++ and collaborating in group environments using UE.
+
+The project was designed in UE5. All assets excluding audio were designed by the team.
+
+#### Key Contributions
+
+<Contributions/>
+
+### Conceptualising
+
+During the conceptualization phase, we collectively brainstormed ideas and settled on the overall theme and direction of the project.
+The decision to develop a 2.5D shoplifting game was a unique and engaging concept that motivated us,
+allowed us to use the advanced rendering capabilities of UE5 and fit without the projects time constraints.
+This distinctive direction was decided upon to foster a stimulating gameplay experience that would effectively challenge player skills in a never before seen way.
+
+#### Goals
+
+- Develop a basic scene that supports 2.5D gameplay and can be the base of future development
+- Establishing an intuitive navigation system throughout the supermarket, making sure players can easily understand the layout and locate items easily.
+- Collaborate effectively as a team to pool our strengths and skills to successfully complete the project within the timeframe
+- Create a compelling and humorous experience that subtly highlights the complexity of shoplifting without shunning or promoting the act itself.
+- Gameplay needs to be engaging, where players are challenged to sneak, strategize and time their actions to avoid AI detection.
+
+### Referencing
+
+<Media Source={['img_pureref.png', 'img_gameloop.png']} Horizontal />
+
+In the referencing stage of the project, I collated some reference images into a pure-ref board, we analyzed games with 2D and 2.5D perspectives, and studied the design of an interactive supermarket environment.
+The level design of the project was considered, where players would have limited cover from AI staff and cameras, so players will need to be continuously moving to avoid detection.
+In this stage the groundwork of a gameplay loop was set, moving beyond the concept and into gamification.
+
+#### Goals
+
+- Emphasizing the playful tension and urgency in gameplay, similar to the "Papers, Please" experience,
+by incorporating a risk/reward system that encourages the players to continuously steal big-ticket items to pay their rent at the end of each week
+- Designing an environment that resonates with the chosen voxel aesthetic due to the team's skills and time constraints, and to enable faster level development
+- Incorporating a comprehensive visibility system with cameras and AI characters that players need to avoid, driving the players to plan their actions strategically
+- Designing a level with limited cover to challenge players to stay on the move, constantly trying to conceal their stolen items and adding to the challenge and excitement of the game
+- Creating a memorable, visually appealing supermarket environment that feels immersive and intuitive to navigate
+- Designing a gameplay loop that maintains player engagement, blending strategy and quick decision-making with escalating difficulty
+
+### Prototyping
+
+During the prototyping stage, we focused on turning the design goals established in the conceptualizing and referencing phases into a tangible prototype that can serve as a basis for future iteration.
+This involved several key steps:
+
+**Implementation & Design --** In this phase, I worked on the character controller, complete with some rudimentary UI and an inventory system.
+While these were merely placeholders at this stage, they set the foundation for the gameplay mechanics.
+A noteworthy challenge I encountered was ensuring player visibility when the character moved behind objects or structures in the game environment.
+To address this, I designed a system that allowed players to see the character when obfuscated.
+
+Another notable problem encountered in this stage was the camera angle. The goal was to create a viewing perspective that didn't reveal the entire level layout at once,
+so players are constantly moving around, looking over their shoulder to make sure nobody is coming.
+This went through a couple early iterations as too zoomed in left players with little information to strategically navigate and plan actions.
+Additionally, other members worked on AI implementation and generic assets, creating a basic gameplay loop to allow for playtesting and iteration.
+
+<Media Source={['img_blockout.png']} />
+
+**3D Blockout --** Using Unreal Engine 5, I constructed an initial 3D blockout of the map based on the 2D whiteboard layout.
+During this stage, I made several adjustments to better align with the design goals, such as:
+
+- Ensuring correct scaling by using the player character and images as references.
+- Adjusting the positioning of walls and aisles to create a simple,
+but robust layout that allows for strategic navigation and gameplay, aligning with our goals.
+- Thoughtfully positioning the cameras to ensure players are pushed to carefully plan their actions.
+Here I marked the camera locations with a basic actor for future work.
+One area I tried to focus on was creating risk/reward for the player, so areas with high reward items would be in areas with more cameras.
+- Calibrating the size and placement of hiding spots and cover areas,
+balancing the level of challenge offered by the game and realistic constraints of the supermarket setting.
+
+### Feedback & Iteration
+
+The feedback and iteration stage played a crucial role in refining the game's design and ensuring that it effectively met the goals established during the
+conceptualizing, referencing, and prototyping stages.
+The process involved the following steps:
+
+- |**Feedback Gathering --** After sharing images, designs, and the 3D blockout with fellow game designers and players, we received invaluable feedback.
+This input allowed us to identify potential issues with the level design, the pacing, the challenge, and the overall gameplay experience.
+- |**Analysing Challenge and Pacing --** I scrutinized the level layout based on the feedback received,
+concentrating on whether it provided a suitable balance of challenge and pacing for the players.
+I examined aspects such as camera placement, hiding spots, and the visibility system, all vital in creating an engaging shoplifting gameplay experience.
+
+#### Refinement
+
+The insights obtained from feedback and analysis enabled me to refine the 3D blockout and modify certain elements to better meet our design goals. A few notable changes included:
+
+
+<Media Source={['img3.jpg']} />
+
+- |**UI Redesign --** The original UI didn't match the project's aesthetic, leading me to reconsider it from a new angle.
+I decided to treat the camera as a separate entity, akin to a CCTV system, which drastically improved the game visuals and added an intriguing dimension to the gameplay.
+- |**Character and AI Redesign --** The player character received a new 'realistic' pixel-art design that was less cute and more fitting to the game's theme.
+The AI characters were also tweaked, with the introduction of visibility cones that changed color when they detected the player,
+addressing a key frustration point about unclear detection mechanics.
+- |**Detection Meter --** A new feature was introduced to give feedback to the player when they perform poorly - a detection meter located in the bottom left of the screen.
+This meter, represented by the player icon, gradually transitions from grey to red based on the player's suspicious actions in front of staff members or cameras.
+- |**Level Aesthetic and Design --** Based on user feedback and time constraints, the aesthetic and design of the level underwent significant overhaul.
+The new layout incorporated more risk/reward mechanics and allowed us to reduce the project scope to fit within the time constraints,
+while still creating an engaging and challenging experience.
+
+### Implementation
+
+In the implementation phase, the focus was on finalizing the level and game mechanics, and giving the level its final artistic touches.
+This stage consisted of the following steps:
+
+<Media Source={['img_scene1.png', 'img_scene2.png']} Horizontal />
+
+- |**Level Redesign and Art Pass --** The level underwent a redesign as discussed in the feedback and iteration phase, and an art pass was conducted on the level.
+The new assets were designed to match the pixel-art character, using 3D voxels.
+These aesthetic improvements made the level more visually compelling and harmonious with the rest of the game's style.
+- |**Lockdown System --** A critical new mechanic was added - the lockdown system.
+This is triggered when the security guard is alerted, causing a shift in gameplay dynamics from stealth to a tense chase sequence.
+The player must hide from the security guard for a few seconds, after which they must make a mad dash to the exit.
+The fun of implementing this feature was in the creative application of lighting and post-processing to dramatize the transition into lockdown.
+
+<Media Source={['video_chase.mp4']} />
+
+- |**Visual Shift --** During the lockdown, I implemented a visual shift from the ordinary dull whites of the supermarket to a darker, more ominous red hue.
+The frequency of the static effect in the post-processing increases with the player's suspicion level, reaching a peak when detected,
+creating an engaging visual cue for the player's current state.
+- |**Gameplay Refinement --** This stage also involved fine-tuning the game mechanics and AI to strike the right balance in gameplay.
+The camera positions were adjusted, creating high-risk, high-reward zones, such as the electronics section.
+The player is incentivized to steal high-value items like TVs, but this means navigating a heavily surveilled area, adding tension and challenge to the gameplay.
+
+Through the implementation phase, the level evolved from a simple blockout to a visually engaging, mechanically rich environment.
+The changes implemented enriched the gameplay experience, stayed true to our design goals, and heightened the player's sense of risk and reward.
+
+### Reflection
+
+Looking back on this project, there have been significant learnings and achievements, as well as areas identified for further development:
+
+#### Successes
+
+- |**Visuals and Level Design --** The redesigned level has been well received for its aesthetics and overall structure and design.
+It presents a fun and interesting space for players to explore and navigate.
+
+<Media Source={['img2.jpg']} />
+
+- |**CCTV Display UI --** The unique twist of presenting the player's action as a real-time recorded footage adds to the game's narrative and creates a captivating gameplay element.
+- |**Assets --** A highlight from user testing was the awesome visuals of the project!
+- |**Game Concept --** The core concept of Shelfless is one that's unique and interesting, and the idea alone fuelled the energy of our team for most its development.
+
+#### Areas for Improvement
+
+- |**Camera System --** Feedback indicated that the camera system can currently be easily circumvented by stepping out of the line of sight and performing a conceal action.
+This issue needs to be addressed to ensure the system poses a real challenge to players.
+- |**Security Guard AI --** The security guard in the game feels overpowered at the moment, often surprising players due to a lack of warning of his approach.
+Enhancing the indication system for the guard's proximity will balance the challenge and reduce player frustration.
+- |**Lockdown System --** The current implementation of the lockdown system triggers too quickly and suddenly, leaving players with insufficient reaction time.
+This can lead to confusion and a negative gameplay experience.
+
+#### Takeaways and New Goals
+
+- |**Refine the Lockdown Mechanic --** The objective is to create a high adrenaline escape experience akin to games like Hitman rather than an instant failure state.
+By refining the lockdown system to provide players with enough time to react, the game can become more engaging and satisfying.
+- |**Improve Risk/Reward Balance --** The current level design doesn't adequately reward players for taking bigger risks.
+In future iterations, the design needs to better communicate the value of loot to players,
+and the camera system should pose a significant challenge to make high-risk zones truly high-risk.
+
+<Spacer/>
+
+---
+
+##### Acknowledgements
+
+Shelfless: 100% Off was developed in collaboration with these talented individuals:
+- Bill Coxon
+- Kyle Paton

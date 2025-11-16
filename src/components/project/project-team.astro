@@ -26,7 +26,7 @@ const data = project.getTeamData();
 	<TextPair heading="Role" class={(attrs.class ?? '')}>{project.data.role}</TextPair>
 }
 {data.logo &&
-	<div class="grid col-span-2 grid-cols-2 gap-4">
+	<div class="grid col-span-2 grid-cols-2 gap-4 z-1">
 
 		<div class=`grid grid-cols-1 gap-2`>
 			<TextPair heading="Position" class={(attrs.class ?? '')}>{project.data.role}</TextPair>
@@ -34,7 +34,7 @@ const data = project.getTeamData();
 		</div>
 		{data.link &&
 			<div class="h-23">
-			<a href={data.link} target="_blank" rel="noreferrer" class="inline-block">
+			<a href={data.link} target="_blank" rel="noreferrer" class="inline-block pointer-events-auto">
 				<Picture src={data.logo} alt={data.name} class="button-opacity h-22 w-auto object-contain" />
 			</a>
 

@@ -41,5 +41,13 @@ export default defineConfig({
 	},
 	server: {
 		host: true
+	},
+	image: {
+		service: {
+			entrypoint: 'astro/assets/services/sharp',
+			config: {
+				limitInputPixels: false
+			}
+		}
 	}
 });

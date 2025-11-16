@@ -1,5 +1,5 @@
 import type { InferEntrySchema } from 'astro:content';
-import { Media, MediaImage, MediaVideo } from '@components/media/data/Media.ts';
+import { Media, MediaImage, MediaVideo, MediaYoutube } from '@components/media/data/Media.ts';
 import type { integer } from 'vscode-languageserver-types';
 
 export class ProjectMedia {
@@ -105,11 +105,29 @@ export class ProjectMedia {
 
 	private GenerateVideoMeta() {
 		this.Data.videos.forEach((video) => {
-			const newVideo = new MediaVideo(video);
-			this.Lookup.set(video.src, newVideo);
-			if (!newVideo.IsHidden) {
-				this.VisibleVideos.push(newVideo);
+			const srcIndex = video.src.lastIndexOf('.');
+			const srcExtension = srcIndex != -1 ? video.src.substring(srcIndex + 1) : null;
+			if (!srcExtension) {
+				const newVideo = new MediaYoutube(video);
+				this.Lookup.set(video.src, newVideo);
+				if (!newVideo.IsHidden) {
+					this.VisibleVideos.push(newVideo);
+				}
+
+				return;
 			}
+
+			const lowerSrcExtension = srcExtension.toLowerCase();
+			if (lowerSrcExtension == 'mp4' || lowerSrcExtension == 'webm') {
+				const newVideo = new MediaVideo(video, lowerSrcExtension);
+				this.Lookup.set(video.src, newVideo);
+				if (!newVideo.IsHidden) {
+					this.VisibleVideos.push(newVideo);
+				}
+				return;
+			}
+
+			throw new Error(`Unsupported video format: ${srcExtension}`);
 		});
 	}
 }

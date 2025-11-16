@@ -1,0 +1,25 @@
+---
+import { CldImage } from 'astro-cloudinary';
+import type { CollectionEntry } from 'astro:content';
+import { GetDimensions } from '@components/media/data/CDN.ts';
+
+interface Props {
+	Target: CollectionEntry<'cdnImages' | 'cdnVideos' | 'cdnRaw'>;
+}
+
+const { Target } = Astro.props;
+const Dimensions = GetDimensions(Target);
+---
+
+<a href={Target.data.secure_url} class="project-media-element">
+	<CldImage
+		width={Dimensions.Width}
+		height={Dimensions.Height}
+		src={Target.data.public_id}
+		crop="fill"
+		sizes=`(max-width: 768px) 100vw,
+						(max-width: 1200px) 50vw,
+						30vw`
+		alt={Target.data.context?.custom?.alt || ''}
+	/>
+</a>

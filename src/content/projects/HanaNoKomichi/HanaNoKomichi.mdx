@@ -24,67 +24,117 @@ meta: {
 }
 ---
 
-import Media from "@mdx/media.astro";
+### Overview
 
-#### Responsibilities & Goals
+For Hana No Komichi I aimed to transition the existing Overwatch map Hanamura from assault to the hybrid gamemode as all assault modes will be removed in Overwatch 2.
+I strived to merge existing design conventions found through Overwatch's diverse map roster into a coherent level with a natural flow as the player navigates through distinct regions of Kyoto.
 
-<Media Project="TheFabryka" Media={['img2.png']} />
+<Media Source={['img_pointa.png']} />
 
-- Designed and built the environment in Unreal Engine 4.
-- Iterated and changed elements based on player feedback.
-- Designed the environment to fit into the gameplay flow of Dead By Daylight.
+Unfortunately, Overwatch does not support a map editor,
+so while developing Hana No Komichi I took into consideration feedback from other level designers and Overwatch players in order to craft the best possible level.
 
----
-#### Conceptualizing
+#### Key Contributions
 
-<Media Project="TheFabryka" Media={['img_mapoverview.png']} />
+<Contributions/>
 
-When I begin designing a level, I first conceptualize a general theme/narrative, collate references, and then construct a series of objectives based around it and the game it's designed for. With The Fabryka I wanted a disjointed, moody environment in a post apocalyptic world and my objectives partially reflect that. Additionally I wanted to build upon feedback and lessons learnt from my previous 2 Dead By Daylight maps to craft my best level yet.
+### Planning
 
-I wanted to design a level that truly embraces the diversity in gameplay Dead By Daylight has and I believe these objectives set out achieve that vision.
+<Media Source={['img_pureref.png']} />
 
-##### Design goals
+Overwatch Hybrid maps typically have 3 distinct themes and styles throughout each of the areas in the map.
+Prior to blockout I collated a series of reference images from Kyoto and the existing Overwatch maps Hanamura and Kanezaka.
 
-- Design a map that contains traditional Dead By Daylight design elements such as "high wall" tiles.
-- Design a map that balances horizontal and vertical mobility.
-- Implement well-received design changes from previous maps.
-- Create balanced loops across the map, with engaging outplay opportunities from both the survivor & killer.
-- Ensure the diverse playstyles of Dead By Daylight can all be utilized.
+### Design Discussion
 
----
-#### Embracing diverse playstyles
+<Media Source={['blockout.gif']} />
 
-In my previous map "The Red District", due to the dense urban environment it was designed in, the map featured no traditional high-wall loops for survivors and killers. This resulted in ranged killers being considerably stronger due to their inherent ability to injure survivors over walls. Killers that relied on "mindgames" were often left with little counter play to survivors.
+Hana No Komichi ("Flower Path") takes players into Kyoto as they journey through the city exploring the modern urban
+environments of tomorrow and discovering the traditional architecture of the Shimada Castle.
 
-In The Fabryka I made the intentional decision to implement tall wall tiles to better suit a game with such a diverse roster of characters and abilities. Combining this with a variety of "short wall" structures means both ranged, and basic attack killers can have a more fun experience depending on their movement choices.
+By analysing and following design conventions found throughout Overwatch's current map rotation and using player feedback
+on what makes a map "good" and "bad" I set out a series of guidelines to follow when designing this map:
+(Note. In designing this map alot of smaller decisions and guidelines were set out, this only aims to discuss the most notable of them)
 
----
-#### Verticality creates new gameplay opportunity
+#### Goals
 
-With The Fabryka I really aimed to make the map as vertical as possible, adding to the original vision of a disjointed environment as the player constantly changes in elevation.
+- Design a map that remains consistent with other hybrid mode maps in Overwatch.
+- Balance chokepoints for both sides and enabling the "tug of war" gameplay found at them.
+- Design a map that fits into the Overwatch 2 design format of more cover-based gameplay and balancing this cover.
+- Design a map which enables a variety of playstyles and characters.
+- Ensure the spawns remain balanced for both attackers/defenders.
+- Enablling a positive flow throughout the level.
+- Implement existing designs found throughout Overwatch maps.
 
-The increased verticality of the map also opens up new gameplay opportunities for players. Perks such as balanced landing become incredibly useful tools on this map, ranged killers gain a wider view and killers such as blight have more of the environment to utilize. One of the biggest pieces of feedback from "The Red District" was the map was too flat, so I made sure to amp up the verticality here without it feeling obtrusive like in "The Encampment". In that map, the verticality was too gradual, and it resulted in killers like Doctor having a reduced playspace.
+### Cohesiveness Within Overwatch
 
----
-#### Adding more movement options horizontally
+<Media Source={['img_mapoverview.png']} />
 
-An objective with this map was to implement more debris and obstructions in the map across larger, and smaller paths. I believe this resulted in players feeling like they have more agency over their movement, not just walking around an empty plane like "The Red District".
+Hana No Komichi consists of a similar structure to other hybrid modes. The first point A is a capture point, with a chokepoint placed just before.
+Then the capture point activates a payload which navigates to B and C, breaking the map into 3 distinct zones.
 
-Adding extra debris around the map also served to give more opportunity to survivors to dodge projectiles and certain killer powers, while also allowing killers like The Blight to further utilize their heavy environment based abilities.
+#### Consistent Spawns
 
----
-#### Flipping established gameplay mechanics.
+In order to keep the mode balanced the spawn points for attackers and defenders changes as the objective reaches checkpoints.
+Attackers spawn points are moved closerwhile defenders are moved further back to the final objective.
+This is to ensure players are not running large stretches of nothing and are always closer to the action at the objective.
+Spawn points have also been designed to help prevent spawn camping by placing LOS blockers between spawn exits.
 
-Expanding upon a previously well-received basement rework. I aimed to make the basement even more of an integral part of the level. Instead of being an easy place to stand still, secure kills and being challenging to reach for killer; The new (new) basement acts as a more dynamic part of the level.
+### Tug Of War Chokes
 
-With this new basement, killers can easily reach the hooks and place survivors in less than ideal situations, while also reducing the effectiveness of multi-person camping and giving survivors slightly more tools to escape from a deadly basement situation. I believe these changes will ultimately make the basement a more engaging and challenging area for both killers and survivors.
+<Media Source={['img_choke1.png', 'img_choke2.png']} Horizontal />
 
----
-#### Redesigning an iconic structure
+In the screenshot above, you can see choke leading into objective A.
+It's a challenging choke for both attackers and defenders, with only a car offering cover (similar to Kings Row),
+however it offers multiple points of attack for the attackers and defenders.
+The bridge gives high ground to the team that can secure it and contains multiple routes up to it from both the defenders and attackers side.
 
-The Shack is an iconic Dead By Daylight structure. It features an "L" wall with a strong vault opportunity for survivors, and a "god" pallet. In this rework I wanted to elevate the structure by removing the god pallet and giving both killers and survivors more opportunity to mindgame.
+There are also side loops for players enabling the push/pull gameplay so prevalent in objective capture modes on Overwatch
+and giving the player agency over whether they interact with the main choke or take an alternative flanking route.
 
-In line with the design approach and objectives of this map, the shack also receives verticality. This allows killers to potentially drop down on an unaware survivor running the structure, and also give survivors that equal chance to escape upstairs and use perks such as balanced landing! (For those unaware, balanced landing gives players a speed boost for dropping from a height)
+### Breaking LOS
+
+<Media Source={['img_los1.png', 'img_los3.png']} Horizontal />
+
+In Overwatch 2 the game has seen a massive shift from team based shield dependancy to a more brawly, cover based shooter.
+To accomidate these changes throughout the map I incorporated more cover than what could typically be seen throughout an Overwatch 1 map.
+I aimed to add cover scattered throughout the level to break large open playspaces allowing players to slowly advance utilizing the map geometry in their gameplay.
+I also used foliage to break LOS, something commonly found in Hanamura.
+
+A clear exception to this influx of cover is the payload road, which is limited in cover offering a risk/reward for players closer to the objective.
+
+### Supporting Varied Playstyles
+
+Overwatch offers a diverse roster of heroes with different movement abilities, ranges and playstyles.
+I aimed to craft areas that compliment different abilities and playstyles, while still largely remaining accessible for all heroes.
+
+On the right is a few images, firstly a more open flanking route which also serves as a great spot for a sniper with open areas accessible.
+This area can also be dangerous however, with it being easily diveable from players just a ledge away; creatng risk/reward situations.
+
+In the second image is a shortcut players with mobility tools can utilize to quickly get access to flanking routes,
+however gaps in the buildings enable defenders to spot flankers if they dont move carefully.
+
+In the last image I created a spot to the left of objective A, just behind the chokepoint which can enable snipers and support players with LOS to the street and bridge area.
+Players here need to be mindful of the surrounding cover to ensure theyre in a safe position when healing as there are multiple sniper locations from attackers.
+
+### Progression
+
+<Media Source={['img_mapoverview2.png']} />
+
+Overwatch hybrid maps typically break the level into 3 distinct zones each with their own personality.
+In Hana No Komichi I aimed to slowly transition the player from an urban modern environment to traditional architecture.
+This can help create a flow for the player and keep the level fresh visually.
+It additionally served to create new gameplay opportunities,
+with buildings in the C zone allowing for more vantage points through the buildings natural architecture and giving the area a more open playspace.
+Zone A on the other hand creates a more condensed playspace with tall buildings encapsulating the players.
+
+#### Progression With Verticality
+
+<Media Source={['img_pointb_snap.png', 'img_finalpoint_goldenpath.png']} Horizontal />
+
+In Hana No Komichi I aimed to create a sense of progression as attackers slowly fight an "uphill battle".
+This naturally gives defenders a height advantage and creates a positive flow as attackers gain new vantage points as they progress throughout the level.
+I also aimed to make the changes in height mostly flat angles, to avoid "head peaks" where its challenging for both sides to make out players.
 
 <Spacer/>
 

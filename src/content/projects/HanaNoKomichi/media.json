@@ -14,15 +14,15 @@
 			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
 		},
 		{
-			"src": "img2.png",
+			"src": "img_pointa.png",
 			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
 		},
 		{
-			"src": "img3.png",
+			"src": "img_los1.png",
 			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
 		},
 		{
-			"src": "img4.png",
+			"src": "img_los2.png",
 			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
 		},
 		{
@@ -30,19 +30,19 @@
 			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
 		},
 		{
-			"src": "img6.png",
+			"src": "img_los3.png",
 			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
 		},
 		{
-			"src": "img7.png",
+			"src": "img_reinscale.png",
 			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
 		},
 		{
-			"src": "img8.png",
+			"src": "img_finalpoint_sniper.png",
 			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
 		},
 		{
-			"src": "img9.png",
+			"src": "img_flank_void.png",
 			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
 		},
 		{
@@ -50,15 +50,19 @@
 			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
 		},
 		{
-			"src": "img11.png",
+			"src": "img_pointb_snap.png",
 			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
 		},
 		{
-			"src": "img12.png",
+			"src": "img_choke2.png",
 			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
 		},
 		{
-			"src": "img13.png",
+			"src": "img_finalpoint_goldenpath.png",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+		},
+		{
+			"src": "img_choke1.png",
 			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
 		},
 		{
@@ -75,6 +79,11 @@
 		},
 		{
 			"src": "img1_blur.jpg",
+			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"hidden": true
+		},
+		{
+			"src": "blockout.gif",
 			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
 			"hidden": true
 		}

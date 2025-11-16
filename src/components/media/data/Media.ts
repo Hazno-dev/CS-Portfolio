@@ -87,6 +87,50 @@ export class MediaImage extends Media {
 
 export class MediaVideo extends Media {
 	private ImageData: GetImageResult | undefined = undefined;
+	private Extension: string = '';
+
+	protected static IconTags = `opacity-60 md:opacity-50 md:group-hover/project:opacity-60 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+					transition-opacity duration-200 ease-in-out pointer-events-none peer-hover:opacity-80!`;
+
+	constructor(media: any, extension: string) {
+		super(media);
+		this.Extension = extension;
+	}
+
+	GetType(): MediaType {
+		return MediaType.Youtube;
+	}
+
+	async GetHtml(Params?: HTMLAttributes<'image'>): Promise<any> {
+		let targetThumbnail: string;
+		if (this.Thumbnail == undefined) {
+			throw new Error(`Thumbnail is undefined for video: ${this.Source}`);
+		}
+
+		targetThumbnail = await Container.renderToString(Picture, {
+			props: {
+				src: this.Thumbnail,
+				alt: this.Alt,
+				class: Media.ATags,
+				width: Params?.width ?? 1280,
+				height: Params?.height ?? 720
+			}
+		});
+
+		return `<a	data-lg-size="1280-720"
+								data-video='{"source": [{"src":"/${this.Source}", "type":"video/${this.Extension}"}], "attributes": {"preload": false, "playsinline": true, "controls": true}}'
+								data-poster='${this.Thumbnail.src}'
+								data-sub-html="${this.Alt}"
+								class='${Media.Tags} ${Params?.class ?? ''}'
+								${Params ? Params : ''}> 
+			${targetThumbnail}
+			${await Container.renderToString(Icon, { props: { name: 'play', title: 'Play', size: '30', class: MediaVideo.IconTags } })}
+		</a>`;
+	}
+}
+
+export class MediaYoutube extends Media {
+	private ImageData: GetImageResult | undefined = undefined;
 
 	protected static IconTags = `opacity-60 md:opacity-50 md:group-hover/project:opacity-60 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
 					transition-opacity duration-200 ease-in-out pointer-events-none peer-hover:opacity-80!`;
@@ -128,7 +172,7 @@ export class MediaVideo extends Media {
 								class='${Media.Tags} ${Params?.class ?? ''}'
 								${Params ? Params : ''}> 
 			${targetThumbnail}
-			${await Container.renderToString(Icon, { props: { name: 'play', title: 'Play', size: '30', class: MediaVideo.IconTags } })}
+			${await Container.renderToString(Icon, { props: { name: 'play', title: 'Play', size: '30', class: MediaYoutube.IconTags } })}
 		</a>`;
 	}
 }

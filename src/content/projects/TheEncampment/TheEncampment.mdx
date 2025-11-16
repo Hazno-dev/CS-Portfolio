@@ -1,7 +1,7 @@
 ---
 slug: "TheEncampment"
 title: "The Encampment"
-description: "A Dead By Daylight® Custom Map. The Fabryka was one of humanities last remaining outposts during the conflict. Until one night, once again, the residents found themselves awoken by the blazing sounds of raid sirens; Only this time there was nowhere left to run."
+description: "Enter the old abandoned village, once occupied by Charlotte and Victor, now on the brink of collapse. The Encampment is a \"Twins\" inspired Dead By Daylight® Custom Map."
 dateStart: 2021-06-01
 dateEnd: 2021-07-17
 tags: ["Unreal Engine 4", "Custom Map"]
@@ -12,10 +12,8 @@ projectInfo: {
   languages: ["C++"],
   tools: ["Unreal Engine", "Rider"],
   contributions: [
-		"Designed the game mechanics and systems.",
-		"Designed the levels and puzzles.",
-		"Designed the user interface and user experience." ,
-		"Implemented the game mechanics and systems.",
+		"Designed an environment which fits into gameplay flow of Dead By Daylight, in Unreal Engine 5.",
+		"Iterated design based upon player feedback.",
   ]    
 }
 meta: {
@@ -25,70 +23,88 @@ meta: {
 }
 ---
 
-import Media from "@mdx/media.astro";
+### Overview
 
-#### Responsibilities & Goals
+The Encampment is designed to fit into the Dead By Daylight gameplay cycle and steps were taken during development to ensure the map would play well.
 
-<Media Project="TheFabryka" Media={['img2.png']} />
+While this map is purely a solo project, efforts were made to communicate to players and get feedback on tiles and elements of the map to ensure gameplay would be enjoyable.
+Comparisons were also made against other maps in Dead By Daylight to ensure the map scaled correctly in size.
 
-- Designed and built the environment in Unreal Engine 4.
-- Iterated and changed elements based on player feedback.
-- Designed the environment to fit into the gameplay flow of Dead By Daylight.
+#### Key Contributions
+
+<Contributions/>
+
+### Design Discussion
+
+The Encampment is set in an abandoned village, transporting players into the cold countryside where they must navigate through the fog and mist, avoiding the killer at all costs.
+
+By analysing and following design conventions found throughout Dead By Daylights current map rotation and using
+player feedback on what makes a map "good" and "bad" I set out a series of guidelines to follow when designing this map:
+
+#### Goals
+
+- Design a map not compressed into narrow paths, opting for a more "open" style map.
+- Design a map large enough so the killer cannot reach both sides of the map too quickly while not being a daunting task.
+- Provide a central "hub" of the map where all paths can lead.
+- Allow for vertical movement, otherwise certain abilities will not be functional.
+- Spacing generators, hooks, pallets, exit gates and windows consistently so players are not compressed into small areas of the map.
+- Offering both "strong" and "weak" interactive loops for survivors.
+- Creating "Deadzones" (Areas where there are little or no resources for the survivor) while promoting survivors to enter these areas with generators.
+
+### ~~Compression~~ & Expansion
+
+<Media Source={['img5.png']} />
+
+Unlike The Red District, The Encampment offers lots of free movement as it is less focused on tighter pathways intertwining.
+Based on player feedback from images, the overwhelming consensus was large open maps provide more varied playstyle; allowing killers the opportunity to cut off survivors and survivors more freedom during chases.
+
+#### Environmental Storytelling
+
+The dark, moody ambience combined with the various derelict thatched buildings aimed to create a sense of isolation for players.
+Ideally, if this map was implemented as a fully playable map, the ambient sound would mimic the British countryside; featuring distant animal calls, rustling leaves and light wind.
+
+The map also connects to existing Dead By Daylight characters "The Twins" with a series of small Easter eggs players can find throughout the map.
+
+
+### Cohesion in Dead By Daylight
+
+#### Map Size
+
+<Media Source={['img_maplength.png']} />
+
+The distance between the furthest 2 generators on The Encampment is actually smaller than that of The Red District. This compares to be one of the "smallest" generator distances in Dead By Daylight.
+It's made up by the fact navigating across to these generators can often mean navigating around obstacles, meaning you are more likely to encounter survivors and initiate chases.
+
+#### Landmarks
+
+<Media Source={['img3.png']} />
+
+Providing a landmarks is important for players to orient themselves on the map, as well as providing a great vista and setting the mood of the environment.
+
+The Encampment features a burning windmill. This acts both as a key landmark and also the maps central hub.
+It's accessible in three directions, provides a vista for almost the entire map and provides additional verticality.
+This area is a "Dead Zone" though, so there's a risk/reward to survivors venturing to it.
+
+### Gameplay Variation
+
+<Media Source={['img4.png']} />
+
+The Encampment offers a variety of unique tiles and structures not found on any other Dead By Daylight map.
+These new tiles contain both weak elements such as the tall walls and unsafe pallets,
+but also allow the survivor to "loop" the killer around by using the stronger windows in conjunction.
+This tile allows for a varied playstyle, and every player can adapt to it uniquely.
+
+<Spacer/>
 
 ---
-#### Conceptualizing
 
-<Media Project="TheFabryka" Media={['img_mapoverview.png']} />
+##### Acknowledgements
 
-When I begin designing a level, I first conceptualize a general theme/narrative, collate references, and then construct a series of objectives based around it and the game it's designed for. With The Fabryka I wanted a disjointed, moody environment in a post apocalyptic world and my objectives partially reflect that. Additionally I wanted to build upon feedback and lessons learnt from my previous 2 Dead By Daylight maps to craft my best level yet.
+This is a custom map and is not representative of work by Behaviour Interactive. I do not claim to be an employee of Behaviour Interactive.
 
-I wanted to design a level that truly embraces the diversity in gameplay Dead By Daylight has and I believe these objectives set out achieve that vision.
-
-##### Design goals
-
-- Design a map that contains traditional Dead By Daylight design elements such as "high wall" tiles.
-- Design a map that balances horizontal and vertical mobility.
-- Implement well-received design changes from previous maps.
-- Create balanced loops across the map, with engaging outplay opportunities from both the survivor & killer.
-- Ensure the diverse playstyles of Dead By Daylight can all be utilized.
+I do not claim to have created or modelled any of the assets shown on this map.
 
 ---
-#### Embracing diverse playstyles
-
-In my previous map "The Red District", due to the dense urban environment it was designed in, the map featured no traditional high-wall loops for survivors and killers. This resulted in ranged killers being considerably stronger due to their inherent ability to injure survivors over walls. Killers that relied on "mindgames" were often left with little counter play to survivors.
-
-In The Fabryka I made the intentional decision to implement tall wall tiles to better suit a game with such a diverse roster of characters and abilities. Combining this with a variety of "short wall" structures means both ranged, and basic attack killers can have a more fun experience depending on their movement choices.
-
----
-#### Verticality creates new gameplay opportunity
-
-With The Fabryka I really aimed to make the map as vertical as possible, adding to the original vision of a disjointed environment as the player constantly changes in elevation.
-
-The increased verticality of the map also opens up new gameplay opportunities for players. Perks such as balanced landing become incredibly useful tools on this map, ranged killers gain a wider view and killers such as blight have more of the environment to utilize. One of the biggest pieces of feedback from "The Red District" was the map was too flat, so I made sure to amp up the verticality here without it feeling obtrusive like in "The Encampment". In that map, the verticality was too gradual, and it resulted in killers like Doctor having a reduced playspace.
-
----
-#### Adding more movement options horizontally
-
-An objective with this map was to implement more debris and obstructions in the map across larger, and smaller paths. I believe this resulted in players feeling like they have more agency over their movement, not just walking around an empty plane like "The Red District".
-
-Adding extra debris around the map also served to give more opportunity to survivors to dodge projectiles and certain killer powers, while also allowing killers like The Blight to further utilize their heavy environment based abilities.
-
----
-#### Flipping established gameplay mechanics.
-
-Expanding upon a previously well-received basement rework. I aimed to make the basement even more of an integral part of the level. Instead of being an easy place to stand still, secure kills and being challenging to reach for killer; The new (new) basement acts as a more dynamic part of the level.
-
-With this new basement, killers can easily reach the hooks and place survivors in less than ideal situations, while also reducing the effectiveness of multi-person camping and giving survivors slightly more tools to escape from a deadly basement situation. I believe these changes will ultimately make the basement a more engaging and challenging area for both killers and survivors.
-
----
-#### Redesigning an iconic structure
-
-The Shack is an iconic Dead By Daylight structure. It features an "L" wall with a strong vault opportunity for survivors, and a "god" pallet. In this rework I wanted to elevate the structure by removing the god pallet and giving both killers and survivors more opportunity to mindgame.
-
-In line with the design approach and objectives of this map, the shack also receives verticality. This allows killers to potentially drop down on an unaware survivor running the structure, and also give survivors that equal chance to escape upstairs and use perks such as balanced landing! (For those unaware, balanced landing gives players a speed boost for dropping from a height)
-
----
-#### Acknowledgements
 
 ##### Copyright
 © 2015–2025 and BEHAVIOUR, DEAD BY DAYLIGHT and other related trademarks and logos belong to Behaviour Interactive Inc. All rights reserved.

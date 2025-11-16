@@ -1,4 +1,5 @@
 import { z, reference, defineCollection } from 'astro:content';
+import { cldAssetsLoader, type CloudinaryAssetsLoaderOptions } from 'astro-cloudinary/loaders';
 import { glob } from 'astro/loaders';
 
 const projectCollection = defineCollection({
@@ -61,7 +62,8 @@ const projectMedia = defineCollection({
 				z.object({
 					src: z.string(),
 					alt: z.string(),
-					thumbnail: z.preprocess((val) => './media/' + val, image()).optional()
+					thumbnail: z.preprocess((val) => './media/' + val, image()).optional(),
+					hidden: z.boolean().optional()
 				})
 			),
 			images: z.array(
@@ -74,7 +76,33 @@ const projectMedia = defineCollection({
 		})
 });
 
+const cdnOptions: CloudinaryAssetsLoaderOptions = {
+	context: true,
+	tags: true,
+	moderation: true,
+	metadata: true
+};
+
 export const collections = {
 	project: projectCollection,
-	media: projectMedia
+	media: projectMedia,
+
+	cdnImages: defineCollection({
+		loader: cldAssetsLoader({
+			...cdnOptions,
+			resourceType: 'image'
+		})
+	}),
+	cdnVideos: defineCollection({
+		loader: cldAssetsLoader({
+			...cdnOptions,
+			resourceType: 'video'
+		})
+	}),
+	cdnRaw: defineCollection({
+		loader: cldAssetsLoader({
+			...cdnOptions,
+			resourceType: 'raw'
+		})
+	})
 };

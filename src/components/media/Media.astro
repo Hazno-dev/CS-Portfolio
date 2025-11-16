@@ -1,0 +1,25 @@
+---
+import cdnAssets from '@/content.cdn.ts';
+import Image from '@components/media/Image.astro';
+import Video from '@components/media/Video.astro';
+import VideoYoutube from '@components/media/VideoYoutube.astro';
+import type { MediaProps } from '@components/media/data/CDN.ts';
+
+interface Props extends MediaProps {
+	Source: string;
+}
+
+const { Source } = Astro.props;
+const Target = cdnAssets.get(Source);
+---
+
+{
+	Target && (
+		<>
+			{Target.data.resource_type === 'image' && <Image Target={Target} />}
+			{Target.data.resource_type === 'video' && <Video Target={Target} />}
+		</>
+	)
+}
+
+{Source.startsWith('youtube/') && <VideoYoutube Target={Source.substring(8)} />}

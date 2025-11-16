@@ -1,0 +1,41 @@
+---
+import { CldImage, CldVideoPlayer } from 'astro-cloudinary';
+import type { CollectionEntry } from 'astro:content';
+import { GetDimensions } from '@components/media/data/CDN.ts';
+
+interface Props {
+	Target: CollectionEntry<'cdnImages' | 'cdnVideos' | 'cdnRaw'>;
+}
+
+const { Target } = Astro.props;
+const Dimensions = GetDimensions(Target);
+---
+
+<a
+	href=""
+	class="project-media-element"
+	data-lg-size="1280-720"
+	data-video=`{"source": [{"src":"${Target.data.url}", "type":"video/mp4"}], "attributes": {"preload": false, "playsinline": true, "controls": true}}`
+	data-sub-html={Target.data.context?.custom?.alt || ''}>
+	<CldImage
+		width={Dimensions.Width}
+		height={Dimensions.Height}
+		src={Target.data.public_id}
+		crop="fill"
+		sizes=`(max-width: 768px) 100vw,
+						(max-width: 1200px) 50vw,
+						30vw`
+		alt={Target.data.context?.custom?.alt || ''}
+		assetType="video"
+	/>
+</a>
+
+<!--<CldVideoPlayer
+	width={Dimensions.Width}
+	height={Dimensions.Height}
+	src={Target.data.public_id}
+	bigPlayButton={true}
+	muted={true}
+	loop={true}
+	pictureInPictureToggle={true}
+/>-->
