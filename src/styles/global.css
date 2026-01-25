@@ -31,6 +31,7 @@
     --color-fade-secondary-black: hsla(var(--colour-fade-secondary-black));
 
     --color-accent: hsl(var(--colour-accent));
+    --color-dark-accent: hsl(0deg 0% 4%);
 
     --container-1\/2: 50%;
     --container-1\/3: 33.333333%;
@@ -143,7 +144,7 @@
 }
 
 .image-background {
-    box-shadow: 0 0 180px 80px var(--color-primary-50) inset;
+    box-shadow: 0 0 180px 80px var(--color-dark-accent) inset;
 }
 
 ul.inline-list {
@@ -227,29 +228,6 @@ ul.inline-list>li:after {
     }
 
     :root,
-    html[data-theme="dark"] {
-        --colour-primary-0: 0deg 0% 0%;
-        --colour-primary-50: 0deg 0% 4%;
-        --colour-primary-100: 0deg 0% 7%;
-        --colour-primary-200: 0deg 0% 12%;
-        --colour-primary-300: 0deg 0% 17%;
-
-        --colour-secondary-1000: 60deg 11% 100%;
-        --colour-secondary-900: 60deg 10% 90%;
-        --colour-secondary-800: 60deg 3% 55%;
-        --colour-secondary-700: 60deg 2% 44%;
-
-        --colour-accent: 10deg 50% 50%;
-
-        --colour-fade-primary-white: var(--colour-secondary-1000) / 0.15;
-        --colour-fade-secondary-white: var(--colour-secondary-1000) / 0.10;
-
-        --colour-fade-primary-black: var(--colour-primary-0) / 0.15;
-        --colour-fade-secondary-black: var(--colour-primary-0) / 0.10;
-
-        @apply antialiased font-sb bg-primary-100 text-secondary-900;
-        color-scheme: dark;
-    }
     html[data-theme="light"] {
         --colour-primary-0: 0deg 0% 100%;
         --colour-primary-50: 60deg 10% 95%;
@@ -272,6 +250,30 @@ ul.inline-list>li:after {
 
         @apply antialiased font-sb bg-primary-100 ;
         color-scheme: light;
+    }
+
+    html[data-theme="dark"] {
+        --colour-primary-0: 0deg 0% 0%;
+        --colour-primary-50: 0deg 0% 4%;
+        --colour-primary-100: 0deg 0% 7%;
+        --colour-primary-200: 0deg 0% 12%;
+        --colour-primary-300: 0deg 0% 17%;
+
+        --colour-secondary-1000: 60deg 11% 100%;
+        --colour-secondary-900: 60deg 10% 90%;
+        --colour-secondary-800: 60deg 3% 55%;
+        --colour-secondary-700: 60deg 2% 44%;
+
+        --colour-accent: 10deg 50% 50%;
+
+        --colour-fade-primary-white: var(--colour-secondary-1000) / 0.15;
+        --colour-fade-secondary-white: var(--colour-secondary-1000) / 0.10;
+
+        --colour-fade-primary-black: var(--colour-primary-0) / 0.15;
+        --colour-fade-secondary-black: var(--colour-primary-0) / 0.10;
+
+        @apply antialiased font-sb bg-primary-100 text-secondary-900;
+        color-scheme: dark;
     }
 
     p {

@@ -36,6 +36,7 @@ import Spacer from '@components/core/spacer.astro';
 		<meta name="generator" content={Astro.generator} />
 
 		<script is:inline>
+			window.localStorage.setItem('theme', 'dark');
 			const theme = (() => {
 				if (typeof localStorage !== 'undefined' && localStorage.getItem('theme') !== null) {
 					return localStorage.getItem('theme');
@@ -43,7 +44,7 @@ import Spacer from '@components/core/spacer.astro';
 				if (window.matchMedia('(prefers-color-scheme: light)').matches) {
 					return 'light';
 				}*/
-				return 'dark';
+				return 'light';
 			})();
 
 			if (typeof localStorage !== 'undefined') {

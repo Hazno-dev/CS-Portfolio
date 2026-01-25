@@ -47,14 +47,16 @@ transition-all duration-500 ease-out`
 		alt=""
 		aria-hidden="true"
 	/>
-	<div class="absolute w-full h-full flex p-6">
-		<!--Padded bc its kind of easy to just click the project by mistake-->
-		<a
-			class='flex grow'
-			href={project.getProjectLink()}
-			target={project.isExternal() ? '_blank' : '_self'}
-			rel="noreferrer"/>
-	</div>
+<!--	{!project.isExternal() &&
+		&lt;!&ndash;Padded bc its kind of easy to just click the project by mistake&ndash;&gt;
+		<div class="absolute w-full h-full flex p-6">
+			<a
+				class='flex grow'
+				href={project.getProjectLink()}
+				target={'_self'}
+				rel="noreferrer"/>
+		</div>
+	}-->
 	<div class=`image-background pointer-events-none absolute -z-1 h-full w-full`></div>
 	<div class=`content-outer`>
 		<div class=`content-inner-l gap-2`>
