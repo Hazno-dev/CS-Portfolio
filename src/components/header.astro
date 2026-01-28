@@ -37,48 +37,12 @@ const title = Astro.props.title;
 				}
 				<Spacer class=`${title ? 'hidden' : 'flex'} md:flex` />
 				<button
+					id="resumeBtn"
 					type="button"
 					class=`text-tag-heading !text-secondary-1000 !mt-0 button-opacity cursor-pointer ${title ? 'hidden' : 'block'} md:block`
-					onclick="openResume()">Resume</button
+					>Resume</button
 				>
-				<script is:inline src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>
-				<script is:inline type="text/javascript">
-					const CLIENT_ID = 'bd2ab2574c5a4819807996f8b080970a';
-					const PDF_URL = '/assets/Resume.pdf';
-
-					let sdkReady = false;
-					document.addEventListener('adobe_dc_view_sdk.ready', () => {
-						sdkReady = true;
-					});
-
-					async function openResume() {
-						if (!sdkReady) {
-							console.error('Adobe DC View SDK is not ready yet.');
-							return;
-						}
-
-						const view = new AdobeDC.View({ clientId: CLIENT_ID });
-
-						view.registerCallback(
-							AdobeDC.View.Enum.CallbackType.EVENT_LISTENER,
-							(event) => {
-								if (event.type === AdobeDC.View.Enum.Events.PDF_VIEWER_CLOSE) {
-								}
-							},
-							{ listenOn: [AdobeDC.View.Enum.Events.PDF_VIEWER_CLOSE] }
-						);
-
-						view.previewFile(
-							{
-								content: { location: { url: PDF_URL } },
-								metaData: { fileName: 'Resume.pdf' }
-							},
-							{ embedMode: 'LIGHT_BOX', defaultViewMode: 'FIT_PAGE' }
-						);
-					}
-
-					window.openResume = openResume;
-				</script>
+				<script type="module" src={'src/lib/resume-adobe.ts'}></script>
 			</div>
 		</Fragment>
 	</ContentSplit>
