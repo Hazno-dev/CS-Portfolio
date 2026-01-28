@@ -3,7 +3,7 @@ const PDF_URL = '/assets/Resume.pdf';
 
 let sdkReady = false;
 
-function ensureAdobeScript(): Promise<void> {
+function ensureAdobeScript() {
 	if (document.querySelector('script[data-adobe-view-sdk="true"]')) return Promise.resolve();
 
 	return new Promise((resolve, reject) => {
@@ -20,11 +20,11 @@ function ensureAdobeScript(): Promise<void> {
 async function openResume() {
 	await ensureAdobeScript();
 	for (let i = 0; i < 100; i++) {
-		if ((window as any).AdobeDC?.View) break;
+		if (window.AdobeDC?.View) break;
 		await new Promise((r) => setTimeout(r, 50));
 	}
 
-	const AdobeDC = (window as any).AdobeDC;
+	const AdobeDC = window.AdobeDC;
 	if (!AdobeDC?.View) {
 		console.error('AdobeDC.View not available.');
 		return;

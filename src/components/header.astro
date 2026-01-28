@@ -42,7 +42,7 @@ const title = Astro.props.title;
 					class=`text-tag-heading !text-secondary-1000 !mt-0 button-opacity cursor-pointer ${title ? 'hidden' : 'block'} md:block`
 					>Resume</button
 				>
-				<script is:inline src="/public/scripts/resume-adobe.ts"></script>
+				<script type="module" is:inline src="/scripts/resume-adobe.js"></script>
 			</div>
 		</Fragment>
 	</ContentSplit>
