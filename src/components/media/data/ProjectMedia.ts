@@ -77,6 +77,8 @@ export class ProjectMedia {
 			const media = this.FindMedia(name[i]);
 			if (media) {
 				result.push(media);
+			} else {
+				console.error('Media not found: ' + name[i]);
 			}
 		}
 
@@ -94,11 +96,15 @@ export class ProjectMedia {
 
 	private GenerateImageMeta() {
 		this.Data.images.forEach((image) => {
+			console.log('Processing image: ' + image);
+			console.log('Src: ' + image.src.src);
+
 			const lastSlash = image.src.src.lastIndexOf('/');
+			const nextDot = image.src.src.indexOf('.', lastSlash);
 			const lastDot = image.src.src.lastIndexOf('.');
 			const lastQuery = image.src.src.lastIndexOf('?');
-			const filename = image.src.src.substring(lastSlash + 1, lastDot);
-			const extension = image.src.src.substring(lastDot + 1, lastQuery);
+			const filename = image.src.src.substring(lastSlash + 1, nextDot);
+			const extension = image.src.src.substring(lastDot + 1, lastQuery != -1 ? lastQuery : undefined);
 
 			const newImage = new MediaImage(image);
 			this.Lookup.set(`${filename}.${extension}`, newImage);
