@@ -2,6 +2,7 @@
 import HeaderElement from '../../components/header.astro';
 import FooterElement from '@components/footer.astro';
 import { ClientRouter } from 'astro:transitions';
+import '@/styles/global.css';
 
 interface Props {
 	title?: string;
@@ -14,31 +15,30 @@ const pageTitle = 'Callum Stables | ' + (title ? title : 'Technical Designer');
 <html lang="en-GB">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>{pageTitle}</title>
-		<link rel="stylesheet" href="./src/styles/global.css" />
-		<!--<link href="https://vjs.zencdn.net/8.23.4/video-js.css" rel="stylesheet" />-->
+
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content="Technical Designer with 2+ years of professional experience." />
+
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self'" />
 
 		<meta property="og:title" content={pageTitle} />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://www.callumstables.com" />
-		<meta property="og:image" content="" />
-		<meta property="og:image:alt" content="" />
-		<!--<link rel="icon" href="/favicon.ico" sizes="any" />-->
-		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-		<!--<link rel="apple-touch-icon" href="icon.png" />-->
-		<link rel="preload" href="/fonts/mozaic-geo.woff2" as="font" type="font/woff2" crossorigin />
-		<link rel="preload" href="/fonts/mozaic-geo-itallic.woff2" as="font" type="font/woff2" crossorigin />
-		<!--	<link
-			rel="preload"
-			href="/fonts/mozaic-geo-bold.woff2"
-			as="font"
-			type="font/woff2"
-			crossorigin
-		/>-->
+		<meta property="og:image" content="/assets/banner.png" />
+		<meta property="og:locale" content="en_GB" />
+		<meta property="og:description" content="Technical Designer with 2+ years of professional experience." />
 
-		<meta name="theme-color" content="#111111" />
+		<link rel="canonical" href="https://www.callumstables.com" />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link rel="preload" href="/fonts/SB/MSBee-Regular.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href="/fonts/SB/MSBee-Medium.woff2" as="font" type="font/woff2" crossorigin />
+
+		<meta name="robots" content="index,follow" />
+		<meta name="googlebot" content="index,follow" />
+		{title && <meta name="subject" content={title} />}
+
+		<meta name="theme-color" content="#131313" />
 		<meta name="generator" content={Astro.generator} />
 		<!--TODO: Reimplement light/dark themes-->
 		<!--		<script is:inline>
@@ -71,6 +71,5 @@ const pageTitle = 'Callum Stables | ' + (title ? title : 'Technical Designer');
 			</main>
 		</div>
 		<FooterElement />
-		<!--<script src="https://vjs.zencdn.net/8.23.4/video.min.js"></script>-->
 	</body>
 </html>
