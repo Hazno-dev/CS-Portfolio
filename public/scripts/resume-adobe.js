@@ -1,4 +1,4 @@
-const CLIENT_ID = 'bd2ab2574c5a4819807996f8b080970a';
+const CLIENT_ID = '2790fcbdde474a0fafe7e2e3dda1573e';
 const PDF_URL = '/assets/Resume.pdf';
 
 let sdkReady = false;
