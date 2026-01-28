@@ -4,39 +4,39 @@
 	"videos": [
 		{
 			"src": "9fACYv6E2FU",
-			"alt": "<h4>NecroTwister Gameplay Preview</h4><p>A short demo of NecroTwister.</p>",
+			"alt": "<h4>The Encampment - Dead By Daylight Custom Map</h4><p>Travel to the encampment. A custom DBD map designed in Unreal Engine 5.</p>",
 			"thumbnail": "img3.png"
 		}
 	],
 	"images": [
 		{
 			"src": "img1.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": ""
 		},
 		{
 			"src": "img2.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": ""
 		},
 		{
 			"src": "img3.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": ""
 		},
 		{
 			"src": "img4.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": ""
 		},
 		{
 			"src": "img5.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": ""
 		},
 		{
 			"src": "img_maplength.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img_uglydrawing.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		}
 	]

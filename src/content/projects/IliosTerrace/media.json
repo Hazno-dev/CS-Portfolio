@@ -4,64 +4,64 @@
 	"videos": [
 		{
 			"src": "2bK7BtRKGqg",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "<h4>Ilios Terrace | Overwatch Custom Map</h4><p>An elimination Map Concept for Overwatch.</p>",
 			"thumbnail": "img_center.jpeg"
 		}
 	],
 	"images": [
 		{
 			"src": "img_interior_middle.jpeg",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": "Interior of a sauna, symmetrical layout, health pack located in the middle of the room."
 		},
 		{
 			"src": "img_choke.jpeg",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": "Main \"Choke\" point of the map. A staircase leading up to the lighthouse."
 		},
 		{
 			"src": "img_vista.jpeg",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": "Wide view of the full map. A small town perched high upon a cliffside overlooking the ocean."
 		},
 		{
 			"src": "img_center.jpeg",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": "Center area of the map, with a large open area with a well in the center."
 		},
 		{
 			"src": "img_spawnroom.jpeg",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": "Interior of a fishing shop. Doorway leading out to a cliffside view of the ocean."
 		},
 		{
 			"src": "img_topdown_blockout.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img_topdown_final.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img_pureref.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "Part of the PureRef board used during referencing and planning.",
 			"hidden": true
 		},
 		{
 			"src": "img_paintlayout.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img_side_blockout_pre.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img_side_blockout.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img_topdown_blockout_artpost.jpg",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		}
 	]

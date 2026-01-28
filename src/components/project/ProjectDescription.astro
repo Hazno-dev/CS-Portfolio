@@ -2,9 +2,9 @@
 import ProjectLink from '@components/project/project-link.astro';
 import ProjectPlatforms from '@components/project/project-platforms.astro';
 import HorizontalRow from '@layouts/structure/horizontal-row.astro';
-import Spacer from '@components/core/spacer.astro';
+import Spacer from '@components/core/Spacer.astro';
 import type { HTMLAttributes } from 'astro/types';
-import Text from '@components/text/text.astro';
+import Text from '@components/text/Text.astro';
 
 interface Props extends HTMLAttributes<'p'> {
 	project: Project;
@@ -16,6 +16,6 @@ const { project, ...attrs } = {
 };
 ---
 
-<Text type="paragraph" class=`!md:mb-0 line-clamp-5 sm:max-w-[47ch]! md:text-base/6` {...attrs}
+<Text type="paragraph" class=`text-paragraph-sm line-clamp-5 sm:max-w-[47ch]! md:text-base/6` {...attrs}
 	>{project.data.description}</Text
 >

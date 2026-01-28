@@ -12,29 +12,29 @@
 	"images": [
 		{
 			"src": "img1.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": "First level of NecroTwiser, 4 tiles arranged in a grid. The player must rotate the grid to reach the diamond tile."
 		},
 		{
 			"src": "img2.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": "A more advanced level, with a variety of enemies and tiles each with their own unique mechanics.."
 		},
 		{
 			"src": "img3.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": "A 3x3 level featuring 2 enemies and lava/ice tiles."
 		},
 		{
 			"src": "img_miro1.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "Miro board showing a variety of level design concepts iterated upon during planning.",
 			"hidden": true
 		},
 		{
 			"src": "img_miro2.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "Miro board of initial game design ideas for NecroTwister.",
 			"hidden": true
 		},
 		{
 			"src": "img_unity.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "Unity screenshot of a level setup.",
 			"hidden": true
 		}
 	]

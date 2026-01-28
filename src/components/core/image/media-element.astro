@@ -67,6 +67,7 @@ const baseTags = `project-media-element border-secondary-1000/10 bg-primary-300 
 		<a
 			target="_blank"
 			href={optimizedImage!.src}
+			data-sub-html=`<p>${alt}</p>`
 			class=`${baseTags} pswp-gallery__item ${attrs.class ?? ''}`
 			{...attrs}>
 			<Picture

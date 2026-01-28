@@ -4,106 +4,93 @@ import ProjectCard from '@components/project/cards/ProjectCard.astro';
 import ProjectCardSmall from '@components/project/cards/ProjectCardSmall.astro';
 import { projects, professionalProjects, personalProjects, personalCardProjects } from '../content.obtain';
 import ProjectLanguages from '@components/project/project-languages.astro';
-import TextPair from '@components/text/text-pair.astro';
-import Text from '@/components/text/text.astro';
-import DateTimeBlock from '@components/text/dateTimeBlock.astro';
-import IconCollection from '@components/core/image/icon-collection.astro';
+import TextPair from '@components/text/TextPair.astro';
+import Text from '@components/text/Text.astro';
+import DateTimeBlock from '@components/text/DateTimeBlock.astro';
+import IconCollection from '@components/core/image/IconCollection.astro';
 import HorizontalRow from '@layouts/structure/horizontal-row.astro';
-import Spacer from '@components/core/spacer.astro';
+import Spacer from '@components/core/Spacer.astro';
 import TextInlineList from '@components/text/TextInlineList.astro';
+import DateTimeInfoBlock from '@components/text/DateTimeInfoBlock.astro';
+import H3 from '@mdx/h3.astro';
+import H4 from '@mdx/h4.astro';
 
-const skills = ['C#', 'C++', 'Js', 'Ts', 'OpenGL', 'Python', 'Lua', 'Kotlin', 'Level Design'];
-const tools = ['Unity', 'UnrealEngine', 'Maya', 'Figma', 'Photoshop'];
+const skills = ['C#', 'C++', 'Js', 'Ts', 'OpenGL', 'Python', 'Lua', 'Kotlin', 'HTML/CSS', '.NET', 'Level Design'];
+const tools = ['Unity', 'UnrealEngine', 'Maya', 'Figma', 'Photoshop', 'ZBrush'];
 ---
 
 <RootLayout>
 	<div class="content-outer">
-		<div class=`content-inner-l xl:gap-8 xl:flex-row md xl:pr-8`>
-			<div class="grow pb-4 xl:max-w-[65%]">
-				<Text type="paragraph" class="!mt-0 max-w-[50ch]">
-					Technical Designer with a Computer Science background and 2+ years of professional experience at Moon Studios,
-					working in production environments on complex game systems and tooling. I specialize in bridging design and
-					engineering — building robust tools, workflows, and gameplay systems that scale across teams and large
-					codebases. My experience spans engine-level work, custom editor tooling, and system-driven gameplay
-					development.
-					<br /><br />
-					Outside of professional work, I have a background spanning level design, game modding and low-level analysis, giving
-					me a deep understanding of existing systems, debugging complex behavior, and extending large, undocumented codebases.
-					I’m interested in roles that value technical ownership, systems thinking, and cross-disciplinary collaboration
-					— in games or broader software engineering contexts.
-				</Text>
-			</div>
-			<div class="gap-4 pb-2 md:columns-2 xl:flex xl:max-w-[190px] xl:flex-col">
-				<TextPair heading="Skills" type="custom">
-					<TextInlineList contents={skills} customTag="text-tag-heading mt-0" />
-				</TextPair>
-				<TextPair heading="Tools" type="custom">
-					<HorizontalRow gap="3">
-						<IconCollection icons={tools} size="20" />
-					</HorizontalRow>
-				</TextPair>
-			</div>
+		<div class=`content-inner-l`>
+			<Text type="paragraph" class="!mt-0">
+				Technical Designer with a Computer Science background and 2+ years of professional experience at Moon Studios,
+				working in production environments on complex game systems and tooling. I specialize in bridging design and
+				engineering — building robust tools, workflows, and gameplay systems that scale across teams and large
+				codebases. My experience spans engine-level work, custom editor tooling, and system-driven gameplay development.
+				<br /><br />
+				Outside of professional work, I have a background spanning level design, game modding and low-level analysis, giving
+				me a deep understanding of existing systems, debugging complex behavior, and extending large, undocumented codebases.
+				I’m interested in roles that value technical ownership, systems thinking, and cross-disciplinary collaboration —
+				in games or broader software engineering contexts.
+			</Text>
 		</div>
 		<div class="content-inner-r">
-			<div class="content-inner-padding flex grow flex-col">
+			<div class="content-inner-padding flex grow flex-col md:pr-12 lg:pr-2">
+				<div class="flex flex-row gap-4">
+					<TextPair heading="Skills" type="custom" class="grow flex-col pr-4 lg:basis-1/3">
+						<TextInlineList contents={skills} customTag="text-tag-heading mt-0" />
+					</TextPair>
+					<TextPair heading="Tools" type="custom" class="lg:basis-[40%]">
+						<HorizontalRow gap="3" class="mt-1">
+							<IconCollection icons={tools} size="20" />
+						</HorizontalRow>
+					</TextPair>
+				</div>
 				<TextPair heading="History" type="custom">
-					<ol class="flex flex-col gap-2 text-ellipsis">
-						<li class="flex flex-row gap-4">
-							<div class="w-[50%] flex-col">
-								<Text type="tag-heading" class="!mt-0">
-									Moon Studios<br /><span class="text-paragraph">Technical Designer</span>
-								</Text>
-							</div>
-							<Text type="paragraph" class="!mt-0 w-[50%]"
-								><DateTimeBlock start={new Date(2023, 6)} end={new Date(2025, 9)} /></Text
-							>
-						</li>
-						<li class="flex flex-row gap-4">
-							<div class="w-[50%] flex-col">
-								<Text type="tag-heading" class="!mb-0">
-									University of Plymouth<br /><span class="text-paragraph">BSc (Hons) Computer Science (1:1)</span>
-								</Text>
-							</div>
-							<Text type="paragraph" class="w-[50%]"
-								><DateTimeBlock start={new Date(2020, 9)} end={new Date(2023, 5)} /></Text
-							>
-						</li>
-						<li class="flex flex-row gap-4">
-							<div class="w-[50%] flex-col">
-								<Text type="tag-heading" class="!mb-0">
-									University of Plymouth<br /><span class="text-paragraph">(CertHE) Earth Sciences</span>
-								</Text>
-							</div>
-							<Text type="paragraph" class="w-[50%]"
-								><DateTimeBlock start={new Date(2019, 9)} end={new Date(2020, 5)} /></Text
-							>
-						</li>
+					<ol class="mt-1 flex flex-col gap-4 text-ellipsis">
+						<DateTimeInfoBlock
+							heading="Technical Designer, Moon Studios"
+							description="No Rest For The Wicked"
+							start={new Date(2023, 6)}
+							end={new Date(2025, 9)}
+						/>
+						<DateTimeInfoBlock
+							heading="University of Plymouth"
+							description="BSc (Hons) Computer Science (1:1)"
+							start={new Date(2020, 9)}
+							end={new Date(2023, 5)}
+						/>
+						<DateTimeInfoBlock
+							heading="University of Plymouth"
+							description="(CertHE) Earth Sciences"
+							start={new Date(2019, 9)}
+							end={new Date(2020, 5)}
+						/>
 					</ol>
 				</TextPair>
 			</div>
 		</div>
 	</div>
-	<div class="flex flex-col gap-8">
+	<div class="project-content pb-8">
 		<section>
-			<div class="flex flex-col gap-8">
+			<div class="content-outer-x pb-6">
+				<H4>Professional Work</H4>
+			</div>
+			<div class="project-content">
 				{professionalProjects.map((project) => <ProjectCard project={project} />)}
 			</div>
 		</section>
-		<div class="flex grow flex-row place-items-center px-6 py-2">
-			<Spacer horizontalLine class="grow" />
-		</div>
 		<section>
-			<div class="flex flex-col gap-8">
-				{personalProjects.map((project) => <ProjectCard project={project} />)}
+			<div class="content-outer-x pb-6">
+				<H4>Independent Work</H4>
 			</div>
-		</section>
-		<div class="flex grow flex-row place-items-center px-6 py-2">
-			<Spacer horizontalLine class="grow" />
-		</div>
-		<section>
-			<div
-				class=`flex flex-row flex-wrap justify-center md:justify-between gap-8 md:*:max-w-[calc(50%-((--spacing(4))))] 2xl:*:max-w-[calc(33.333333%-((--spacing(6))))]`>
-				{personalCardProjects.map((project) => <ProjectCardSmall project={project} />)}
+			<div class="project-content">
+				{personalProjects.map((project) => <ProjectCard project={project} />)}
+				<div
+					class=`flex flex-row flex-wrap justify-center md:justify-between project-gap md:*:max-w-[calc(50%-((--spacing(4))))] 2xl:*:max-w-[calc(33.333333%-((--spacing(6))))]`>
+					{personalCardProjects.map((project) => <ProjectCardSmall project={project} />)}
+					<div class=`hidden ${personalCardProjects.length % 3 === 2 ? '2xl:flex' : ''} flex-grow basis-0`></div>
+				</div>
 			</div>
 		</section>
 	</div>

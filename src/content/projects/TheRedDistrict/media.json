@@ -4,49 +4,54 @@
 	"videos": [
 		{
 			"src": "pz3sSiS71Co",
-			"alt": "<h4>NecroTwister Gameplay Preview</h4><p>A short demo of NecroTwister.</p>",
+			"alt": "<h4>The Red District - Dead By Daylight Custom Map</h4><p>A fully playable custom Dead By Daylight map now available for download!</p>",
+			"thumbnail": "img2.jpg"
+		},
+		{
+			"src": "lfuSCTmZQEM",
+			"alt": "<h4>The Red District - Overview Video</h4><p>A short video overview of The Red District (UE5).</p>",
 			"thumbnail": "img2.jpg"
 		}
 	],
 	"images": [
 		{
 			"src": "img1.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": ""
 		},
 		{
 			"src": "img2.jpg",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": ""
 		},
 		{
 			"src": "img3.jpg",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": ""
 		},
 		{
 			"src": "img4.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": ""
 		},
 		{
 			"src": "img5.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": ""
 		},
 		{
 			"src": "img_maplength.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img_pathsplit.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img_uglydrawing.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img1_blur.jpg",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		}
 	]

@@ -7,11 +7,13 @@ export class ProjectMedia {
 	private Lookup: Map<string, Media> = new Map();
 	private VisibleImages: Array<Media> = new Array<Media>();
 	private VisibleVideos: Array<Media> = new Array<Media>();
+	private MediaOrdered: Array<Media> = new Array<Media>();
 
 	constructor(data: InferEntrySchema<'media'>) {
 		this.Data = data;
 		this.GenerateImageMeta();
 		this.GenerateVideoMeta();
+		this.MediaOrdered = [...this.VisibleVideos, ...this.VisibleImages];
 	}
 
 	public get Images(): Array<Media> {
@@ -20,6 +22,10 @@ export class ProjectMedia {
 
 	public get Videos(): Array<Media> {
 		return this.VisibleVideos;
+	}
+
+	public get Ordered(): Array<Media> {
+		return this.MediaOrdered;
 	}
 
 	public FindMediaByCount(videoCount: integer, imageCount: integer, overflow = true): Media[] {
@@ -118,7 +124,10 @@ export class ProjectMedia {
 			}
 
 			const lowerSrcExtension = srcExtension.toLowerCase();
-			if (lowerSrcExtension == 'mp4' || lowerSrcExtension == 'webm') {
+			if (lowerSrcExtension == 'mp4' || lowerSrcExtension == 'webm' || lowerSrcExtension == 'cdn') {
+				if (lowerSrcExtension == 'cdn') {
+					video.src = video.src.replace('.cdn', '');
+				}
 				const newVideo = new MediaVideo(video, lowerSrcExtension);
 				this.Lookup.set(video.src, newVideo);
 				if (!newVideo.IsHidden) {

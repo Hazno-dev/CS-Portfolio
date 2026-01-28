@@ -7,11 +7,11 @@ import ProjectTeam from '@components/project/project-team.astro';
 import HorizontalRow from '@layouts/structure/horizontal-row.astro';
 import ProjectTools from '@components/project/project-tools.astro';
 import ProjectDateTags from '@components/project/project-date-tags.astro';
-import IconButton from '@components/core/image/icon-button.astro';
-import TextPair from '@components/text/text-pair.astro';
+import IconButton from '@components/core/image/IconButton.astro';
+import TextPair from '@components/text/TextPair.astro';
 import ProjectLanguages from '@components/project/project-languages.astro';
-import Spacer from '@components/core/spacer.astro';
-import Text from '@components/text/text.astro';
+import Spacer from '@components/core/Spacer.astro';
+import Text from '@components/text/Text.astro';
 import ProjectLink from '@components/project/project-link.astro';
 import ProjectContributions from '@components/project/project-contributions.astro';
 import MediaElements from '@components/core/image/media-elements.astro';
@@ -38,13 +38,10 @@ const videos = project.Media.Videos;
 const images = project.Media.Images;
 ---
 
-<RootLayout>
+<RootLayout title={project.data.title}>
 	<article>
-		<!--		<div class="content-outer">
-			<ProjectTitle project={project} />
-		</div>-->
 		<ContentSplit>
-			<div slot="left" class="flex grow xl:flex-row xl:gap-8 xl:pr-8">
+			<div slot="left" class="flex grow flex-col xl:flex-row xl:gap-8 xl:pr-8">
 				<div class="flex grow flex-col xl:max-w-[65%]">
 					<ProjectTitle project={project} />
 					<Spacer />
@@ -52,7 +49,7 @@ const images = project.Media.Images;
 					<Text type="paragraph" class=`!mb-0 line-clamp-5 sm:max-w-[47ch]!`>{project.data.description}</Text>
 					<ProjectPlatforms project={project} class="mt-6" />
 				</div>
-				<div class="gap-4 md:columns-2 xl:flex xl:max-w-[190px] xl:flex-col">
+				<div class="gap-4 sm:columns-2 xl:flex xl:max-w-[190px] xl:flex-col">
 					<div class="flex grow flex-col gap-x-4 gap-y-2">
 						<Spacer />
 						<ProjectTeam project={project} />
@@ -62,7 +59,7 @@ const images = project.Media.Images;
 				</div>
 			</div>
 			<Fragment slot="right">
-				<MediaGallery class=`flex-col gap-4`>
+				<MediaGallery class=`flex-col gap-4 pt-6 lg:pt-0`>
 					{videos.map((video, index) => (index > 0 ? <MediaElement class=`hidden` Source={video}/> : <MediaElement class=`aspect-video` Source={video} />))}
 					<div class="flex flex-row gap-4">
 						{images.map((image, index) => (index > 1 ? <MediaElement class=`hidden` Source={image}/> : <MediaElement class=`aspect-video` Source={image} />))}

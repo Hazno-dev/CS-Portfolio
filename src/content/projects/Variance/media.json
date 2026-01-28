@@ -4,17 +4,17 @@
 	"videos": [
 		{
 			"src": "0QDIBS6wLN4",
-			"alt": "<h4>NecroTwister Gameplay Preview</h4><p>A short demo of NecroTwister.</p>"
+			"alt": "<h4>[Project Variance] Very Early Alpha | Gameplay Reel</h4><p>A short demo of Variance.</p>"
 		}
 	],
 	"images": [
 		{
 			"src": "img1.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": ""
 		},
 		{
 			"src": "img1.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": ""
 		}
 	]
 }

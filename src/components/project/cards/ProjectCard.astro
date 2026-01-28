@@ -1,6 +1,6 @@
 ---
-import Spacer from '@components/core/spacer.astro';
-import Text from '@components/text/text.astro';
+import Spacer from '@components/core/Spacer.astro';
+import Text from '@components/text/Text.astro';
 import { Picture } from 'astro:assets';
 import ProjectTitle from '@components/project/project-title.astro';
 import ProjectTeam from '@components/project/project-team.astro';
@@ -11,12 +11,12 @@ import ProjectContributions from '@components/project/project-contributions.astr
 import ProjectDateTags from '@components/project/project-date-tags.astro';
 import HorizontalRow from '@layouts/structure/horizontal-row.astro';
 import MediaElements from '@components/core/image/media-elements.astro';
-import TextPair from '@components/text/text-pair.astro';
+import TextPair from '@components/text/TextPair.astro';
 import ProjectPlatforms from '@components/project/project-platforms.astro';
 import ProjectLinks from '@components/project/routing/ProjectLinks.astro';
 import MediaElement from '@components/media/MediaElement.astro';
 import MediaGallery from '@components/media/MediaGallery.astro';
-import DateTimeBlock from '@components/text/dateTimeBlock.astro';
+import DateTimeBlock from '@components/text/DateTimeBlock.astro';
 import TextInlineList from '@components/text/TextInlineList.astro';
 import ProjectDescription from '@components/project/ProjectDescription.astro';
 interface Props {
@@ -34,6 +34,7 @@ const hasLinks = hasPlatforms || projectLink != null;
 
 const videos = project.Media.Videos;
 const images = project.Media.Images;
+const ordered = project.Media.Ordered;
 ---
 
 <article
@@ -45,7 +46,8 @@ const images = project.Media.Images;
 transition-all duration-500 ease-out`
 		src={project.getCover()}
 		alt=""
-		aria-hidden="true"
+		aria-hidden={true}
+		priority={true}
 	/>
 <!--	{!project.isExternal() &&
 		&lt;!&ndash;Padded bc its kind of easy to just click the project by mistake&ndash;&gt;
@@ -68,88 +70,32 @@ transition-all duration-500 ease-out`
 			<Spacer />
 			<MediaGallery class=`flex-col sm:flex-row gap-4 sm:max-w-[38ch]! sm:mr-12`>
 				<div class="flex flex-col gap-4 grow h-full">
-					{videos.map((video, index) => (index > 0 ? <MediaElement class=`hidden` Source={video}/> : <MediaElement class=`flex flex-col aspect-video grow h-full` Source={video} />))}
+					{<MediaElement class=`flex flex-col aspect-video grow h-full` Source={ordered[0]} />}
 				</div>
 				<div class="flex flex-row sm:flex-col gap-4 shrink">
-					{images.map((image, index) => (index > 1 ? <MediaElement class=`hidden` Source={image}/> : <MediaElement class=`aspect-video h-full` Source={image} width={640} height={360} />))}
+					{ordered.slice(1).map((media, index) => (media.ShouldHighlight(index) ? <MediaElement class=`aspect-video h-full` Source={media} width={640} height={360} /> : <MediaElement class=`hidden` Source={media}/> ))}
 				</div>
 			</MediaGallery>
 			<ProjectDescription project={project} />
 			<TextInlineList contents={project.data.tags} class="self-start !mt-2" />
 		</div>
+		<Spacer horizontalLine class="flex lg:hidden w-[50%] my-2"/>
 		<div class=`gap-4 flex-col content-inner-r`>
 			<div class=`flex flex-col grow content-inner-padding`>
-				<div class=`grid grid-cols-2 gap-x-4 gap-y-2 pb-4`>
-					<ProjectTeam project={project} class="md:mt-0" />
+				<div class=`grid grid-cols-2 gap-x-4 gap-y-2`>
+					<ProjectTeam project={project} class="lg:mt-0" />
 					<TextPair heading="Tools" type="custom"><ProjectTools project={project} /></TextPair>
 					<TextPair heading="Languages" type="custom"><ProjectLanguages project={project} /></TextPair>
 				</div>
-				<!--<Spacer horizontalLine class="max-w-[25%]"/>-->
-				<TextPair heading="Key Contributions" type="custom">
-					<ProjectContributions project={project} />
+
+				<TextPair heading="Key Contributions" type="custom" >
+					<ProjectContributions class="mt-1" project={project} />
 				</TextPair>
 			</div>
 
-			<Spacer />
+			<Spacer class="hidden md:flex" />
 			<ProjectLinks project={project} class="justify-end-safe flex" />
 		</div>
 
 	</div>
 </article>
-
-<!--<div class="bg-black pointer-events-none absolute -z-1 h-full w-full opacity-15"/>-->
-<!--<div class="relative shrink rounded-lg md:rounded-2xl">
-	<div
-		class="card-spacing relative sticky inline-flex min-h-82 shrink flex-col md:flex
-			md:flex-row md:flex-wrap">
-		<ImageBlock
-			project={project}
-			class={'flex flex-1 md:max-h-[40vh] md:max-w-130 xl:min-w-auto shrink-2 grow-[0.5]'}
-		/>
-		<div class="flex flex-2 grow flex-col md:min-w-full xl:min-w-124">
-			<DateTimeBlock
-				start={project.data.dateStart}
-				end={project.data.dateEnd}
-			/>
-			<Spacer />
-			<Text type="heading" class="mb-2">{project.data.title}</Text>
-			<Text type="paragraph" class="line-clamp-6"
-				>{project.data.description}</Text
-			>
-
-			<ProjectInfo project={project} class="mb-8 flex gap-8 md:hidden" />
-
-			<div class="mb-3 flex flex-row gap-x-2">
-				<Tag>Tech Designer</Tag>
-				<Tag>Professional</Tag>
-			</div>
-			<div class="border-fade-primary-white flex flex-row border-t pt-3">
-				<Button text="Learn More" link="https://www.google.com/" />
-			</div>
-		</div>
-	</div>
-</div>-->
-
-<!--Alt-->
-<!--
-<div class="hidden gap-4 md:flex md:w-3/8 md:flex-col">
-	<HorizontalRow class="shrink overflow-clip mb-2">
-		<ProjectTeam project={project} />
-		<Spacer verticalLine />
-		<ProjectLanguages project={project} />
-		<Spacer verticalLine />
-		<ProjectTools project={project} />
-	</HorizontalRow>
-	<ProjectContributions project={project} />
-	<Spacer />
-	<div class="grid grid-cols-3 gap-4 max-h-[170px]">
-		<MediaElement class="col-span-2 row-span-2" image={project.data.images[0]} alt="Cover" />
-		<MediaElement class="col-span-1" image={project.data.images[0]} alt="Cover" />
-		<MediaElement class="col-span-1" image={project.data.images[0]} alt="Cover" />
-	</div>
-</div>-->
-
-<!--<HorizontalRow>-->
-<!--	<Spacer />-->
-<!--	<ProjectTools project={project} />-->
-<!--</HorizontalRow>-->

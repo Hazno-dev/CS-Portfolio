@@ -2,19 +2,26 @@
 import HeaderElement from '../../components/header.astro';
 import FooterElement from '@components/footer.astro';
 import { ClientRouter } from 'astro:transitions';
-import Spacer from '@components/core/spacer.astro';
+import Spacer from '@components/core/Spacer.astro';
+
+interface Props {
+	title?: string;
+}
+
+const title = Astro.props.title;
+const pageTitle = 'Callum Stables | ' + (title ? title : 'Technical Designer');
 ---
 
 <html lang="en-GB">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Callum Stables | Design Portfolio</title>
+		<title>{pageTitle}</title>
 		<link rel="stylesheet" href="./src/styles/global.css" />
 		<!--<link href="https://vjs.zencdn.net/8.23.4/video-js.css" rel="stylesheet" />-->
-		<meta name="description" content="Technical Designer at Moon Studios." />
+		<meta name="description" content="Technical Designer with 2+ years of professional experience." />
 
-		<meta property="og:title" content="Callum Stables | Design Portfolio" />
+		<meta property="og:title" content={pageTitle} />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://www.callumstables.com" />
 		<meta property="og:image" content="" />
@@ -34,8 +41,8 @@ import Spacer from '@components/core/spacer.astro';
 
 		<meta name="theme-color" content="#111111" />
 		<meta name="generator" content={Astro.generator} />
-
-		<script is:inline>
+		<!--TODO: Reimplement light/dark themes-->
+		<!--		<script is:inline>
 			window.localStorage.setItem('theme', 'dark');
 			const theme = (() => {
 				if (typeof localStorage !== 'undefined' && localStorage.getItem('theme') !== null) {
@@ -53,13 +60,13 @@ import Spacer from '@components/core/spacer.astro';
 
 			document.documentElement.classList.toggle('dark', theme === 'dark');
 			document.documentElement.setAttribute('data-theme', theme);
-		</script>
+		</script>-->
 		<ClientRouter />
 	</head>
 
 	<body>
 		<div class="mx-auto max-w-[1750px] px-4">
-			<HeaderElement />
+			<HeaderElement title={title} />
 			<main>
 				<slot />
 			</main>

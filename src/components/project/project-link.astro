@@ -1,11 +1,11 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import Text from '../text/text.astro';
+import Text from '../text/Text.astro';
 import { Icon } from 'astro-icon/components';
-import IconButton from '@components/core/image/icon-button.astro';
+import IconButton from '@components/core/image/IconButton.astro';
 import HorizontalRow from '@layouts/structure/horizontal-row.astro';
-import IconCollection from '@components/core/image/icon-collection.astro';
-import Spacer from '@components/core/spacer.astro';
+import IconCollection from '@components/core/image/IconCollection.astro';
+import Spacer from '@components/core/Spacer.astro';
 import ProjectLanguages from '@components/project/project-languages.astro';
 import { Picture } from 'astro:assets';
 import type { HTMLAttributes } from 'astro/types';
@@ -22,7 +22,7 @@ const { project, link } = {
 ---
 
 <a
-	class={'flex flex-row gap-2 button-opacity ' + (Astro.props.class ?? '')}
+	class={'flex flex-row gap-2 button-opacity text-sm md:text-base ' + (Astro.props.class ?? '')}
 	href={link}
 	target={project.isExternal() ? '_blank' : '_self'}
 	rel="noreferrer">

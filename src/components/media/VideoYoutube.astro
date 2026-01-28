@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, Picture } from 'astro:assets';
 import { CldImage } from 'astro-cloudinary';
 interface Props {
 	Target: string;
@@ -14,7 +14,7 @@ const { Target } = Astro.props;
 	data-lg-size="1280-720"
 	data-src=`https://www.youtube.com/embed/${Target}?rel=0&autoplay=0`
 	data-poster=`https://img.youtube.com/vi/${Target}/maxresdefault.jpg`>
-	<Image
+	<Picture
 		width={1920}
 		height={1080}
 		src=`https://img.youtube.com/vi/${Target}/maxresdefault.jpg`
@@ -22,5 +22,7 @@ const { Target } = Astro.props;
 						(max-width: 1200px) 50vw,
 						30vw`
 		alt=""
+		layout="constrained"
+		fit="fill"
 	/>
 </a>

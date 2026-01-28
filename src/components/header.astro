@@ -1,45 +1,85 @@
 ---
-const pathname = new URL(Astro.request.url).pathname;
-const currentPath = pathname.slice(1);
+import Spacer from '@components/core/Spacer.astro';
+import ContentSplit from '@layouts/structure/content-split.astro';
+interface Props {
+	title?: string;
+}
 
-const links = [
-	{ name: 'Portfolio', path: '' },
-	{ name: 'Resume', path: 'resume' }
-];
-
-const isCurrentPath = (path: string) => {
-	return currentPath === path;
-};
+const title = Astro.props.title;
 ---
 
-<header class="border-b-secondary-1000/15 bg-primary-100 sticky top-0 z-10 block border-b-[0.8px] pt-2.5 pb-1">
-	<div class="flex flex-row items-center">
-		<div class="flex grow flex-row place-items-center gap-4">
-			<h1 class="text-secondary-1000 inline-block text-base font-medium">
-				<a href="/" class="button-opacity"> Callum Anthony Stables </a>
-				<!--				{
-					!isCurrentPath('') ? (
-						<a href="/" class="button-opacity">
-							Callum Anthony Stables
-						</a>
-					) : (
-						<>Callum Anthony Stables</>
+<header
+	class="border-b-secondary-1000/15 bg-primary-100 sticky top-0 z-10 block border-b-[0.8px] px-1 pt-1.5 pb-1 text-ellipsis
+		md:pt-2.5">
+	<ContentSplit pad={false} class="flex flex-row items-end overflow-hidden py-1 sm:py-2 sm:pr-4">
+		<Fragment slot="left">
+			<div class="flex flex-row place-items-end gap-4 pr-4">
+				<a href="/" class="button-opacity">
+					<h1 class="text-tag-heading !text-secondary-1000 !mt-0 inline-block md:text-base/5.75">
+						Callum Anthony Stables
+					</h1>
+				</a>
+				<p
+					class=`text-secondary-700 mt-0 mb-0.5 md:mb-[0.5px] hidden ${title ? '' : 'sm:inline-block'} line-clamp-1 text-xs md:text-sm lg:inline-block`>
+					Technical Designer
+				</p>
+			</div>
+		</Fragment>
+		<Fragment slot="right">
+			<div class="flex shrink flex-row place-items-end">
+				{
+					title && (
+						<>
+							<Spacer class="flex md:hidden" />
+							<p class="text-secondary-700 mt-0 mb-0.5 line-clamp-1 text-xs md:mb-[0.5px] md:text-sm">{title}</p>
+						</>
 					)
-				}-->
-			</h1>
-			<p class="text-secondary-700 mt-[3px] mb-0 inline-block text-sm">Technical Designer</p>
-		</div>
-		<nav>
-			{
-				links.map((link) => (
-					<a
-						href={`/${link.path}`}
-						class={`button-base inline-block ${isCurrentPath(link.path) ? 'button-base-target' : ''}`}>
-						{link.name}
-					</a>
-				))
-			}
-		</nav>
-		<button>Theme</button>
-	</div>
+				}
+				<Spacer class=`${title ? 'hidden' : 'flex'} md:flex` />
+				<button
+					type="button"
+					class=`text-tag-heading !text-secondary-1000 !mt-0 button-opacity cursor-pointer ${title ? 'hidden' : 'block'} md:block`
+					onclick="openResume()">Resume</button
+				>
+				<script is:inline src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>
+				<script is:inline type="text/javascript">
+					const CLIENT_ID = 'bd2ab2574c5a4819807996f8b080970a';
+					const PDF_URL = '/assets/Resume.pdf';
+
+					let sdkReady = false;
+					document.addEventListener('adobe_dc_view_sdk.ready', () => {
+						sdkReady = true;
+					});
+
+					async function openResume() {
+						if (!sdkReady) {
+							console.error('Adobe DC View SDK is not ready yet.');
+							return;
+						}
+
+						const view = new AdobeDC.View({ clientId: CLIENT_ID });
+
+						view.registerCallback(
+							AdobeDC.View.Enum.CallbackType.EVENT_LISTENER,
+							(event) => {
+								if (event.type === AdobeDC.View.Enum.Events.PDF_VIEWER_CLOSE) {
+								}
+							},
+							{ listenOn: [AdobeDC.View.Enum.Events.PDF_VIEWER_CLOSE] }
+						);
+
+						view.previewFile(
+							{
+								content: { location: { url: PDF_URL } },
+								metaData: { fileName: 'Resume.pdf' }
+							},
+							{ embedMode: 'LIGHT_BOX', defaultViewMode: 'FIT_PAGE' }
+						);
+					}
+
+					window.openResume = openResume;
+				</script>
+			</div>
+		</Fragment>
+	</ContentSplit>
 </header>

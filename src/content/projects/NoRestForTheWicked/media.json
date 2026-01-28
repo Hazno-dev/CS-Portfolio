@@ -15,7 +15,7 @@
 	"images": [
 		{
 			"src": "img_watcher3.png",
-			"alt": "The \"Watcher\", an elder of Sacrament sitting on a balcony overlooking a full moon. He is communing with a crow standing on his lifted hand."
+			"alt": "The \"Watcher\", an elder of Sacrament sitting on a balcony overlooking a full moon. He is communing with a crow perched upon his lifted hand."
 		},
 		{
 			"src": "img_caretaker2.jpg",
@@ -27,31 +27,31 @@
 		},
 		{
 			"src": "img_combat2.jpg",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": "Player wearing feathered armour, holding an axe with both hands."
 		},
 		{
 			"src": "img_combat3.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": "Along the coastline, player swinging their blade at an enemy leaping towards them. Explosion behind the enemy."
 		},
 		{
 			"src": "img_odessa.jpg",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": "Odessa holding their blade towards the player."
 		},
 		{
 			"src": "img_mountainpass.jpg",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": "Player standing on a moving concrete block, hanging above the Mountain Pass volcano."
 		},
 		{
 			"src": "img_combat.jpg",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": "River running through the \"Hills\", with the player sneaking behind a plagued bat."
 		},
 		{
 			"src": "img_celine.jpg",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": "Close up of a stunned Madrigal Celine as she comes to a terrible realisation."
 		},
 		{
 			"src": "img_vista5.jpg",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": "Player standing upon a ruined bridge, overlooking a lake and \"Marin Woods\" in the distance."
 		}
 	]
 }

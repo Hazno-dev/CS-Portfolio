@@ -4,111 +4,111 @@
 	"videos": [
 		{
 			"src": "_rVmYzf3sgk",
-			"alt": "<h4>NecroTwister Gameplay Preview</h4><p>A short demo of NecroTwister.</p>",
+			"alt": "<h4>Gatekeeper - Gameplay Walkthrough</h4><p>Short walkthrough of Gatekeeper.</p>",
 			"thumbnail": "img7.jpg"
 		},
 		{
 			"src": "hMUWps0jb7g",
-			"alt": "<h4>NecroTwister Gameplay Preview</h4><p>A short demo of NecroTwister.</p>"
+			"alt": "<h4>Gatekeeper - A Black Ops 3 Zombies Map</h4><p>Transported through time, the Victis Crew awaken to find themselves in the centre of an unfamiliar world…</p>"
 		}
 	],
 	"images": [
 		{
 			"src": "img4.jpg",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": ""
 		},
 		{
 			"src": "img1.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": ""
 		},
 		{
 			"src": "img2.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": ""
 		},
 		{
 			"src": "img5.jpg",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": ""
 		},
 		{
 			"src": "img3.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": ""
 		},
 		{
 			"src": "img6.jpg",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": ""
 		},
 		{
 			"src": "img7.jpg",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": ""
 		},
 		{
 			"src": "img_alley.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img_attackangles.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img_comp.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img_comp_tranzit.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img_layout.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img_loop.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img_maploop.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img_pathing.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img_topugly.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img_trap.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img_vertical.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img_zones_lower.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img_zones_upper.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "gif_gameplay.gif",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		}
 	]

@@ -1,8 +1,17 @@
 ---
+import type { HTMLAttributes } from 'astro/types';
 
+interface Props extends HTMLAttributes<'div'> {
+	pad?: boolean;
+}
+
+const { pad, ...attrs } = {
+	pad: Astro.props.pad ?? true,
+	...Astro.props
+};
 ---
 
-<div class=`content-outer`>
+<div class=`${pad ? 'content-outer' : ''} ${attrs.class ?? ''}` {...attrs}>
 	<div class=`content-inner-l`>
 		<slot name="left" />
 	</div>

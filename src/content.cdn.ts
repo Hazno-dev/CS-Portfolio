@@ -1,4 +1,9 @@
 import { type CollectionEntry, getCollection } from 'astro:content';
+import { collections } from '@/content.config.ts';
+
+if (!collections) {
+	console.error('No collections defined in content.config.ts');
+}
 
 const cdnImages = await getCollection('cdnImages');
 const cdnVideos = await getCollection('cdnVideos');

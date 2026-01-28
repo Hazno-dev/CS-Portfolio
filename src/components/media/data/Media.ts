@@ -3,10 +3,13 @@ import type { GetImageResult } from 'astro';
 import { experimental_AstroContainer } from 'astro/container';
 import { Icon } from 'astro-icon/components';
 import type { HTMLAttributes } from 'astro/types';
+import { CldImage } from 'astro-cloudinary';
+import { GetDimensions } from '@components/media/data/CDN.ts';
 
 enum MediaType {
 	Image,
-	Youtube
+	Youtube,
+	Video
 }
 
 const Container = await experimental_AstroContainer.create();
@@ -32,6 +35,8 @@ export abstract class Media {
 
 	public abstract GetHtml(Params?: HTMLAttributes<'image'>): Promise<any>;
 
+	public abstract ShouldHighlight(index: number): boolean;
+
 	protected constructor(media: any) {
 		this.Source = media.src;
 		this.Alt = media.alt;
@@ -55,6 +60,10 @@ export class MediaImage extends Media {
 		return MediaType.Image;
 	}
 
+	ShouldHighlight(index: number): boolean {
+		return index <= 1;
+	}
+
 	async GetHtml(Params?: HTMLAttributes<'image'>): Promise<any> {
 		if (this.ImageData == undefined) {
 			this.ImageData = await getImage({
@@ -68,8 +77,9 @@ export class MediaImage extends Media {
 			}
 		}
 
-		return `<a 	href=${this.ImageData.src} 
+		return `<a 	href=${this.ImageData.src}
 								class='${Media.Tags} ${Params?.class ?? ''}'
+								data-sub-html=\'<p>${this.Alt}</p>\'
 								${Params ? Params : ''}> 
 			${await Container.renderToString(Picture, {
 				props: {
@@ -86,7 +96,6 @@ export class MediaImage extends Media {
 }
 
 export class MediaVideo extends Media {
-	private ImageData: GetImageResult | undefined = undefined;
 	private Extension: string = '';
 
 	protected static IconTags = `opacity-60 md:opacity-50 md:group-hover/project:opacity-60 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
@@ -95,34 +104,41 @@ export class MediaVideo extends Media {
 	constructor(media: any, extension: string) {
 		super(media);
 		this.Extension = extension;
+		console.log(`MediaVideo created with extension: ${this.Extension}`);
 	}
 
 	GetType(): MediaType {
-		return MediaType.Youtube;
+		return MediaType.Video;
+	}
+
+	ShouldHighlight(index: number): boolean {
+		return index == 0;
 	}
 
 	async GetHtml(Params?: HTMLAttributes<'image'>): Promise<any> {
-		let targetThumbnail: string;
-		if (this.Thumbnail == undefined) {
-			throw new Error(`Thumbnail is undefined for video: ${this.Source}`);
+		const cdnAssets = await import('@/content.cdn.ts');
+		// @ts-ignore
+		let cdnData = cdnAssets.get(this.Source);
+		if (cdnData == undefined) {
+			throw new Error(`CdnData is undefined for video: ${this.Source}`);
 		}
 
-		targetThumbnail = await Container.renderToString(Picture, {
+		let dimensions = GetDimensions(cdnData);
+		let targetThumbnail = await Container.renderToString(CldImage, {
 			props: {
-				src: this.Thumbnail,
-				alt: this.Alt,
+				src: cdnData.data.public_id,
+				alt: cdnData.data.context?.custom?.alt || '',
 				class: Media.ATags,
-				width: Params?.width ?? 1280,
-				height: Params?.height ?? 720
+				width: Params?.width ?? dimensions.Width ?? 1280,
+				height: Params?.height ?? dimensions.Height ?? 720,
+				crop: 'fill',
+				sizes: `(max-width: 768px) 100vw,
+						(max-width: 1200px) 50vw,
+						30vw`
 			}
 		});
 
-		return `<a	data-lg-size="1280-720"
-								data-video='{"source": [{"src":"/${this.Source}", "type":"video/${this.Extension}"}], "attributes": {"preload": false, "playsinline": true, "controls": true}}'
-								data-poster='${this.Thumbnail.src}'
-								data-sub-html="${this.Alt}"
-								class='${Media.Tags} ${Params?.class ?? ''}'
-								${Params ? Params : ''}> 
+		return `<a href={cdnData.data.secure_url}> 
 			${targetThumbnail}
 			${await Container.renderToString(Icon, { props: { name: 'play', title: 'Play', size: '30', class: MediaVideo.IconTags } })}
 		</a>`;
@@ -141,6 +157,10 @@ export class MediaYoutube extends Media {
 
 	GetType(): MediaType {
 		return MediaType.Youtube;
+	}
+
+	ShouldHighlight(index: number): boolean {
+		return index == 0;
 	}
 
 	async GetHtml(Params?: HTMLAttributes<'image'>): Promise<any> {

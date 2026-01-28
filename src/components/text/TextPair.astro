@@ -1,5 +1,5 @@
 ---
-import Text from './text.astro';
+import Text from './Text.astro';
 import type { HTMLAttributes } from 'astro/types';
 
 export interface Props {
@@ -25,13 +25,13 @@ const hasContent = html.length > 0;
 		</Text>
 		{
 			type === 'heading' && (
-				<Text type="tag-heading" class="!mt-0">
+				<Text type="tag-heading" class="mt-1">
 					<slot />
 				</Text>
 			)
 		}
 		{type === 'paragraph' &&
-			<Text type="paragraph" class="!mt-0">
+			<Text type="paragraph" class="mt-1">
 				<slot />
 			</Text>
 		}

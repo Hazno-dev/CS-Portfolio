@@ -4,81 +4,65 @@
 	"videos": [
 		{
 			"src": "7RQ0pvOKkeM",
-			"alt": "<h4>NecroTwister Gameplay Preview</h4><p>A short demo of NecroTwister.</p>"
-		},
-		{
-			"src": "video_chase.mp4",
-			"alt": "<h4>NecroTwister Gameplay Preview</h4><p>A short demo of NecroTwister.</p>",
-			"thumbnail": "img2.jpg",
-			"hidden": true
-		},
-		{
-			"src": "7RQ0pvOKkeM",
-			"alt": "<h4>NecroTwister Gameplay Preview</h4><p>A short demo of NecroTwister.</p>",
-			"hidden": true
-		},
-		{
-			"src": "7RQ0pvOKkeM",
-			"alt": "<h4>NecroTwister Gameplay Preview</h4><p>A short demo of NecroTwister.</p>",
-			"hidden": true
+			"alt": "<h4>Shelfless - 100% Off | Teaser Trailer</h4><p>In 'Shelfless', players are tasked with the goal of hiding in plain sight in the popular grocery store known as “GigaMart”. You must grab as many items as possible without being caught by the several defences GigaMart has put in place.</p>"
 		}
 	],
 	"images": [
 		{
 			"src": "img1.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": ""
 		},
 		{
 			"src": "img2.jpg",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": ""
 		},
 		{
 			"src": "img3.jpg",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest."
+			"alt": ""
 		},
 		{
 			"src": "img_scene1.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img_scene2.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img_scene3.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img_scene4.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img_scene5.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img_blockout.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img_gameloop.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img_junglegym.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		},
 		{
 			"src": "img_pureref.png",
-			"alt": "The \"Caretaker\" boss, a plagued boss the player encounters at the end of a quest.",
+			"alt": "",
 			"hidden": true
 		}
 	]
