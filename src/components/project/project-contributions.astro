@@ -1,18 +1,12 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import Text from '../text/Text.astro';
-import { Icon } from 'astro-icon/components';
-import IconButton from '@components/core/image/IconButton.astro';
 import type { HTMLAttributes } from 'astro/types';
 
 interface Props extends HTMLAttributes<'ul'> {
 	project: CollectionEntry<'project'>;
 }
 
-const { project, ...props } = {
-	project: Astro.props.project,
-	...Astro.props
-};
+const { project, ...props } = { ...Astro.props };
 
 const contributions = project.data.projectInfo.contributions;
 ---

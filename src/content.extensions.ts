@@ -1,4 +1,4 @@
-import type { CollectionEntry, InferEntrySchema } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import { ProjectMedia } from '@components/media/data/ProjectMedia.ts';
 
 declare global {

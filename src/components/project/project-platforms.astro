@@ -1,15 +1,12 @@
 ---
 import IconButton from '@components/core/image/IconButton.astro';
-import Spacer from '@components/core/Spacer.astro';
-import ProjectLink from '@components/project/project-link.astro';
-import HorizontalRow from '@layouts/structure/horizontal-row.astro';
 import type { HTMLAttributes } from 'astro/types';
 
 interface Props extends HTMLAttributes<'div'> {
 	project: Project
 }
 
-const { project, ...attrs } = {
+const { project } = {
 	project: Astro.props.project,
 };
 

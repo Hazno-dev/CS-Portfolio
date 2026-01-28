@@ -146,8 +146,6 @@ export class MediaVideo extends Media {
 }
 
 export class MediaYoutube extends Media {
-	private ImageData: GetImageResult | undefined = undefined;
-
 	protected static IconTags = `opacity-60 md:opacity-50 md:group-hover/project:opacity-60 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
 					transition-opacity duration-200 ease-in-out pointer-events-none peer-hover:opacity-80!`;
 

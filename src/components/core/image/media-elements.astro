@@ -1,10 +1,7 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
-import { Picture, Image, getImage } from 'astro:assets';
-import type { ImageMetadata } from 'astro';
+import { getImage } from 'astro:assets';
 import MediaElement from '@components/core/image/media-element.astro';
-import { YouTube } from 'astro-embed';
-//import { LightGallery } from 'astro-lightgallery';
 import { LightGallery } from '@components/../../node_modules/astro-lightgallery/src/index.ts';
 interface Props extends HTMLAttributes<'image'> {
 	project: Project;

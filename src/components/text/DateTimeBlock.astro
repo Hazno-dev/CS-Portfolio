@@ -1,5 +1,4 @@
 ---
-import Text from './Text.astro';
 import type { HTMLAttributes } from 'astro/types';
 
 interface Props extends HTMLAttributes<'p'> {
@@ -8,7 +7,7 @@ interface Props extends HTMLAttributes<'p'> {
 	type?: `heading` | `subheading` | `paragraph` | `mono` | `mono-light` | `label` | `sublabel` | `tag` | `tag-heading`;
 }
 
-const { start, end, ...attrs } = Astro.props;
+const { start, end } = Astro.props;
 const startText = Astro.props.start.toLocaleDateString('en-GB', {
 	year: 'numeric',
 	month: 'long'

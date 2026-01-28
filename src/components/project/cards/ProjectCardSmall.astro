@@ -1,14 +1,10 @@
 ---
 import Spacer from '@components/core/Spacer.astro';
-import Text from '@components/text/Text.astro';
 import { Picture } from 'astro:assets';
 import ProjectTitle from '@components/project/project-title.astro';
 import ProjectTeam from '@components/project/project-team.astro';
 import ProjectTools from '@components/project/project-tools.astro';
 import ProjectLanguages from '@components/project/project-languages.astro';
-import ProjectContributions from '@components/project/project-contributions.astro';
-import ProjectDateTags from '@components/project/project-date-tags.astro';
-import MediaElements from '@components/core/image/media-elements.astro';
 import TextPair from '@components/text/TextPair.astro';
 import ProjectLinks from '@components/project/routing/ProjectLinks.astro';
 import MediaElement from '@components/media/MediaElement.astro';
@@ -25,11 +21,6 @@ const { project } = {
 	project: Astro.props.project
 };
 
-const projectLink = project.getProjectLink();
-const hasPlatforms = project.data.platforms && project.data.platforms.length > 0;
-
-const videos = project.Media.Videos;
-const images = project.Media.Images;
 const ordered = project.Media.Ordered;
 ---
 

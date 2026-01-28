@@ -9,7 +9,7 @@ interface Props extends HTMLAttributes<'div'> {
 	project: Project;
 }
 
-const { project, ...attrs } = {
+const { project } = {
 	...Astro.props,
 	project: Astro.props.project,
 };

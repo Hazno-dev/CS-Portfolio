@@ -1,5 +1,5 @@
 ---
-import { CldImage, CldVideoPlayer } from 'astro-cloudinary';
+import { CldImage } from 'astro-cloudinary';
 import type { CollectionEntry } from 'astro:content';
 import { GetDimensions } from '@components/media/data/CDN.ts';
 
@@ -18,8 +18,8 @@ const Dimensions = GetDimensions(Target);
 	data-video=`{"source": [{"src":"${Target.data.url}", "type":"video/mp4"}], "attributes": {"preload": false, "playsinline": true, "controls": true}}`
 	data-sub-html={Target.data.context?.custom?.alt || ''}>
 	<CldImage
-		width={1920}
-		height={1080}
+		width={Dimensions.Width}
+		height={Dimensions.Height}
 		src={Target.data.public_id}
 		crop="fill"
 		sizes=`(max-width: 768px) 100vw,

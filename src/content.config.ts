@@ -1,4 +1,4 @@
-import { z, reference, defineCollection } from 'astro:content';
+import { defineCollection, z } from 'astro:content';
 import { cldAssetsLoader, type CloudinaryAssetsLoaderOptions } from 'astro-cloudinary/loaders';
 import { glob } from 'astro/loaders';
 
