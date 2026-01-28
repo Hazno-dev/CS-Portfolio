@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Disallow:
+
+# Optimization for Google Ads Bot
+User-agent: AdsBot-Google-Mobile
+User-agent: AdsBot-Google
+Disallow: /_partials*
+
+# Block PetalBot
+User-agent: PetalBot
+Disallow: /
+
+Sitemap: https://www.callumstables.com/sitemap-0.xml
+Sitemap: https://www.callumstables.com/sitemap-index.xml
