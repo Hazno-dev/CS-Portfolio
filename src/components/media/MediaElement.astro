@@ -1,8 +1,7 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
-import { Media } from '@components/media/data/Media.ts';
+import { Media, type MediaParams } from '@components/media/data/Media.ts';
 
-interface Props extends HTMLAttributes<'image'> {
+interface Props extends MediaParams {
 	Source: Media | null;
 }
 

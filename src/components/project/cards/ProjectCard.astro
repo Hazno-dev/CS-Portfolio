@@ -36,16 +36,6 @@ transition-all duration-500 ease-out`
 		aria-hidden={true}
 		priority={true}
 	/>
-<!--	{!project.isExternal() &&
-		&lt;!&ndash;Padded bc its kind of easy to just click the project by mistake&ndash;&gt;
-		<div class="absolute w-full h-full flex p-6">
-			<a
-				class='flex grow'
-				href={project.getProjectLink()}
-				target={'_self'}
-				rel="noreferrer"/>
-		</div>
-	}-->
 	<div class=`image-background pointer-events-none absolute -z-1 h-full w-full`></div>
 	<div class=`content-outer`>
 		<div class=`content-inner-l gap-2`>
@@ -60,7 +50,7 @@ transition-all duration-500 ease-out`
 					{<MediaElement class=`flex flex-col aspect-video grow h-full` Source={ordered[0]} />}
 				</div>
 				<div class="flex flex-row sm:flex-col gap-4 shrink">
-					{ordered.slice(1).map((media, index) => (media.ShouldHighlight(index) ? <MediaElement class=`aspect-video h-full` Source={media} width={640} height={360} /> : <MediaElement class=`hidden` Source={media}/> ))}
+					{ordered.slice(1).map((media, index) => (media.ShouldHighlight(index) ? <MediaElement class=`aspect-video h-full` Source={media} width={300} height={170} /> : <MediaElement hidden Source={media} /> ))}
 				</div>
 			</MediaGallery>
 			<ProjectDescription project={project} />

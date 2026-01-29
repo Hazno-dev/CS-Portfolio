@@ -12,6 +12,10 @@ enum MediaType {
 	Video
 }
 
+export interface MediaParams extends HTMLAttributes<'image'> {
+	hidden?: boolean;
+}
+
 const Container = await experimental_AstroContainer.create();
 
 export abstract class Media {
@@ -33,7 +37,7 @@ export abstract class Media {
 
 	public abstract GetType(): MediaType;
 
-	public abstract GetHtml(Params?: HTMLAttributes<'image'>): Promise<any>;
+	public abstract GetHtml(Params?: MediaParams): Promise<any>;
 
 	public abstract ShouldHighlight(index: number): boolean;
 
@@ -51,6 +55,8 @@ export abstract class Media {
 
 export class MediaImage extends Media {
 	private ImageData: GetImageResult | undefined = undefined;
+	private ImageDataTarget: GetImageResult | undefined = undefined;
+	private ImageDataSm: GetImageResult | undefined = undefined;
 
 	constructor(media: any) {
 		super(media);
@@ -64,9 +70,15 @@ export class MediaImage extends Media {
 		return index <= 1;
 	}
 
-	async GetHtml(Params?: HTMLAttributes<'image'>): Promise<any> {
-		if (this.ImageData == undefined) {
+	async GetHtml(Params?: MediaParams): Promise<any> {
+		if (this.ImageData == undefined || this.ImageDataTarget == undefined || this.ImageDataSm == undefined) {
 			this.ImageData = await getImage({
+				src: this.Source,
+				layout: 'constrained'
+			});
+
+			this.ImageDataSm = await getImage({
+				width: 200,
 				src: this.Source,
 				layout: 'constrained'
 			});
@@ -77,20 +89,33 @@ export class MediaImage extends Media {
 			}
 		}
 
-		return `<a 	href=${this.ImageData.src}
-								class='${Media.Tags} ${Params?.class ?? ''}'
-								data-sub-html=\'<p>${this.Alt}</p>\'
-								${Params ? Params : ''}> 
-			${await Container.renderToString(Picture, {
+		let targetThumbnail = '';
+		const paramsHidden = Params?.hidden ?? false;
+		if (!paramsHidden) {
+			targetThumbnail = await Container.renderToString(Picture, {
 				props: {
-					src: this.Source,
+					src: (
+						await getImage({
+							width: +(Params?.width ?? '1280'),
+							src: this.Source,
+							layout: 'constrained'
+						})
+					).src,
 					alt: this.Alt,
 					layout: 'constrained',
 					class: Media.ATags,
 					width: Params?.width ?? 1280,
 					height: Params?.height ?? 720
 				}
-			})}
+			});
+		}
+
+		return `<a 	href=${this.ImageData.src}
+								class='${Media.Tags} ${paramsHidden ? 'hidden' : ''} ${Params?.class ?? ''}'
+								data-sub-html=\'<p>${this.Alt}</p>\'
+								data-external-thumb-image='${this.ImageDataSm.src}'
+								${Params ? Params : ''}> 
+			${targetThumbnail}
 		</a>`;
 	}
 }
@@ -115,7 +140,7 @@ export class MediaVideo extends Media {
 		return index == 0;
 	}
 
-	async GetHtml(Params?: HTMLAttributes<'image'>): Promise<any> {
+	async GetHtml(Params?: MediaParams): Promise<any> {
 		const cdnAssets = await import('@/content.cdn.ts');
 		// @ts-ignore
 		let cdnData = cdnAssets.get(this.Source);
@@ -123,22 +148,27 @@ export class MediaVideo extends Media {
 			throw new Error(`CdnData is undefined for video: ${this.Source}`);
 		}
 
-		let dimensions = GetDimensions(cdnData);
-		let targetThumbnail = await Container.renderToString(CldImage, {
-			props: {
-				src: cdnData.data.public_id,
-				alt: cdnData.data.context?.custom?.alt || '',
-				class: Media.ATags,
-				width: Params?.width ?? dimensions.Width ?? 1280,
-				height: Params?.height ?? dimensions.Height ?? 720,
-				crop: 'fill',
-				sizes: `(max-width: 768px) 100vw,
+		let targetThumbnail = '';
+		const paramsHidden = Params?.hidden ?? false;
+		if (!paramsHidden) {
+			const dimensions = GetDimensions(cdnData);
+			targetThumbnail = await Container.renderToString(CldImage, {
+				props: {
+					src: cdnData.data.public_id,
+					alt: cdnData.data.context?.custom?.alt || '',
+					class: Media.ATags,
+					width: Params?.width ?? dimensions.Width ?? 1280,
+					height: Params?.height ?? dimensions.Height ?? 720,
+					crop: 'fill',
+					sizes: `(max-width: 768px) 100vw,
 						(max-width: 1200px) 50vw,
 						30vw`
-			}
-		});
+				}
+			});
+		}
 
-		return `<a href={cdnData.data.secure_url}> 
+		return `<a 	href={cdnData.data.secure_url}
+								className='${paramsHidden ? 'hidden' : ''} ${Params?.class ?? ''}' > 
 			${targetThumbnail}
 			${await Container.renderToString(Icon, { props: { name: 'play', title: 'Play', size: '30', class: MediaVideo.IconTags } })}
 		</a>`;
@@ -161,7 +191,7 @@ export class MediaYoutube extends Media {
 		return index == 0;
 	}
 
-	async GetHtml(Params?: HTMLAttributes<'image'>): Promise<any> {
+	async GetHtml(Params?: MediaParams): Promise<any> {
 		let targetThumbnail: string;
 		if (this.Thumbnail != undefined) {
 			targetThumbnail = await Container.renderToString(Picture, {
@@ -183,11 +213,16 @@ export class MediaYoutube extends Media {
 			/>`;
 		}
 
+		const paramsHidden = Params?.hidden ?? false;
+		if (paramsHidden) {
+			targetThumbnail = '';
+		}
+
 		return `<a	data-lg-size="1280-720"
 								data-src='https://www.youtube.com/embed/${this.Source}?rel=0&autoplay=0\'
 								data-poster='https://img.youtube.com/vi/${this.Source}/maxresdefault.jpg\'
 								data-sub-html="${this.Alt}"
-								class='${Media.Tags} ${Params?.class ?? ''}'
+								class='${Media.Tags} ${paramsHidden ? 'hidden' : ''} ${Params?.class ?? ''}'
 								${Params ? Params : ''}> 
 			${targetThumbnail}
 			${await Container.renderToString(Icon, { props: { name: 'play', title: 'Play', size: '30', class: MediaYoutube.IconTags } })}

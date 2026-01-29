@@ -50,7 +50,7 @@ const ordered = project.Media.Ordered;
 			</div>
 			<MediaGallery class=`flex-shrink lg:basis-[50%] lg:max-w-1/2 grow-0 aspect-video flex-col place-content-end`>
 				{<MediaElement class=`flex shrink grow-0 aspect-video` Source={ordered[0]} />}
-				{ordered.slice(1).map((media) => (<MediaElement class=`hidden` Source={media}/> ))}
+				{ordered.slice(1).map((media) => (<MediaElement hidden Source={media}/> ))}
 			</MediaGallery>
 		</div>
 		<ProjectDescription project={project} />
