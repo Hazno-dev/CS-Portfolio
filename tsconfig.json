@@ -20,12 +20,12 @@
       "@layouts/*": [
         "src/layouts/*"
       ],
-			"@mdx/*": [
-				"src/components/mdx/*"
-			],
-			"@lib/*": [
-				"src/lib/*"
-			]
+      "@mdx/*": [
+        "src/components/mdx/*"
+      ],
+      "@lib/*": [
+        "src/lib/*"
+      ]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"

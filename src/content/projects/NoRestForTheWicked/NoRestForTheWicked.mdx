@@ -23,8 +23,8 @@ projectInfo: {
   contributions: [
 		"Led design and implementation of the game’s tutorialisation systems, spanning UI/UX, backend, tooling, and data serialization.",
 		"Built & maintained internal editor tools and scalable UI systems to support cross-team workflows.",
-		"Designed a state-machine-driven “Overlay” UI system to support advanced UI elements.",
-		"Contributed backend systems for UI, including localisation, tokens, settings integration, and custom shader support.",
+		"Designed a state-machine driven “Overlay” UI system to support advanced UI elements.",
+		"Contributed backend systems for UI, including localisation, tokens, settings integration, and custom HLSL shader support.",
 		"Led initial Unity source migration work for macOS (x86 → Apple Silicon).",
 		"Investigated and resolved complex issues across gameplay, UI, tools, and engine systems in a live production environment.",
 		"Blocked out and iterated on two Crucible levels.",
@@ -32,8 +32,100 @@ projectInfo: {
 }
 meta: {
     visible: true,
-    professional: true,
     type: "professional",
-    externalReferral: "https://norestforthewicked.com/",
+ 		externalReferral: "https://norestforthewicked.com/",
 }
+
 ---
+
+### Overview
+
+At Moon Studios, I worked as a Technical Designer on Wicked, operating at the intersection of design and engineering.
+My role spanned multiple disciplines, including gameplay systems, UI/UX, level design, writing support, and internal tooling.
+
+A large part of my work focused on identifying workflow and player-experience problems,
+then designing and implementing scalable solutions that could be owned and iterated on by non-programmers.
+
+Below are a few highlights from my contributions to the project.
+
+#### Key Contributions
+
+<Contributions/>
+
+### Tutorialisation
+
+When I joined the team, tutorials were limited to a single, fixed, UI element.
+There were numerous problems with the original design, such as:
+- It wouldn't organically fit every scenario. I.e. combat tutorials would often be best served by guiding the player through action, not a paragraph of text.
+- Playtesting shown us that players often immediately skipped the tutorial, which led to low engagement and frustration with various systems.
+- The element was menu-based, meaning it couldn't be used to tutorialise systems tied to a menu.
+- Tutorials could appear mid-combat, forcing some unlucky players to skip critical information.
+- The design completely covered the screen.
+- Tutorials could only be authored in C#, creating a bottleneck for designers/writers.
+
+To solve these problems, I designed and implemented multiple new UI elements using Figma, Photoshop, and Unity with mostly existing assets.
+In addition, I implemented a state-machine driven “Overlay” UI framework to support UI elements which need the flexibility of being able to operate both in menus and as apart of the HUD.
+
+I rebuilt the backend of tutorials from the ground up, creating a flexible asset-driven system designed around in-editor authoring.
+
+#### Overlay Framework
+
+Prior to working on tutorialisation, I gained some experience working with the UI on Wicked implementing and bug-fixing various UI elements.
+It was clear that much of the UI code was very fragmented, with HUD elements in particular often having duplicated code, with common logic being reimplemented.
+This seemed like a pretty clear waste of time, both in prototyping, and the inevitable bugs that would arise.
+
+As part of my work on tutorialisation, I wanted to fix this by providing a generic UI framework that future UI could inherit from,
+providing generic logic and features that would be useful across many UI elements.
+Hence, I worked on the "Overlay" UI framework, providing numerous features, such as:
+- State-machine driven system for managing the UI's lifecycle.
+- Simple drop-in system for transitions and sound.
+- Queueing and prioritisation of requests.
+- Interaction, including consuming inputs.
+
+Designing a reusable UI framework required balancing flexibility against maintainability.
+I wanted to avoid exposing large numbers of virtual functions or introducing complexity that could create fragile dependencies between systems.
+
+To keep the base framework generic, I delegated behaviour to request objects. This separated presentation from behaviour and
+allowed multiple use cases to share the same UI element while customising lifecycle and interaction logic through specialised request types.
+
+#### UI / UX
+
+<Media Source={['img_tutorial_bigSideNotfication.png', 'img_tutorial_sideNotification.png', 'img_tutorial_spatial.png']} />
+
+When designing the UI elements, I had to consider current, planned, and unplanned mechanics we might want to tutorialise,
+while keeping to constraints on the bandwidth of the artists.
+
+I opted to refactor existing UI assets, creating a mostly harmonised box design across all tutorial elements (excluding spatial).
+This reduced the scope and gave a consistent visual language across all tutorial/notification elements.
+
+With each of these designs, I aimed to strike a balance between visibility and screen real estate,
+ensuring that tutorials were noticeable without completely taking them out of their activity.
+I wanted to support both long-form tutorials, and organic ones which might appear in moment-moment gameplay.
+
+#### Tutorial Authoring
+
+With my pass on tutorialisation, I wanted to enable designers and writers to create and iterate upon tutorials without needing to rely on the tech team.
+This meant needing to completely reconstruct how tutorials were serialised both as assets, and in player data, and how they triggered at runtime.
+
+The previous system identified tutorials using asset GUIDs, making them vulnerable to asset migrations and refactors.
+I introduced immutable tutorial identifiers that were generated once and persisted independently of asset location.
+This allowed tutorials to be reorganised without invalidating player progress while still providing a mechanism to intentionally reset completion data when required.
+
+To support designer-driven authoring, I implemented a generic condition framework.
+Tutorials could be composed of reusable conditions created directly in the editor, ranging from gameplay events to UI state checks.
+This provided a highly flexible system without requiring bespoke C# implementations for individual tutorials,
+enabling faster iteration and allowing non-programmers to author tutorials.
+
+### Editor Tooling
+
+One of my personal highlights on Wicked was contributing to the teams workflows and improving the editor UX.
+
+I worked with various people to understand their workflows, identifying bottlenecks, and figuring out ways to optimise them.
+
+
+This meant working with people to understand their existing workflows and figuring out how to optimise it and strip away the tedious parts of their work.
+
+
+As part of my work on Wicked, I created various editor tools to support the design team.  and provided maintainence (bug fixes),
+support for individual team members, and new features for existing tools.
+

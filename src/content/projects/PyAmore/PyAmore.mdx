@@ -1,29 +1,30 @@
 ---
-slug: "NecroTwister"
-title: "NecroTwister"
-description: "NecroTwister is a turn-based puzzle dungeon crawler where you control the level. Use telegraphed moves to guide the hero towards safety while avoiding deadly hazards and enemies. NecroTwister was designed for the 2023 GMTK 48-hour game jam \"Roles Reversed\"."
-dateStart: 2023-07-07
-dateEnd: 2023-07-09
-tags: ["Unity", "Puzzle", "Game Jam"]
+slug: "PyAmore"
+title: "PyAmore"
+description: "PyAmore is a runtime deobfuscator/decryption library designed to extract clean code objects (in .pyc format) from Python executables protected with PyArmor. It can extract code without execution, recursively decrypt code, and strip PyArmor bytecode. Currently supports Linux."
+dateStart: 2026-04-01
+dateEnd: 2026-04-23
+tags: ["Reverse Engineering", "Encryption", "Malware Analysis"]
 
-team: "4 Person Project"
-role: "Technical/Level Designer"
+team: "Solo Project"
+role: "Programmer"
 platforms: [
-  { platform: "ItchIO", title: "Itch.IO", link: "https://tylerchunter.itch.io/necrotwister"},
+  { platform: "GitHub", title: "GitHub", link: "https://github.com/Hazno-dev/PyAmore"},
 ]
 projectInfo: {
-  languages: ["C#"],
-  tools: ["Unity", "Rider", "Photoshop", "Figma"],
+  languages: ["C++", "Python"],
+  tools: ["CLion", "Hex-Rays Ida"],
   contributions: [
-		"Designed and storyboarded a variety of layouts in Photoshop and Figma.",
-		"Designed levels with a difficulty curve, balancing difficulty while tutorializing mechanics for new players.",
-		"Implemented all levels in Unity." ,
-		"Bug-fixing and basic feature implementation in C#.",
+		"Analysed PyArmor's core encryption logic using decompiled machine code.",
+		"Designed and implemented a C++23 modules library to intercept PyArmor's decryption methods, allowing for the extraction of clean .pyc files from protected executables.",
+		"Implemented recursive decryption to handle nested code objects, ensuring extraction of all protected code." ,
+		"Improved user experience with PyArmor-specific bytecode stripping, with wrap/unwrapped support, enabling compatibility with standard Python decompilers for further analysis.",
   ]    
 }
 meta: {
     visible: true,
     professional: false,
+		hasPage: false,
     type: "personal_highlight",
 }
 ---
@@ -110,16 +111,16 @@ and the feedback received on Itch and other sources has been overwhelmingly posi
 #### Successes
 
 - |**Progression --** The difficulty curve in the levels has been largely implemented effectively,
-with two levels designed to encourage players to learn the movement mechanics, and then gradually the levels introduce new enemies, tiles and challenges.
+with two levels designed to encourage players to learn the movement mechanics, and then gradually the levels introduce new enemies, tiles, and challenges.
 (As well as new ways I tried to catch them off guard!)
 - |**Collaborative Environment --** Working in this team environment was incredibly refreshing.
-The team members were focused, positive and did an incredible job, the visuals, audio and code behind the project would be something teams might spend weeks on.
+The team members were focused, positive, and did an incredible job, the visuals, audio, and code behind the project would be something teams might spend weeks on.
 It also offered me a chance to learn how to better communicate between a multidisciplinary team.
 
 #### Areas for Improvement
 
 - |**New Mechanics --** The project has a high room for growth.
-New enemies, tiles, movements and more are all things that can greatly enhance the variety and challenge the game offers.
+New enemies, tiles, movements, and more are all things that can greatly enhance the variety and challenge the game offers.
 Additionally, it can add to create a replayable game that keeps players engaged.
 - |**Larger levels --** The levels are small by design, as to not overwhelm the player.
 But perhaps a slightly large or non-square series of levels could break up the fairly repetitive structure of the game.

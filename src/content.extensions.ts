@@ -46,7 +46,7 @@ export function asProject(project: CollectionEntry<'project'>, media: Collection
 		Media: new ProjectMedia(media.data),
 
 		getTeamText() {
-			if (project.data.meta.professional) {
+			if (project.data.meta.type == 'professional') {
 				return 'Studio';
 			}
 
@@ -87,7 +87,7 @@ export function asProject(project: CollectionEntry<'project'>, media: Collection
 			return !!project.data.meta.externalReferral;
 		},
 		isProfessional() {
-			return project.data.meta.professional ?? false;
+			return project.data.meta.type == 'professional';
 		},
 		getCover() {
 			return media.data.cover;

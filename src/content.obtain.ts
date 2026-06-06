@@ -58,15 +58,13 @@ export const projects = new Map<string, Project>();
 allProjects.forEach((project) => projects.set(project.id, project));
 
 // @ts-ignore
-export const professionalProjects = allProjects.filter((project) => project.data.meta.professional);
+export const professionalProjects = allProjects.filter((project) => project.data.meta.type === 'professional');
 // @ts-ignore
-export const personalProjects = allProjects.filter(
-	(project) => !project.data.meta.professional && project.data.meta.type === 'personal_highlight'
-);
+export const personalProjects = allProjects.filter((project) => project.data.meta.type === 'personal_highlight');
 // @ts-ignore
-export const personalCardProjects = allProjects.filter(
-	(project) => !project.data.meta.professional && project.data.meta.type === 'personal_card'
-);
+export const personalCardProjects = allProjects.filter((project) => project.data.meta.type === 'personal_card');
+
+export const personalMiniProjects = allProjects.filter((project) => project.data.meta.type === 'personal_mini');
 //
 // projects.forEach((project) => console.log(project.data.meta.type));
 // professionalProjects.forEach((project) => console.log(project.data.meta.type));

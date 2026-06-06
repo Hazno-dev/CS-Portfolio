@@ -52,6 +52,21 @@
 		{
 			"src": "img_vista5.jpg",
 			"alt": "Player standing upon a ruined bridge, overlooking a lake and \"Marin Woods\" in the distance."
+		},
+		{
+			"src": "img_tutorial_bigSideNotfication.png",
+			"alt": "Player is shown a \"Big side notification\" tutorial, a large UI element blocking player movement. It explains the basics of the fast travel system.",
+			"hidden": true
+		},
+		{
+			"src": "img_tutorial_sideNotification.png",
+			"alt": "Player is shown a \"Side notification\" tutorial, a small UI element which vanishes after a period of time. It explains the basics of climbing.",
+			"hidden": true
+		},
+		{
+			"src": "img_tutorial_spatial.png",
+			"alt": "Player is shown a \"Spatial\" tutorial, a 3D UI element which appears next to the player. It prompts the player to move with the L stick.",
+			"hidden": true
 		}
 	]
 }

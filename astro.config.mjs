@@ -12,10 +12,13 @@ import react from '@astrojs/react';
 import { liHype } from './src/lib/hype/lihype.ts';
 import { emHype } from './src/lib/hype/emhype.ts';
 
-import cloudflare from '@astrojs/cloudflare';
+//import cloudflare from '@astrojs/cloudflare';
+
+//import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
+	output: 'static',
 	site: 'https://callumstables.com',
 	integrations: [mdx(), sitemap(), icon({ iconDir: 'src/assets/icons' }), react()],
 
@@ -55,9 +58,15 @@ export default defineConfig({
 				limitInputPixels: false
 			}
 		}
-	},
+	}
 
-	adapter: cloudflare({
-		imageService: 'compile'
-	})
+	/*adapter: cloudflare({
+      imageService: 'compile'
+	})*/
+	/*adapter: cloudflare({
+		imageService: {
+			build: 'compile',
+			runtime: 'cloudflare-binding'
+		}
+	})*/
 });

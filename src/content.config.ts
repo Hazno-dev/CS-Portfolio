@@ -41,8 +41,7 @@ const projectCollection = defineCollection({
 			}),
 			meta: z.object({
 				visible: z.boolean(),
-				professional: z.boolean(),
-				type: z.enum(['professional', 'personal_highlight', 'personal_card']),
+				type: z.enum(['professional', 'personal_highlight', 'personal_card', 'personal_mini']),
 				externalReferral: z.string().optional(),
 				hasPage: z.boolean().optional()
 			})
