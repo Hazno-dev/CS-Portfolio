@@ -34,6 +34,9 @@ const ordered = project.Media.Ordered;
 		alt=""
 		aria-hidden={true}
 		priority={true}
+		width={project.getCover().width / 2}
+		fallbackFormat='jpeg'
+		formats={['avif', 'webp']}
 	/>
 	<div class=`image-background-card pointer-events-none absolute -z-1 h-full w-full`></div>
 	<div class=`content-outer flex-col shrink gap-2`>
@@ -49,7 +52,7 @@ const ordered = project.Media.Ordered;
 				<TextPair heading="Languages" type="custom"><ProjectLanguages project={project} /></TextPair>
 			</div>
 			<MediaGallery class=`flex-shrink lg:basis-[50%] lg:max-w-1/2 grow-0 aspect-video flex-col place-content-end`>
-				{<MediaElement class=`flex shrink grow-0 aspect-video` Source={ordered[0]} />}
+				{<MediaElement class=`flex shrink grow-0 aspect-video` Source={ordered[0]}  width={600} height={340} />}
 				{ordered.slice(1).map((media) => (<MediaElement hidden Source={media}/> ))}
 			</MediaGallery>
 		</div>

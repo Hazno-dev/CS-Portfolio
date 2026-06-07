@@ -1,41 +1,11 @@
 {
 	"slug": "PyAmore",
-	"cover": "PyAmore.png",
+	"cover": "PyAmore.webp",
 	"videos": [],
 	"images": [
 		{
-			"src": "PyAmore.png",
-			"alt": "Obfucated PyArmor code covered in hearts.",
-			"hidden": true
-		},
-		{
-			"src": "img1.png",
-			"alt": "First level of NecroTwiser, 4 tiles arranged in a grid. The player must rotate the grid to reach the diamond tile.",
-			"hidden": true
-		},
-		{
-			"src": "img2.png",
-			"alt": "A more advanced level, with a variety of enemies and tiles each with their own unique mechanics..",
-			"hidden": true
-		},
-		{
-			"src": "img3.png",
-			"alt": "A 3x3 level featuring 2 enemies and lava/ice tiles.",
-			"hidden": true
-		},
-		{
-			"src": "img_miro1.png",
-			"alt": "Miro board showing a variety of level design concepts iterated upon during planning.",
-			"hidden": true
-		},
-		{
-			"src": "img_miro2.png",
-			"alt": "Miro board of initial game design ideas for NecroTwister.",
-			"hidden": true
-		},
-		{
-			"src": "img_unity.png",
-			"alt": "Unity screenshot of a level setup.",
+			"src": "PyAmore.webp",
+			"alt": "Obfuscated PyArmor code covered in hearts.",
 			"hidden": true
 		}
 	]

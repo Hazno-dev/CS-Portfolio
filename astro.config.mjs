@@ -58,6 +58,7 @@ export default defineConfig({
 				limitInputPixels: false
 			}
 		}
+		//responsiveStyles: true
 	}
 
 	/*adapter: cloudflare({

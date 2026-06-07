@@ -58,8 +58,18 @@ export class MediaImage extends Media {
 	private ImageDataTarget: GetImageResult | undefined = undefined;
 	private ImageDataSm: GetImageResult | undefined = undefined;
 
-	constructor(media: any) {
+	private Formats: any;
+
+	constructor(media: any, extension: string) {
 		super(media);
+		if (extension == 'gif') {
+			this.Formats = {};
+		} else {
+			this.Formats = {
+				fallbackFormat: 'jpeg',
+				formats: ['avif', 'webp']
+			};
+		}
 	}
 
 	GetType(): MediaType {
@@ -94,26 +104,21 @@ export class MediaImage extends Media {
 		if (!paramsHidden) {
 			targetThumbnail = await Container.renderToString(Picture, {
 				props: {
-					src: (
-						await getImage({
-							width: +(Params?.width ?? '1280'),
-							src: this.Source,
-							layout: 'constrained'
-						})
-					).src,
+					src: this.Source,
 					alt: this.Alt,
 					layout: 'constrained',
 					class: Media.ATags,
 					width: Params?.width ?? 1280,
-					height: Params?.height ?? 720
+					height: Params?.height ?? 720,
+					...this.Formats
 				}
 			});
 		}
 
-		return `<a 	href=${this.ImageData.src}
-								class='${Media.Tags} ${paramsHidden ? 'hidden' : ''} ${Params?.class ?? ''}'
+		return `<a 	class='${Media.Tags} ${paramsHidden ? 'hidden' : ''} ${Params?.class ?? ''}'
 								data-sub-html=\'<p>${this.Alt}</p>\'
 								data-external-thumb-image='${this.ImageDataSm.src}'
+								data-src=${this.ImageData.src}
 								${Params ? Params : ''}> 
 			${targetThumbnail}
 		</a>`;
@@ -198,9 +203,12 @@ export class MediaYoutube extends Media {
 				props: {
 					src: this.Thumbnail,
 					alt: this.Alt,
+					layout: 'constrained',
 					class: Media.ATags,
 					width: Params?.width ?? 1280,
-					height: Params?.height ?? 720
+					height: Params?.height ?? 720,
+					fallbackFormat: 'jpeg',
+					formats: ['avif', 'webp']
 				}
 			});
 		} else {

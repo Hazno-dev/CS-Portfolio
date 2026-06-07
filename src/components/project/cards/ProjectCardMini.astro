@@ -35,6 +35,9 @@ const ordered = project.Media.Ordered;
 		alt=""
 		aria-hidden={true}
 		priority={true}
+		width={project.getCover().width}
+		fallbackFormat="jpeg"
+		formats={['avif', 'webp']}
 	/>
 	<div class=`image-background-mini pointer-events-none absolute -z-1 h-full w-full`></div>
 	<div class=`content-outer`>

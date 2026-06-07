@@ -106,7 +106,7 @@ export class ProjectMedia {
 			const filename = image.src.src.substring(lastSlash + 1, nextDot);
 			const extension = image.src.src.substring(lastDot + 1, lastQuery != -1 ? lastQuery : undefined);
 
-			const newImage = new MediaImage(image);
+			const newImage = new MediaImage(image, extension);
 			this.Lookup.set(`${filename}.${extension}`, newImage);
 
 			if (!newImage.IsHidden) {
